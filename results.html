@@ -51,6 +51,10 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 <body>
 
 <div id="page_top"></div>
+<div id="rws_loader" style="position:fixed;inset:0;background:#0e0d0b;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#c8b477;margin-bottom:12px;">⏳ Calculating your result...</div>
+  <div style="font-size:14px;color:#555;">Personalising your report</div>
+</div>
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
 <div class="w">
   <div class="badge">Your Personal Report</div>
@@ -156,6 +160,10 @@ if(totalWeeks >= 4){
   document.getElementById('rws_painweeks').textContent = monthText;
   document.getElementById('rws_painwrap').style.display = 'block';
 }
+
+// Hide loader
+var loader = document.getElementById('rws_loader');
+if(loader) loader.style.display='none';
 
 // Fire Meta Pixel Lead event
 if(typeof fbq !== 'undefined'){
