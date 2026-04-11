@@ -48,7 +48,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 @keyframes warningPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);opacity:.8;}}
 </style>
 </head>
-<body>
+<body onload="window.scrollTo(0,0);">
 
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
 <div class="w">
@@ -110,6 +110,11 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 </div>
 
 <script>
+// Scroll to top immediately
+window.scrollTo(0,0);
+document.documentElement.scrollTop=0;
+document.body.scrollTop=0;
+
 // Read data from URL params
 const params = new URLSearchParams(window.location.search);
 const firstName = params.get('name') || 'Friend';
