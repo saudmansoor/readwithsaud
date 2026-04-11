@@ -48,8 +48,9 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 @keyframes warningPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);opacity:.8;}}
 </style>
 </head>
-<body onload="window.scrollTo(0,0);">
+<body>
 
+<div id="page_top"></div>
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
 <div class="w">
   <div class="badge">Your Personal Report</div>
@@ -110,10 +111,21 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 </div>
 
 <script>
-// Scroll to top immediately
+// Scroll to top using anchor
+var topAnchor = document.getElementById('page_top');
+if(topAnchor){
+  topAnchor.scrollIntoView({behavior:'auto', block:'start'});
+}
 window.scrollTo(0,0);
 document.documentElement.scrollTop=0;
 document.body.scrollTop=0;
+try{window.parent.scrollTo(0,0);}catch(e){}
+try{window.top.scrollTo(0,0);}catch(e){}
+setTimeout(function(){
+  if(topAnchor) topAnchor.scrollIntoView({behavior:'auto',block:'start'});
+  window.scrollTo(0,0);
+  try{window.parent.scrollTo(0,0);}catch(e){}
+},200);
 
 // Read data from URL params
 const params = new URLSearchParams(window.location.search);
