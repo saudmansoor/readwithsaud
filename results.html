@@ -157,6 +157,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   <!-- 7. CTA BLOCK -->
   <div class="cta-block">
     <div class="cta-h">
+<span style="color:#ffffff;">You Can Now Finish</span><br>
 You can now finish <span class="g">Atomic Habits</span> in just 7 days !
 </div>
     <div style="font-size:15px;color:#bbb;line-height:1.8;margin:10px 0 6px;">1,000 people just like you have already done it.</div>
@@ -209,30 +210,104 @@ You can now finish <span class="g">Atomic Habits</span> in just 7 days !
   </div>
 </div>
 
-  
+  <div style="font-size:13px;color:#aaa;font-family:'Oswald',sans-serif;padding-left:18px;">enrolled today</div>
 </div>
 
-
-
-
-
-
 <script>
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+// Scroll to top
+
+window.onload = function(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
+document.documentElement.scrollTop=0;
+document.body.scrollTop=0;
+try{window.parent.scrollTo(0,0);}catch(e){}
+setTimeout(function(){
+window.onload = function(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+try{window.parent.scrollTo(0,0);}catch(e){}},200);
+
+// Read URL params
+var params=new URLSearchParams(window.location.search);
+var firstName=params.get('name')||'Friend';
+var wpm=parseInt(params.get('wpm'))||0;
+var totalWeeks=parseInt(params.get('weeks'))||0;
+var daysPerWeek=parseInt(params.get('days'))||1;
+var minsPerDay=parseInt(params.get('mins'))||20;
+
+// Set name
+document.getElementById('rws_name_d').textContent=firstName;
+document.getElementById('rws_name_c').textContent=', ';
+document.getElementById('rws_wpm').textContent=wpm;
+document.getElementById('good_name').textContent=firstName;
+
+// Natural English pain sentence
+var daysText=daysPerWeek===1?'once a week':daysPerWeek===2?'twice a week':daysPerWeek===3?'3 to 4 days a week':'every day';
+var wl=minsPerDay+' minutes a day, '+daysText;
+document.getElementById('rws_painsentence').innerHTML='By reading just <strong>'+wl+'</strong>, you will finish Atomic Habits in';
+
+// Weeks + months centered
+document.getElementById('rws_paintime').textContent=totalWeeks<=1?'less than 1 week.':totalWeeks+' weeks from today.';
+if(totalWeeks>=4){
+  var m=Math.round((totalWeeks/4.33)*2)/2;
+  var monthText='Almost '+(m===1?'1 month':m+' months')+'!';
+  document.getElementById('rws_painweeks').textContent=monthText;
+  document.getElementById('rws_painwrap').style.display='block';
 }
 
-window.addEventListener('DOMContentLoaded', function(){
-  document.body.style.scrollBehavior = 'auto';
-  window.scrollTo(0,0);
-});
+// Hide loader
+setTimeout(function(){
+  var loader = document.getElementById('rws_loader');
+  if(loader) loader.style.display = 'none';
 
+  // FORCE jump to top AFTER loader disappears
+  location.hash = "#page_top";
+  window.scrollTo(0,0);
+},300);
+
+// TOAST — slides up from bottom
+
+
+// Meta Pixel
+if(typeof fbq!=='undefined'){fbq('track','Lead');}
+
+// LIVE COUNTER LOGIC
+var countTop = 27;
+var countBottom = 27;
+
+function updateLiveCounts(){
+  countTop++;
+  countBottom++;
+  document.getElementById('liveCountTop').textContent = countTop;
+  document.getElementById('liveCountBottom').textContent = countBottom;
+  
+if(typeof window.delayToggle === 'undefined'){window.delayToggle = true;}
+var delay = window.delayToggle ? 15000 : 20000;
+window.delayToggle = !window.delayToggle;
+
+  setTimeout(updateLiveCounts, delay);
+}
+
+setTimeout(function(){
+  document.getElementById('liveBoxTop').style.opacity = 1;
+  document.getElementById('liveBoxBottom').style.opacity = 1;
+  setTimeout(updateLiveCounts,5000);
+},3000);
+
+
+</script>
+
+<script>
 window.addEventListener('load', function(){
   setTimeout(function(){
     window.scrollTo(0,0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, 0);
+  }, 50);
 });
 </script>
 
