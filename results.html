@@ -12,7 +12,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .prog{display:flex;gap:5px;padding:16px 20px 0;max-width:500px;margin:0 auto;}
 .pb{flex:1;height:3px;border-radius:2px;background:#c8b477;}
 .w{max-width:500px;margin:0 auto;padding:20px 20px 60px;}
-.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
+.badge{
+  display:block;
+  text-align:center;display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
 .wpm-box{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:20px 18px;margin-bottom:16px;text-align:center;}
 .wpm-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700;}
 .wpm-line{font-size:16px;color:#444;line-height:1.7;}
@@ -62,9 +64,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 @keyframes liveDot{0%,100%{opacity:1;box-shadow:0 0 6px #ff4444;}50%{opacity:.3;box-shadow:none;}}
 
 .live-box{
-  opacity:0;
-  transition:opacity 0.5s ease;
-  max-width:60%;
+  max-width:90%;
   width:fit-content;
   padding:8px 14px;
   font-size:14px;
@@ -78,6 +78,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   background:#1a0000;
   box-shadow:0 0 10px rgba(255,0,0,0.4);
   animation:glowBox 1.2s infinite;
+  white-space:nowrap;
 }
 @keyframes glowBox{
   0%,100%{box-shadow:0 0 10px rgba(255,0,0,0.4);}
@@ -132,7 +133,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   <div class="cta-block">
     <div class="cta-h">What if you could finish <span class="g">Atomic Habits</span><br>or any book in just 7 days</div>
     <div style="font-size:15px;color:#bbb;line-height:1.8;margin:10px 0 6px;">1,000 people just like you have already done it.</div>
-    <div style="font-size:15px;color:#c8b477;font-weight:700;margin-bottom:16px;"><span style="font-size:17px;">Join <span style="color:#ff4444;font-weight:700;">FREE</span> — 3 Hour Live Workshop this Saturday</span></div>
+    <div style="font-size:15px;color:#c8b477;font-weight:700;margin-bottom:16px;"><span style="font-size:17px;"><span style="color:#ffffff;">Join</span> <span style="color:#ff4444;font-weight:700;">FREE</span> — <span style="color:#ffffff;">3 Hour</span> <span style="color:#c8b477;">Live Workshop</span> <span style="color:#ffffff;">this Saturday</span></span></div>
     <div style="margin:14px 0 18px;border-radius:12px;overflow:hidden;">
       <img src="https://res.cloudinary.com/dxf0saqgx/image/upload/v1775716903/ReadWithSaud_48_z4yxaw.png" style="width:100%;display:block;border-radius:12px;">
     </div>
@@ -184,11 +185,23 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 
 <script>
 // Scroll to top
-window.scrollTo(0,0);
+
+window.onload = function(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
 document.documentElement.scrollTop=0;
 document.body.scrollTop=0;
 try{window.parent.scrollTo(0,0);}catch(e){}
-setTimeout(function(){window.scrollTo(0,0);try{window.parent.scrollTo(0,0);}catch(e){}},200);
+setTimeout(function(){
+window.onload = function(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+try{window.parent.scrollTo(0,0);}catch(e){}},200);
 
 // Read URL params
 var params=new URLSearchParams(window.location.search);
