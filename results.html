@@ -26,8 +26,8 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .wpm-line strong{font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:#c8b477;line-height:1;display:inline-block;vertical-align:middle;margin:0 4px;}
 .pain-sentence{font-size:16px;color:#ccc;line-height:1.8;margin-bottom:8px;}
 .pain-sentence strong{color:#f0ede6;font-weight:700;}
-.pain-time{font-family:'Oswald',sans-serif;font-size:clamp(22px,5vw,28px);font-weight:600;color:#c8b477;display:block;line-height:1.2;margin-bottom:6px;}
-.pain-months{font-family:'Oswald',sans-serif;font-size:clamp(30px,8vw,44px);font-weight:700;color:#dd1111;text-shadow:0 0 18px rgba(220,30,30,.4);line-height:1.1;}
+.pain-time{font-family:'Oswald',sans-serif;font-size:clamp(22px,5vw,28px);font-weight:600;color:#c8b477;display:block;line-height:1.2;margin-bottom:6px;text-align:center;}
+.pain-months{font-family:'Oswald',sans-serif;font-size:clamp(30px,8vw,44px);font-weight:700;color:#dd1111;text-shadow:0 0 18px rgba(220,30,30,.4);line-height:1.1;text-align:center;display:block;}
 .cta-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:26px 20px;text-align:center;margin-bottom:22px;}
 .cta-h{font-family:'Oswald',sans-serif;font-size:clamp(22px,5vw,30px);font-weight:700;color:#fff;line-height:1.25;margin-bottom:14px;}
 .cta-h .g{color:#c8b477;}
@@ -47,6 +47,15 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 @keyframes warningPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);opacity:.8;}}
 @keyframes livePulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(0.8);}}
+@keyframes slideUp{from{transform:translateX(-50%) translateY(120px);opacity:0;}to{transform:translateX(-50%) translateY(0);opacity:1;}}
+@keyframes slideDown{from{transform:translateX(-50%) translateY(0);opacity:1;}to{transform:translateX(-50%) translateY(120px);opacity:0;}}
+@keyframes numBlink{0%,100%{opacity:1;}30%{opacity:0;}60%{opacity:1;}}
+@keyframes goodBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:99999;background:#111;border:2px solid #ff4444;border-radius:14px;padding:14px 22px;min-width:220px;box-shadow:0 8px 30px rgba(255,68,68,0.35);display:none;}
+.toast.show{display:block;animation:slideUp .4s ease forwards;}
+.toast.hide{display:block;animation:slideDown .4s ease forwards;}
+.toast-dot{width:10px;height:10px;background:#ff4444;border-radius:50%;display:inline-block;margin-right:6px;animation:livePulse 1s ease-in-out infinite;box-shadow:0 0 6px #ff4444;}
+.good-news{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#00cc66;text-align:center;margin-bottom:14px;animation:goodBlink 1s ease-in-out 4;}
 </style>
 </head>
 <body>
@@ -59,7 +68,8 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
 <div class="w">
   <div class="badge">Your Personal Report</div>
-  <div class="wpm-box">
+  <div class="good-news">🟢 Good News, <span id="good_name"></span>!</div>
+<div class="wpm-box">
     <div class="wpm-label">Your Reading Speed</div>
     <div class="wpm-line"><span id="rws_name_d" style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#1a1a1a;"></span><span id="rws_name_c"></span>in 1 minute you read <strong id="rws_wpm">—</strong> words.</div>
   </div>
@@ -71,7 +81,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   </div>
   <hr>
   <div class="cta-block">
-    <div class="cta-h">What if you could finish<br><span class="g">Atomic Habits</span><br>in just 7 days?</div>
+    <div class="cta-h">What if you could finish<br><span class="g">Atomic Habits</span><br>or any book in just 7 days?</div>
     <div style="font-size:15px;color:#bbb;line-height:1.8;margin:10px 0 6px;">1,000 people just like you have already done it.</div>
     <div style="font-size:15px;color:#c8b477;font-weight:700;margin-bottom:16px;">Join <span style="color:#ff4444;font-weight:700;">FREE</span> — 3 Hour Live Workshop this Saturday</div>
     
@@ -144,12 +154,12 @@ document.getElementById('rws_name_c').textContent = ', ';
 document.getElementById('rws_wpm').textContent = wpm;
 
 // Pain sentence
-var wl = daysPerWeek===1 ? minsPerDay+' min/day, 1 day a week' :
-         daysPerWeek===2 ? minsPerDay+' min/day, 2 days a week' :
-         daysPerWeek===3 ? minsPerDay+' min/day, 3-4 days a week' :
-                           minsPerDay+' min/day, 5-7 days a week';
-
-document.getElementById('rws_painsentence').innerHTML = firstName + ', reading <strong>' + wl + '</strong>, you will finish Atomic Habits in';
+var wl = daysPerWeek===1 ? 'once a week' :
+               daysPerWeek===2 ? 'twice a week' :
+               daysPerWeek===3 ? '3 to 4 days a week' : 'every day';
+var wl = minsPerDay + ' minutes a day, ' + wl;
+document.getElementById('rws_painsentence').innerHTML = firstName + ', reading just <strong>' + wl + '</strong>, you will finish Atomic Habits in';
+document.getElementById('good_name').textContent = firstName;
 document.getElementById('rws_paintime').textContent = totalWeeks <= 1 ? 'less than 1 week.' : totalWeeks + ' weeks from today.';
 
 // Months warning
@@ -163,6 +173,24 @@ if(totalWeeks >= 4){
 // Hide loader
 var loader = document.getElementById('rws_loader');
 if(loader) loader.style.display='none';
+
+// Toast popup
+var toastCount=26;
+function showToast(){
+  toastCount++;
+  var toast=document.getElementById('rws_toast');
+  var num=document.getElementById('toast_num');
+  if(!toast||!num)return;
+  num.textContent=toastCount;
+  num.style.animation='none';
+  setTimeout(function(){num.style.animation='numBlink 0.6s ease 2';},50);
+  toast.className='toast show';
+  setTimeout(function(){
+    toast.className='toast hide';
+    setTimeout(function(){toast.className='toast';setTimeout(showToast,8000);},400);
+  },4000);
+}
+setTimeout(showToast,5000);
 
 // Fire Meta Pixel Lead event
 if(typeof fbq !== 'undefined'){
@@ -184,15 +212,17 @@ function tickCounter(){
 }
 setTimeout(tickCounter, 5000);
 </script>
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="rws_toast">
+  <div style="display:flex;align-items:center;gap:6px;">
+    <span class="toast-dot"></span>
+    <span class="toast-num" id="toast_num">27</span>
+    <span style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#fff;margin-left:2px;">people</span>
+  </div>
+  <div class="toast-label">enrolled today</div>
+</div>
 </body>
 </html>      <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#fff;text-align:center;margin:10px 0 6px;">Want to finish Atomic Habits<br><span style="color:#c8b477;">in just 7 days?</span></div>
       <div style="font-size:14px;color:#888;text-align:center;margin-bottom:16px;">Join the FREE 3-Hour Live Workshop</div>
-      <div style="background:linear-gradient(135deg,#1a0000,#2a0000);border:2px solid #ff4444;border-radius:14px;padding:16px 20px;margin:18px 0;text-align:center;box-shadow:0 0 20px rgba(255,68,68,0.3);">
-        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;">
-          <span style="width:12px;height:12px;background:#ff4444;border-radius:50%;flex-shrink:0;animation:livePulse 1s ease-in-out infinite;display:inline-block;box-shadow:0 0 8px #ff4444;"></span>
-          <span style="font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#ff4444;"><span id="live_count">26</span></span>
-          <span style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:#fff;">people joined today</span>
-        </div>
-        <div style="font-size:12px;color:#ff9999;letter-spacing:1px;text-transform:uppercase;">Don't miss out — join them now</div>
-      </div>
+      
 
