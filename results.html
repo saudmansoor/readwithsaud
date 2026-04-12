@@ -211,20 +211,28 @@ or any book in just 7 days
   </div>
 </div>
 
-  
+  <div style="font-size:13px;color:#aaa;font-family:'Oswald',sans-serif;padding-left:18px;">enrolled today</div>
 </div>
 
 <script>
 // Scroll to top
 
-window.onload = function(){
-  
-window.onload = function(){
+window.addEventListener('load', function(){
   window.scrollTo(0,0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
-};
+});
 
+document.documentElement.scrollTop=0;
+document.body.scrollTop=0;
+try{window.parent.scrollTo(0,0);}catch(e){}
+setTimeout(function(){
+window.addEventListener('load', function(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+try{window.parent.scrollTo(0,0);}catch(e){}},200);
 
 // Read URL params
 var params=new URLSearchParams(window.location.search);
