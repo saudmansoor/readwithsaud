@@ -22,7 +22,15 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .pain-time{font-family:'Oswald',sans-serif;font-size:clamp(22px,5vw,28px);font-weight:600;color:#c8b477;display:block;line-height:1.2;margin-bottom:6px;text-align:center;}
 .pain-months-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin:6px 0 22px;}
 .pain-months{font-family:'Oswald',sans-serif;font-size:clamp(30px,8vw,44px);font-weight:700;color:#dd1111;text-shadow:0 0 18px rgba(220,30,30,.4);line-height:1.1;}
-.good-news-box{background:linear-gradient(135deg,#001a08,#002810);border:2px solid #00cc66;border-radius:14px;padding:16px 20px;margin:20px 0;text-align:center;}
+.good-news-box{
+  max-width:80%;
+  margin:20px auto;
+  background:linear-gradient(135deg,#001a08,#002810);
+  border:2px solid #00cc66;
+  border-radius:14px;
+  padding:14px 18px;
+  text-align:center;
+}
 .good-news-title{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#00cc66;animation:goodBlink 1s ease-in-out 5;display:inline-block;}
 .good-news-sub{font-size:14px;color:#aaa;margin-top:6px;}
 .cta-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:26px 20px;text-align:center;margin-bottom:22px;}
@@ -52,6 +60,30 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 @keyframes goodBlink{0%,100%{opacity:1;}40%{opacity:0;}}
 @keyframes numBlink{0%,100%{opacity:1;}30%{opacity:0;}60%{opacity:1;}}
 @keyframes liveDot{0%,100%{opacity:1;box-shadow:0 0 6px #ff4444;}50%{opacity:.3;box-shadow:none;}}
+
+.live-box{
+  opacity:0;
+  transition:opacity 0.5s ease;
+  max-width:60%;
+  width:fit-content;
+  padding:8px 14px;
+  font-size:14px;
+  margin:12px auto;
+  text-align:center;
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  color:#fff;
+  border-radius:12px;
+  border:2px solid #ff4444;
+  background:#1a0000;
+  box-shadow:0 0 10px rgba(255,0,0,0.4);
+  animation:glowBox 1.2s infinite;
+}
+@keyframes glowBox{
+  0%,100%{box-shadow:0 0 10px rgba(255,0,0,0.4);}
+  50%{box-shadow:0 0 25px rgba(255,0,0,0.9);}
+}
+
 </style>
 </head>
 <body>
@@ -92,18 +124,19 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 
   <!-- 6. GOOD NEWS BOX — after results, before CTA -->
   <div class="good-news-box">
-    <div class="good-news-title">🟢 Good News, <span id="good_name"></span>!</div>
-    <div class="good-news-sub">What if you could finish this in just 7 days?</div>
+    <div class="good-news-title">Good News, <span id="good_name"></span>!</div>
+    <div class="good-news-sub"></div>
   </div>
 
   <!-- 7. CTA BLOCK -->
   <div class="cta-block">
-    <div class="cta-h">Finish <span class="g">Atomic Habits</span><br>or any book in just 7 days</div>
+    <div class="cta-h">What if you could finish <span class="g">Atomic Habits</span><br>or any book in just 7 days</div>
     <div style="font-size:15px;color:#bbb;line-height:1.8;margin:10px 0 6px;">1,000 people just like you have already done it.</div>
-    <div style="font-size:15px;color:#c8b477;font-weight:700;margin-bottom:16px;">Join <span style="color:#ff4444;font-weight:700;">FREE</span> — 3 Hour Live Workshop this Saturday</div>
+    <div style="font-size:15px;color:#c8b477;font-weight:700;margin-bottom:16px;"><span style="font-size:17px;">Join <span style="color:#ff4444;font-weight:700;">FREE</span> — 3 Hour Live Workshop this Saturday</span></div>
     <div style="margin:14px 0 18px;border-radius:12px;overflow:hidden;">
       <img src="https://res.cloudinary.com/dxf0saqgx/image/upload/v1775716903/ReadWithSaud_48_z4yxaw.png" style="width:100%;display:block;border-radius:12px;">
     </div>
+    <div class="live-box" id="liveBoxTop">🔴 <span id="liveCountTop">27</span> People Enrolled Today</div>
     <a href="https://chat.whatsapp.com/DSucUdkl09T4lO36zmn3h0" target="_blank" rel="noopener noreferrer" class="btn-yes" style="text-decoration:none;">
       <span style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;">
         <span style="font-size:18px;font-weight:700;letter-spacing:.3px;">Yes, I'm Interested in <span style="color:#ff4444;">FREE</span> Workshop</span>
@@ -132,6 +165,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
     <div class="saud-method">Book Implementation Coach · Creator — Consultant Reading Method™</div>
   </div>
   <div style="text-align:center;padding-bottom:20px;">
+    <div class="live-box" id="liveBoxBottom">🔴 <span id="liveCountBottom">27</span> People Enrolled Today</div>
     <a href="https://chat.whatsapp.com/DSucUdkl09T4lO36zmn3h0" target="_blank" rel="noopener noreferrer" class="btn-yes" style="text-decoration:none;">
       <span style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;">
         <span style="font-size:18px;font-weight:700;">Yes, I'm Interested in <span style="color:#ff4444;">FREE</span> Workshop</span>
@@ -145,13 +179,6 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   </div>
 </div>
 
-<!-- TOAST POPUP -->
-<div class="toast" id="rws_toast">
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-    <span style="width:10px;height:10px;background:#ff4444;border-radius:50%;flex-shrink:0;animation:liveDot 1s ease-in-out infinite;display:inline-block;"></span>
-    <span style="font-family:'Oswald',sans-serif;font-size:30px;font-weight:700;color:#ff4444;" id="toast_num">27</span>
-    <span style="font-family:'Oswald',sans-serif;font-size:16px;color:#fff;">people</span>
-  </div>
   <div style="font-size:13px;color:#aaa;font-family:'Oswald',sans-serif;padding-left:18px;">enrolled today</div>
 </div>
 
@@ -180,7 +207,7 @@ document.getElementById('good_name').textContent=firstName;
 // Natural English pain sentence
 var daysText=daysPerWeek===1?'once a week':daysPerWeek===2?'twice a week':daysPerWeek===3?'3 to 4 days a week':'every day';
 var wl=minsPerDay+' minutes a day, '+daysText;
-document.getElementById('rws_painsentence').innerHTML=firstName+', reading just <strong>'+wl+'</strong>, you will finish Atomic Habits in';
+document.getElementById('rws_painsentence').innerHTML='By reading just <strong>'+wl+'</strong>, you will finish Atomic Habits in';
 
 // Weeks + months centered
 document.getElementById('rws_paintime').textContent=totalWeeks<=1?'less than 1 week.':totalWeeks+' weeks from today.';
@@ -198,28 +225,35 @@ setTimeout(function(){
 },300);
 
 // TOAST — slides up from bottom
-var toastCount=26;
-var toast=document.getElementById('rws_toast');
-var toastNum=document.getElementById('toast_num');
-var intervals=[5000,10000,5000,10000,5000,10000];
-var iIdx=0;
 
-function showToast(){
-  toastCount++;
-  toastNum.textContent=toastCount;
-  toastNum.style.animation='none';
-  setTimeout(function(){toastNum.style.animation='numBlink 0.5s ease 2';},50);
-  toast.classList.add('show');
-  setTimeout(function(){
-    toast.classList.remove('show');
-    var delay=intervals[iIdx++%intervals.length];
-    setTimeout(showToast,delay);
-  },4000);
-}
-setTimeout(showToast,5000);
 
 // Meta Pixel
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
+
+// LIVE COUNTER LOGIC
+var countTop = 27;
+var countBottom = 27;
+
+function updateLiveCounts(){
+  countTop++;
+  countBottom++;
+  document.getElementById('liveCountTop').textContent = countTop;
+  document.getElementById('liveCountBottom').textContent = countBottom;
+  
+if(typeof window.delayToggle === 'undefined'){window.delayToggle = true;}
+var delay = window.delayToggle ? 15000 : 20000;
+window.delayToggle = !window.delayToggle;
+
+  setTimeout(updateLiveCounts, delay);
+}
+
+setTimeout(function(){
+  document.getElementById('liveBoxTop').style.opacity = 1;
+  document.getElementById('liveBoxBottom').style.opacity = 1;
+  updateLiveCounts();
+},3000);
+
+
 </script>
 </body>
 </html>
