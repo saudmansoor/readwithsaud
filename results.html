@@ -216,22 +216,14 @@ You can now finish <span class="g">Atomic Habits</span> in just 7 days !
 <script>
 // Scroll to top
 
-window.onload = function(){
-  window.scrollTo(0,0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-};
 
-document.documentElement.scrollTop=0;
-document.body.scrollTop=0;
-try{window.parent.scrollTo(0,0);}catch(e){}
+
+
+
+
 setTimeout(function(){
-window.onload = function(){
-  window.scrollTo(0,0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-};
-try{window.parent.scrollTo(0,0);}catch(e){}},200);
+
+},200);
 
 // Read URL params
 var params=new URLSearchParams(window.location.search);
@@ -266,9 +258,8 @@ setTimeout(function(){
   var loader = document.getElementById('rws_loader');
   if(loader) loader.style.display = 'none';
 
-  // FORCE jump to top AFTER loader disappears
-  location.hash = "#page_top";
-  window.scrollTo(0,0);
+  // CLEAN FIX: jump to top anchor
+  document.getElementById("page_top").scrollIntoView();
 },300);
 
 // TOAST — slides up from bottom
@@ -304,11 +295,7 @@ setTimeout(function(){
 </script>
 
 <script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    window.scrollTo(0,0);
-  }, 50);
-});
+
 </script>
 
 </body>
