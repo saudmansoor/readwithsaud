@@ -28,7 +28,6 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   max-width:80%;
   margin:20px auto;
   background:linear-gradient(135deg,#001a08,#002810);
-  border:2px solid #00cc66;
   border-radius:14px;
   padding:14px 18px;
   text-align:center;
@@ -158,7 +157,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 
   <!-- 6. CTA BLOCK -->
   <div class="cta-block">
-    <div class="cta-h">You can now finish <span class="g">Atomic Habits</span> in 7 days.</div>
+    <div class="cta-h">You can now finish <span style="color:#c8b477;">ANY BOOK</span> in 7 days.</div>
     <div style="font-size:14px;color:#bbb;margin:12px 0 6px;">1,000 people just like you have done it.</div>
     <div style="font-size:15px;font-weight:700;margin-bottom:14px;"><span style="color:#fff;">Join</span> <span style="color:#ff4444;">FREE</span> — <span style="color:#c8b477;">3-Hour Live Workshop · This Saturday</span></div>
     <div style="margin:0 0 14px;border-radius:12px;overflow:hidden;">
@@ -259,25 +258,27 @@ document.getElementById('rws_pages').textContent = pagesToText(ppm);
 
 // Book Finishing Time — sentence with highlights
 var daysText=daysPerWeek===1?'once a week':daysPerWeek===2?'twice a week':daysPerWeek===3?'3–4 days a week':'every day';
-var hl='font-family:\'Oswald\',sans-serif;font-weight:700;';
-var gold=hl+'color:#b8860b;';
-var red=hl+'color:#dd1111;';
+var hl='font-family:\'Oswald\',sans-serif;font-weight:700;font-size:1.35em;line-height:1.6;';
+var gold='font-family:\'Oswald\',sans-serif;font-weight:700;color:#b8860b;';
+var redBig=hl+'color:#dd1111;';
+var blackBig=hl+'color:#1a1a1a;';
 
-var weeksLabel=totalWeeks<=1?'less than 1 week':totalWeeks+' weeks';
-var monthPart='';
-if(totalWeeks>=4){
-  var m=Math.round((totalWeeks/4.33)*2)/2;
-  monthPart='<br><span style="'+red+'font-size:1.3em;line-height:1.8;">That\'s almost '+(m===1?'1 month':m+' months')+' from today 😱</span>';
+var timeDisplay='';
+if(totalWeeks<4){
+  var wNum=totalWeeks<=1?'1':String(totalWeeks);
+  var wUnit=totalWeeks<=1?'week':'weeks';
+  timeDisplay='<span style="'+redBig+'">'+wNum+' '+wUnit+'</span><span style="'+blackBig+'"> from today 😱</span>';
 } else {
-  monthPart='.';
+  var m=Math.round((totalWeeks/4.33)*2)/2;
+  var mText=(m===1?'1 month':m+' months');
+  timeDisplay='<span style="'+redBig+'">'+mText+'</span><span style="'+blackBig+'"> from today 😱</span>';
 }
 
 var sentence=
   'By reading <span style="'+gold+'">'+minsPerDay+' minutes a day</span>, '+
   '<span style="'+gold+'">'+daysText+'</span>, '+
-  'you will finish Atomic Habits in '+
-  '<span style="'+red+'font-size:1.2em;">'+weeksLabel+'</span>'+
-  monthPart;
+  'you will finish Atomic Habits in<br>'+
+  timeDisplay;
 
 document.getElementById('rws_finishing_sentence').innerHTML=sentence;
 
