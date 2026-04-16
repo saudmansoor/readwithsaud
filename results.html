@@ -155,9 +155,9 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   <div class="pain-block">
     At this pace…<br>
     <b>Most books you buy —<br>you'll never finish them.</b><br>
-    You start strong.<br>
-    Days pass. Life gets busy.<br>
-    The book stays on the shelf.
+    You start strong…<br>
+    then life happens.<br>
+    The book stays unfinished.
   </div>
 
   <!-- BACKLOG MULTIPLIER -->
@@ -240,7 +240,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
       <div class="flip-d" id="fd1"><div class="flip-f" id="ff1">1</div><div class="flip-line"></div></div>
       <div class="flip-d" id="fd0"><div class="flip-f" id="ff0">5</div><div class="flip-line"></div></div>
     </div>
-    <div class="flip-today" id="flip_text_top">10 people joined today</div>
+    <div class="flip-today" id="flip_text_top">15 people joined in the last 24 hours</div>
 
     <!-- Urgency -->
     <div class="urgency-line">
@@ -252,7 +252,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
     <a href="https://chat.whatsapp.com/DSucUdkl09T4lO36zmn3h0" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="main_btn">
       Save my seat for Saturday →
     </a>
-    <div class="wa-note">No spam. Only workshop link via WhatsApp.</div>
+    <div class="wa-note">No spam. No random messages.<br>Only the workshop link + instructions.</div>
     <div style="font-size:13px;color:#555;text-align:center;margin-top:6px;">🔥 Seats filling up fast</div>
   </div>
 
@@ -284,7 +284,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   <div style="text-align:center;padding-bottom:20px;">
     <div class="flip-live-row" style="margin-bottom:8px;">
       <div class="flip-dot"></div>
-      <span class="flip-today" id="flip_text_btm" style="margin-bottom:0;">10 people joined today</span>
+      <span class="flip-today" id="flip_text_btm" style="margin-bottom:0;">15 people joined in the last 24 hours</span>
     </div>
     <a href="https://chat.whatsapp.com/DSucUdkl09T4lO36zmn3h0" target="_blank" rel="noopener noreferrer" class="btn-yes" id="btm_btn" style="margin-top:10px;">
       Save my seat for Saturday →
@@ -493,7 +493,7 @@ function flipOne(wId, fId, val){
 }
 
 function setFlipText(n){
-  var t = n+' people joined today';
+  var t = n+' people joined in the last 24 hours';
   document.getElementById('flip_text_top').textContent = t;
   document.getElementById('flip_text_btm').textContent = t;
 }
