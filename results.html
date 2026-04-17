@@ -252,43 +252,16 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 // ─────────────────────────────────────────────
 // URL PARAMS
 // ─────────────────────────────────────────────
-// Try reading params from multiple sources:
+// Read params from multiple sources:
 // 1. Own URL (direct access)
-// 2. Parent window URL (when in same-origin iframe)
-// 3. postMessage from TagMango parent (cross-origin iframe)
+// 2. document.referrer (parent page URL — works cross-origin in iframes)
+// 3. window.top.location (works if same-origin)
 var P = new URLSearchParams(window.location.search);
+if(!P.get('name') && document.referrer){
+  try { var _ru = new URL(document.referrer); P = new URLSearchParams(_ru.search); } catch(e){}
+}
 if(!P.get('name')){
-  try { P = new URLSearchParams(window.top.location.search); } catch(e) {}
-}
-
-// If still no params, wait for postMessage from parent
-if(!P.get('name') && window.top !== window){
-  window.addEventListener('message', function(e){
-    if(e.data && e.data.rws_params){
-      P = new URLSearchParams(e.data.rws_params);
-      applyParams();
-    }
-  });
-}
-
-function applyParams(){
-  var fn  = P.get('name')  || 'Friend';
-  var w   = parseInt(P.get('wpm'))   || 200;
-  var tw  = parseInt(P.get('weeks')) || 4;
-  var dpw = parseInt(P.get('days'))  || 5;
-  var mpd = parseInt(P.get('mins'))  || 20;
-  document.getElementById('rws_name').textContent = fn;
-  document.getElementById('rws_wpm').textContent  = w;
-  var twm = mpd * dpw;
-  var hm;
-  if(twm < 60){ hm = "You're currently reading just " + twm + " minutes per week"; }
-  else {
-    var h = Math.floor(twm/60), rm = twm%60;
-    if(rm===0) hm = "You're currently reading just " + h + (h===1?" hour":" hours") + " per week";
-    else hm = "You're currently reading just " + h + (h===1?" hour ":" hours ") + rm + " mins per week";
-  }
-  document.getElementById('rws_habits').textContent = hm;
-  document.getElementById('rws_finish_time').textContent = weeksToText(tw);
+  try { P = new URLSearchParams(window.top.location.search); } catch(e){}
 }
 var firstName  = P.get('name')  || 'Friend';
 var wpm        = parseInt(P.get('wpm'))   || 200;
