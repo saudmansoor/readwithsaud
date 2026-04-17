@@ -252,7 +252,8 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 // ─────────────────────────────────────────────
 // URL PARAMS
 // ─────────────────────────────────────────────
-var P = new URLSearchParams(window.location.search);
+var P;
+try { P = new URLSearchParams(window.top.location.search); } catch(e) { P = new URLSearchParams(window.location.search); }
 var firstName  = P.get('name')  || 'Friend';
 var wpm        = parseInt(P.get('wpm'))   || 200;
 var totalWeeks = parseInt(P.get('weeks')) || 4;
