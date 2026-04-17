@@ -23,7 +23,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 /* Finish Box */
 .finish-box{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:18px;margin-bottom:18px;}
 .finish-habits-row{text-align:center;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid #ddd;}
-.finish-habits-val{font-size:16px;color:#555;font-style:italic;}
+.finish-habits-val{font-size:16px;color:#cc5500;font-weight:600;font-style:normal;}
 .finish-result{text-align:center;}
 .finish-bridge{font-size:16px;color:#777;margin-bottom:8px;}
 .finish-time{font-family:'Oswald',sans-serif;font-size:clamp(56px,15vw,76px);font-weight:700;color:#dd1111;line-height:1;display:block;}
@@ -126,7 +126,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
       <span class="finish-habits-val" id="rws_habits">—</span>
     </div>
     <div class="finish-result">
-      <div class="finish-bridge">At this pace, you'll finish Atomic Habits in</div>
+      <div class="finish-bridge">At this pace, you'll finish <em>Atomic Habits</em> in</div>
       <span class="finish-time" id="rws_finish_time">—</span>
       <div class="finish-sub">from today</div>
     </div>
@@ -134,12 +134,11 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
 
   <!-- GOOD NEWS — right after result -->
   <div class="good-box">
-    <div class="good-title">But here's the good news.</div>
+    <div class="good-title">Good News.</div>
     <div class="good-body">
       You can finish <em>any</em> book in<br>
       <span class="good-days">7 days.</span><br>
-      With the right reading system —<br>
-      even at 20 mins a day.
+      With the <span style="color:#fff;font-weight:700;">right reading system.</span>
     </div>
   </div>
 
@@ -181,7 +180,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
   <!-- CTA BLOCK -->
   <div class="cta-block">
     <div class="cta-h">Finish a book in <span style="color:#c8b477;">7 days.</span></div>
-    <div class="cta-sub">FREE · 3-hour live workshop · This Saturday</div>
+    <div class="cta-sub"><span style="color:#ff3333;font-weight:700;">FREE</span> <strong>3-hour live workshop</strong><br><span id="rws_workshop_date" style="font-weight:700;color:#fff;"></span></div>
 
     <!-- Workshop Image -->
     <img src="https://res.cloudinary.com/dxf0saqgx/image/upload/v1775716903/ReadWithSaud_48_z4yxaw.png" class="workshop-img" alt="Read With Saud Workshop">
@@ -237,7 +236,7 @@ hr{border:none;border-top:1px solid #1e1e1e;margin:22px 0;}
     <a href="https://chat.whatsapp.com/DSucUdkl09T4lO36zmn3h0" target="_blank" rel="noopener noreferrer" class="btn-yes" id="btm_btn">
       Join the Free Saturday Workshop →
     </a>
-    <div class="wa-note" style="margin-top:8px;">This Saturday · 10am IST</div>
+    <div class="wa-note" style="margin-top:8px;"><span id="rws_workshop_date_btm"></span></div>
   </div>
 
 </div>
@@ -264,9 +263,21 @@ var minsPerDay = parseInt(P.get('mins'))  || 20;
 document.getElementById('rws_name').textContent = firstName;
 document.getElementById('rws_wpm').textContent  = wpm;
 
-// Reading habits row
-var dTxt = daysPerWeek===7 ? 'every day' : daysPerWeek===1 ? '1 day a week' : daysPerWeek+' days a week';
-document.getElementById('rws_habits').textContent = 'Reading '+minsPerDay+' mins a day, '+dTxt;
+// Reading habits row — compute total weekly reading
+var totalWeeklyMins = minsPerDay * daysPerWeek;
+var habitsMsg;
+if(totalWeeklyMins < 60){
+  habitsMsg = "You're currently reading just " + totalWeeklyMins + " minutes per week";
+} else {
+  var hrs = Math.floor(totalWeeklyMins / 60);
+  var rm  = totalWeeklyMins % 60;
+  if(rm === 0){
+    habitsMsg = "You're currently reading just " + hrs + (hrs===1 ? " hour" : " hours") + " per week";
+  } else {
+    habitsMsg = "You're currently reading just " + hrs + (hrs===1 ? " hour " : " hours ") + rm + " mins per week";
+  }
+}
+document.getElementById('rws_habits').textContent = habitsMsg;
 
 // Finishing time
 function weeksToText(w){
@@ -427,6 +438,34 @@ function flipTick(){
 document.getElementById('ff1').textContent = digit(flipN,1);
 document.getElementById('ff0').textContent = digit(flipN,0);
 setFlipText(flipN);
+
+// ─────────────────────────────────────────────
+// NEXT SATURDAY DATE (auto-rolls weekly)
+// ─────────────────────────────────────────────
+function getNextSaturdayIST(){
+  var ist = getIST();
+  var d   = ist.d;
+  var day = ist.day; // 0=Sun … 6=Sat
+  var daysUntilSat = (6 - day + 7) % 7;
+  // If it's already Saturday, show today's date
+  if(daysUntilSat === 0) daysUntilSat = 0;
+  // If it's Sunday (after Sat workshop), jump to next Sat
+  if(day === 0) daysUntilSat = 6;
+  var satDate = new Date(Date.UTC(
+    d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + daysUntilSat
+  ));
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var dd = satDate.getUTCDate();
+  var suffix = (dd===1||dd===21||dd===31)?'st':(dd===2||dd===22)?'nd':(dd===3||dd===23)?'rd':'th';
+  return dd + suffix + ' ' + months[satDate.getUTCMonth()] + ', Saturday, 10 AM IST';
+}
+
+var workshopDateStr = getNextSaturdayIST();
+var dateEls = ['rws_workshop_date','rws_workshop_date_btm'];
+for(var i=0;i<dateEls.length;i++){
+  var el = document.getElementById(dateEls[i]);
+  if(el) el.textContent = workshopDateStr;
+}
 
 // ─────────────────────────────────────────────
 // INIT
