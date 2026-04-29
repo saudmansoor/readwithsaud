@@ -446,6 +446,9 @@ function getNextSession(){
     [3, 19,  0, 'Wednesday', '7:00 PM']
   ];
 
+  // One-time skip dates (YYYY-MM-DD in IST). Sessions falling on these dates roll forward 7 days.
+  var skipDates = ['2026-04-29']; // Skip Wed Apr 29 2026
+
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var candidates = [];
   for(var i=0;i<sessions.length;i++){
@@ -455,8 +458,17 @@ function getNextSession(){
     if(daysAway===0 && nowMins >= sHr*60 + sMin){ daysAway = 7; }
 
     var deadlineIST = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway, sHr, sMin, 0, 0));
-    var deadlineUTC = deadlineIST.getTime() - 19800000;
     var sd2 = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway));
+
+    // Skip blacklisted dates: roll forward by 7 days each match
+    var sdKey = sd2.getUTCFullYear() + '-' + pad2(sd2.getUTCMonth()+1) + '-' + pad2(sd2.getUTCDate());
+    while(skipDates.indexOf(sdKey) !== -1){
+      daysAway += 7;
+      deadlineIST = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway, sHr, sMin, 0, 0));
+      sd2 = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway));
+      sdKey = sd2.getUTCFullYear() + '-' + pad2(sd2.getUTCMonth()+1) + '-' + pad2(sd2.getUTCDate());
+    }
+    var deadlineUTC = deadlineIST.getTime() - 19800000;
     var dNum = sd2.getUTCDate();
     var suffix = (dNum===1||dNum===21||dNum===31)?'st':(dNum===2||dNum===22)?'nd':(dNum===3||dNum===23)?'rd':'th';
     var label = dNum + suffix + ' ' + months[sd2.getUTCMonth()] + ' · ' + sDayName + ' · ' + sTimeLabel + ' IST';
