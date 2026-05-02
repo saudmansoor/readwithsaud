@@ -219,9 +219,6 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
         <div id="vc-countdown" style="margin-top:6px;color:#c8b477;font-family:'Open Sans',sans-serif;font-weight:600;font-size:clamp(13px,3.6vw,15px);text-shadow:0 2px 8px rgba(0,0,0,0.8);">Auto-playing in 5s…</div>
       </div>
     </div>
-        <div style="margin-top:14px;color:#fff;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(15px,4vw,18px);letter-spacing:0.5px;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,0.7);">Tap to watch how &darr;</div>
-      </div>
-    </div>
     <script>
       (function(){
         var c = document.getElementById('videoCover');
@@ -489,7 +486,7 @@ function getNextSession(){
   ];
 
   // One-time skip dates (YYYY-MM-DD in IST). Sessions falling on these dates roll forward 7 days.
-  var skipDates = ['2026-04-29']; // Skip Wed Apr 29 2026
+  var skipDates = ['2026-04-29', '2026-05-03']; // Skip Wed Apr 29 2026, Sun May 3 2026
 
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var candidates = [];
