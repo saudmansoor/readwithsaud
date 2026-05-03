@@ -48,6 +48,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .dyn-copy .stat{color:#cc1111;font-weight:800;font-size:1.10em;letter-spacing:.3px;}
 .story-beige{background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:14px;padding:18px 16px 16px;margin:8px 0 22px;text-align:center;box-shadow:0 4px 18px rgba(200,180,119,.18);}
 .story-beige p{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.9vw,17px);font-weight:500;color:#e8dcc4;line-height:1.6;font-style:italic;margin-bottom:8px;}
+.story-beige p.line{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);font-weight:500;color:#e8dcc4;line-height:1.5;font-style:italic;margin:4px 0;}
 .story-beige p.kicker{color:#fff;font-weight:700;font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);line-height:1.4;margin:6px 0 12px;}
 .story-beige .ba-img{width:80%;max-width:300px;margin:6px auto 0;border-radius:10px;overflow:hidden;display:block;}
 .story-beige .ba-img img{width:100%;height:auto;display:block;}
@@ -108,12 +109,35 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#c8b477;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #8a7035;text-align:center;line-height:1.25;}
 .btn-yes:active{transform:translateY(3px);box-shadow:none;}
 @keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.02);}}
+.tc-wrap{margin-bottom:18px;}
+.tc-viewport{overflow:hidden;border-radius:12px;}
+.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
+.tc-slide{flex:0 0 100%;width:100%;}
+.tc-slide img{width:100%;height:auto;display:block;border-radius:12px;}
+.tc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
+.tc-dot{width:9px;height:9px;border-radius:50%;background:#3a3528;border:none;padding:0;cursor:pointer;transition:width 0.3s ease,background 0.3s ease,border-radius 0.3s ease;}
+.tc-dot:hover{background:#5c5440;}
+.tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
+.testimonial-h{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#c8b477;text-align:center;font-weight:700;letter-spacing:0.3px;margin:14px 0 6px;line-height:1.4;}
 .btn-pulse{animation:btnPulse 3.5s infinite;}
 
 /* Offer Block */
 .offer-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:20px 16px;margin-bottom:18px;}
+.offer-kicker{font-family:'Oswald',sans-serif;font-size:12px;color:#fff;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;opacity:0.75;}
+.offer-title-main{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#c8b477;text-align:center;line-height:1.2;margin-bottom:14px;}
+.offer-pricing{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
+.price-strike{font-family:'Oswald',sans-serif;font-size:18px;color:#888;text-decoration:line-through;font-weight:600;}
+.price-now{font-family:'Oswald',sans-serif;font-size:clamp(32px,8vw,40px);font-weight:700;color:#fff;line-height:1;}
+.price-save{background:#c8b477;color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
+.offer-meta{display:flex;flex-direction:column;gap:6px;align-items:center;margin-bottom:14px;}
+.meta-row{display:flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:14px;color:#e8dcc4;font-weight:600;}
+.meta-live strong{color:#fff;letter-spacing:.5px;}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#ff3333;display:inline-block;box-shadow:0 0 0 0 rgba(255,51,51,0.7);animation:livePulse 1.6s infinite;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(255,51,51,0.7);}70%{box-shadow:0 0 0 8px rgba(255,51,51,0);}100%{box-shadow:0 0 0 0 rgba(255,51,51,0);}}
+.meta-time{color:#c8b477;}
 .offer-title{font-family:'Oswald',sans-serif;font-size:clamp(20px,5vw,25px);font-weight:700;color:#fff;line-height:1.3;text-align:center;margin-bottom:6px;}
 .offer-title .price{color:#c8b477;}
+.bring-book{font-size:14px;color:#c8b477;text-align:center;margin:10px 0 14px;font-weight:600;}
 .offer-sub{font-size:clamp(16px,4.2vw,19px);color:#fff;text-align:center;line-height:1.5;margin-bottom:14px;font-weight:700;}
 .offer-img{width:100%;border-radius:10px;overflow:hidden;margin-bottom:14px;}
 .offer-img img{width:100%;height:auto;display:block;}
@@ -123,14 +147,12 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
 /* Day cards (3 outcomes) */
 .days-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
-.day-card{display:flex;align-items:center;gap:12px;background:#0e0d0b;border:1px solid #2e2a18;border-radius:10px;padding:10px 12px;position:relative;overflow:hidden;}
+.day-out-line{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);color:#fff;line-height:1.45;font-weight:500;}
+.day-card{display:flex;align-items:center;gap:12px;background:#0e0d0b;border:1px solid #2e2a18;border-radius:10px;padding:12px 14px;position:relative;overflow:hidden;}
 .day-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8b477;}
-.day-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c8b477,#8a7035);color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;}
+.day-num{flex-shrink:0;min-width:62px;height:28px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,#c8b477,#8a7035);color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;line-height:1;text-transform:uppercase;margin-top:1px;}
 .day-body{flex:1;min-width:0;}
 .day-label{font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;color:#c8b477;letter-spacing:1px;margin-bottom:1px;text-transform:uppercase;}
-.day-text{font-size:clamp(15.5px,4vw,18px);color:#fff;line-height:1.5;font-weight:600;}
-.day-text em{color:#c8b477;font-style:normal;font-weight:500;display:block;margin-top:2px;font-size:13.5px;}
-
 /* Guarantee badge */
 .guarantee-badge{display:block;width:100%;max-width:380px;margin:6px auto 14px;border-radius:12px;overflow:hidden;}
 .guarantee-badge img{width:100%;height:auto;display:block;}
@@ -154,8 +176,11 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   .dyn-box,.wpm-box{padding:14px 12px;}
   .offer-block{padding:18px 14px;}
   .day-card{padding:9px 10px;gap:10px;}
-  .day-num{width:32px;height:32px;font-size:15px;}
+  .day-num{min-width:58px;height:26px;font-size:12px;padding:0 9px;border-radius:13px;}
 }
+.final-push{text-align:center;margin:24px 0 16px;padding:18px 16px;background:linear-gradient(135deg,#1a1410,#221c14);border:1.5px solid #c8b477;border-radius:12px;}
+.final-push p{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.6vw,20px);color:#fff;font-weight:600;line-height:1.4;margin:6px 0;}
+.final-push p.fp-em{color:#c8b477;font-style:italic;}
 </style>
 </head>
 <body>
@@ -199,114 +224,56 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="interp-block">
     <p>You were taught to <strong>finish books</strong>.</p>
     <p>Nobody taught you to <strong>use them</strong>.</p>
-    <p class="accent">That's the whole problem.</p>
+    <p class="accent">That's why nothing changes.</p>
   </div>
 
     <!-- 6. STORY (3 lines + before/after image inside) -->
   <div class="story-beige">
-    <p class="good-news">Good news &mdash; I figured it out.</p>
-    <p class="kicker">Watch how I implemented <strong>one idea</strong> from <strong>one book</strong> &mdash; and lost <strong>14.5 kg in 6 months</strong> &darr;</p>
+    <p class="good-news">Good news &mdash; this can be fixed.</p>
+    <p class="line">I stopped just reading.</p>
+    <p class="line">I started applying one idea at a time.</p>
+    <p class="kicker">That's how I lost <strong>14.5 kg in 6 months</strong> &darr;</p>
 
-    <!-- Click-to-play video: before/after photo as poster -->
-    <div class="video-cover" id="videoCover" role="button" tabindex="0"
-         aria-label="Tap to watch how I did it"
-         style="position:relative;width:100%;margin:14px auto 16px;cursor:pointer;border-radius:12px;overflow:hidden;background:#000;">
-      <img src="transformation.jpg"   alt="Before/After — Lost 14.5 kg from one book" style="width:100%;height:auto;display:block;" decoding="async" fetchpriority="high">
-      <div class="play-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.0) 30%,rgba(0,0,0,0.65) 100%);">
-        <div class="play-btn-pulse" style="position:relative;width:120px;height:120px;border-radius:50%;background:rgba(200,180,119,0.95);display:flex;align-items:center;justify-content:center;border:4px solid #fff;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
-          <div style="width:0;height:0;border-left:36px solid #1a1410;border-top:22px solid transparent;border-bottom:22px solid transparent;margin-left:8px;"></div>
-        </div>
-        <div style="margin-top:18px;color:#fff;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(16px,4.4vw,20px);letter-spacing:0.5px;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,0.85);">Tap to watch how &darr;</div>
-        <div id="vc-countdown" style="margin-top:6px;color:#c8b477;font-family:'Open Sans',sans-serif;font-weight:600;font-size:clamp(13px,3.6vw,15px);text-shadow:0 2px 8px rgba(0,0,0,0.8);">Auto-playing in 5s…</div>
-      </div>
+    <div class="ba-img">
+      <img src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
     </div>
-    <script>
-      (function(){
-        var c = document.getElementById('videoCover');
-        var cd = document.getElementById('vc-countdown');
-        var manualPlayed = false;
 
-        function loadPlayerJs(){
-          if(window.__vimeoPlayerJs) return;
-          window.__vimeoPlayerJs = true;
-          var s = document.createElement('script');
-          s.src = 'https://player.vimeo.com/api/player.js';
-          document.body.appendChild(s);
-        }
-
-        function iframeHTML(muted, freshToken){
-          var src = 'https://player.vimeo.com/video/1188741064?autoplay=1&loop=1&badge=0&autopause=0&byline=0&portrait=0&title=0&dnt=1&player_id=0&app_id=58479';
-          if(muted) src += '&muted=1';
-          if(freshToken) src += '&_t=' + freshToken;
-          return '<div style="padding:177.78% 0 0 0;position:relative;"><iframe src="'+src+'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="saud new pitch" allowfullscreen></iframe></div>';
-        }
-
-        // Auto-play muted after 5s — adds a transparent click-catcher with a "tap for sound" hint
-        function autoPlayMuted(){
-          c.innerHTML = iframeHTML(true, null);
-          loadPlayerJs();
-          var trap = document.createElement('div');
-          trap.id = 'vc-trap';
-          trap.style.cssText = 'position:absolute;inset:0;z-index:5;cursor:pointer;';
-          var hint = document.createElement('div');
-          hint.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.78);color:#fff;font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(13px,3.6vw,16px);padding:10px 18px;border-radius:24px;text-transform:uppercase;letter-spacing:0.5px;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,0.5);box-shadow:0 4px 16px rgba(0,0,0,0.5);';
-          hint.innerHTML = '🔊 Tap to play with sound';
-          trap.appendChild(hint);
-          c.appendChild(trap);
-          trap.addEventListener('click', function(ev){ ev.stopPropagation(); manualPlay(); });
-        }
-
-        // Manual play — restart from 0:00 with sound, remove the click trap
-        function manualPlay(){
-          if(manualPlayed) return;
-          manualPlayed = true;
-          c.innerHTML = iframeHTML(false, Date.now());
-          loadPlayerJs();
-          c.style.cursor = 'default';
-        }
-
-        // Countdown: 5s, then muted autoplay
-        var t = 5;
-        var iv = setInterval(function(){
-          t--;
-          if(cd) cd.textContent = t > 0 ? ('Auto-playing in ' + t + 's…') : '';
-          if(t <= 0){ clearInterval(iv); autoPlayMuted(); }
-        }, 1000);
-
-        // Pre-play tap (cover still showing): play from start with sound
-        c.addEventListener('click', function(){
-          if(manualPlayed) return;
-          clearInterval(iv);
-          manualPlay();
-        });
-        c.addEventListener('keydown', function(e){
-          if(e.key==='Enter'||e.key===' '){ e.preventDefault(); if(manualPlayed) return; clearInterval(iv); manualPlay(); }
-        });
-      })();
-    </script>
-
-    <p class="story-auth-line1">I'm Saud &mdash; <span class="story-auth-cat">Book Implementation Coach.</span></p>
-    <p class="story-auth-line2">I've helped <strong>1,000+ busy professionals</strong> actually <em>implement</em> the ideas they read &mdash; instead of forgetting them.</p>
+    <p class="story-auth-line1">I'm Saud.</p>
+    <p class="story-auth-line2">I help people turn what they read into <strong>real results</strong>.</p>
+    <p class="story-auth-line2"><strong>1,000+ professionals</strong> have used this to stop forgetting&hellip; and start applying.</p>
   </div>
 
   <!-- 7. METHOD LINE + payoff -->
   <!-- 8. METHOD PITCH (no image, copy only) -->
   <div class="pitch-beige">
     <div class="pl1">You don't need more books.</div>
-    <div class="pl2">You need <em>Consultant Reading.</em></div>
-    <div class="pl3">That's what the workshop teaches.</div>
+    <div class="pl2">You need a <em>simple system</em> to apply what you read.</div>
   </div>
 
   <!-- 11. OFFER BLOCK -->
   <div class="offer-block">
 
-    <div class="offer-title"><span style="color:#fff;font-weight:700;">Join</span> <span class="price">Read to Results&trade;</span><br>Workshop &mdash; <span class="price">₹51</span></div>
-    <div class="offer-sub">The Consultant Reading method &mdash; get results from every book you read.</div>
+    <div class="offer-kicker">Join the</div>
+    <div class="offer-title-main">5-Day Read &rarr; Apply Challenge</div>
 
+    <div class="offer-pricing">
+      <span class="price-strike">₹999</span>
+      <span class="price-now">₹99</span>
+      <span class="price-save">SAVE 90%</span>
+    </div>
+
+    <div class="offer-meta">
+      <div class="meta-row meta-live"><span class="live-dot"></span> <strong>LIVE on Zoom</strong></div>
+      <div class="meta-row meta-time">5:30–6:45 AM &middot; Mon&ndash;Fri</div>
+    </div>
+
+    <div class="ws-img">
+      <img src="workshop.jpg" alt="5-Day Read → Apply Challenge" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;" decoding="async">
+    </div>
 
     <!-- TIMER -->
     <div class="timer-wrap" id="timer_block">
-      <div class="timer-label">⏰ Next session starts in</div>
+      <div class="timer-label">⏰ Challenge starts in</div>
       <div class="timer-box">
         <div class="timer-row">
           <div class="t-unit" id="days_unit" style="display:none;">
@@ -330,65 +297,139 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
           </div>
         </div>
       </div>
-      <div class="session-lbl" id="cta_session_label">Wed 7:00 PM IST · Sun 3:30 PM IST</div>
+      <div class="session-lbl" id="cta_session_label">Mon 11 May &middot; 5:30 AM IST</div>
     </div>
 
-    <div style="margin-top:14px;margin-bottom:14px;">
-      <img src="workshop.jpeg" alt="Read to Results Workshop" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;" decoding="async">
-    </div>
-
-    <div class="learn-h">In this 75-min session, you'll learn:</div>
-
+    <div class="learn-h">Your 5-day path</div>
     <div class="days-list">
       <div class="day-card">
-        <div class="day-num">1</div>
+        <div class="day-num">DAY 1</div>
         <div class="day-body">
-          <div class="day-text">Why your reading isn't creating results <em>(even if you're consistent).</em></div>
+          <div class="day-out-line">Stop <strong>abandoning books</strong> halfway through.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">2</div>
+        <div class="day-num">DAY 2</div>
         <div class="day-body">
-          <div class="day-text">A new way to read &mdash; <em>built for results, not just completion.</em></div>
+          <div class="day-out-line">Read with a <strong>goal</strong> — not just to finish.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">3</div>
+        <div class="day-num">DAY 3</div>
         <div class="day-body">
-          <div class="day-text">Practice the Consultant Method &mdash; <em>and experience real change instantly.</em></div>
+          <div class="day-out-line">Pull out the <strong>one idea</strong> that actually matters.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">DAY 4</div>
+        <div class="day-body">
+          <div class="day-out-line"><strong>Double your reading speed</strong> — and actually remember what you read.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">DAY 5</div>
+        <div class="day-body">
+          <div class="day-out-line">Apply one idea. See a <strong>real result</strong>. This week.</div>
         </div>
       </div>
     </div>
 
-    <!-- CTA inside offer block, below session label -->
+    <p class="bring-book"><em>Bring any book you're currently reading.</em></p>
+
+    <!-- CTA inside offer block -->
     <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_bottom">
-      Join the Workshop &mdash; ₹51
+      Start Applying &mdash; ₹99
     </a>
 
   </div>
 
-    <!-- TESTIMONIAL IMAGES -->
-  <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:18px;">
-    <img src="testimonial-himanshu.jpg"   alt="Himanshu Kalra testimonial" style="width:100%;height:auto;display:block;border-radius:12px;" decoding="async" loading="lazy">
-    <img src="testimonial-nishita.jpg"   alt="Nishita Kharche testimonial" style="width:100%;height:auto;display:block;border-radius:12px;" decoding="async" loading="lazy">
-    <img src="testimonial-sushil.jpg"   alt="Sushil Shinde testimonial" style="width:100%;height:auto;display:block;border-radius:12px;" decoding="async" loading="lazy">
+    <!-- TESTIMONIAL CAROUSEL -->
+  <div class="testimonial-h">People who stopped reading&hellip; and started applying &darr;</div>
+  <div class="tc-wrap" id="testimonialCarousel">
+    <div class="tc-viewport">
+      <div class="tc-track" id="tcTrack">
+        <div class="tc-slide"><img src="testimonial-himanshu.jpg" alt="Himanshu Kalra testimonial" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-nishita.jpg" alt="Nishita Kharche testimonial" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-sushil.jpg" alt="Sushil Shinde testimonial" decoding="async" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="tc-dots" id="tcDots">
+      <button class="tc-dot tc-dot-active" aria-label="Show testimonial 1"></button>
+      <button class="tc-dot" aria-label="Show testimonial 2"></button>
+      <button class="tc-dot" aria-label="Show testimonial 3"></button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var track = document.getElementById('tcTrack');
+      var dots = document.querySelectorAll('#tcDots .tc-dot');
+      var slides = document.querySelectorAll('#tcTrack .tc-slide');
+      if(!track || slides.length === 0) return;
+      var current = 0, total = slides.length, auto = null;
+
+      function show(i){
+        current = (i + total) % total;
+        track.style.transform = 'translateX(' + (-current * 100) + '%)';
+        for(var d = 0; d < dots.length; d++){
+          dots[d].classList.toggle('tc-dot-active', d === current);
+        }
+      }
+      function next(){ show(current + 1); }
+      function prev(){ show(current - 1); }
+      function start(){ stop(); auto = setInterval(next, 5500); }
+      function stop(){ if(auto){ clearInterval(auto); auto = null; } }
+
+      for(var i = 0; i < dots.length; i++){
+        (function(idx){
+          dots[idx].addEventListener('click', function(){ stop(); show(idx); start(); });
+        })(i);
+      }
+
+      // Touch swipe
+      var sx = 0, dx = 0;
+      track.addEventListener('touchstart', function(e){ stop(); sx = e.touches[0].clientX; dx = 0; }, { passive: true });
+      track.addEventListener('touchmove',  function(e){ dx = e.touches[0].clientX - sx; }, { passive: true });
+      track.addEventListener('touchend',   function(){
+        if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+        start();
+      });
+
+      // Pause autoplay on hover (desktop)
+      var wrap = document.getElementById('testimonialCarousel');
+      wrap.addEventListener('mouseenter', stop);
+      wrap.addEventListener('mouseleave', start);
+
+      start();
+    })();
+  </script>
+
+  <!-- VIDEO — below testimonial carousel -->
+  <div style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/JHrVWjlhZ40?si=_Pnw5_Qk94HvCDEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"></iframe>
   </div>
 
   <!-- 14. SECOND CTA (after social proof) -->
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom2">
-    I'm In. Send Me the Link &mdash; &#8377;51
+    Start Applying &mdash; ₹99
+  </a>
+
+  <!-- 14b. FINAL PUSH -->
+  <div class="final-push">
+    <p>You already know the problem.</p>
+    <p>Now it's time to fix it.</p>
+    <p class="fp-em">Don't read another book without knowing how to use it.</p>
+  </div>
+
+  <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
+    Start Applying &mdash; ₹99
   </a>
 
   <!-- 15. FAQ BLOCK (accordion) -->
   <div class="faq-wrap">
-    <div class="faq-h">Quick Answers</div>
-    <details class="faq-item">
-      <summary class="faq-q">What if I miss the live session?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">You get the replay within 24 hours. Watch on your time.</div>
-    </details>
+    <div class="faq-h">FAQ</div>
     <details class="faq-item">
       <summary class="faq-q">What if I'm a slow reader?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Especially for you. The Consultant Method works regardless of speed &mdash; it's about <em>how</em> you read, not how fast.</div>
+      <div class="faq-a">Especially for you. This system works regardless of speed &mdash; it's about <em>how</em> you read, not how fast.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q">Does this work for fiction?<span class="faq-toggle"></span></summary>
@@ -402,7 +443,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   <!-- 16. THIRD CTA (final) -->
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom3">
-    Get Me In &mdash; ₹51
+    Start Applying &mdash; ₹99
   </a>
 
 </div>
@@ -511,47 +552,9 @@ if(ftEl) ftEl.textContent = weeksToText(totalWeeks);
 // IST SESSION TIMER  — Wed 7:00 PM, Sun 3:30 PM
 // ─────────────────────────────────────────────
 function getNextSession(){
-  var ms  = Date.now() + 19800000; // IST offset
-  var now = new Date(ms);
-  var nowDay  = now.getUTCDay();
-  var nowMins = now.getUTCHours()*60 + now.getUTCMinutes();
-
-  // [dayOfWeek, hr, min, dayName, timeLabel]
-  var sessions = [
-    [0, 15, 30, 'Sunday',    '3:30 PM'],
-    [3, 19,  0, 'Wednesday', '7:00 PM']
-  ];
-
-  // One-time skip dates (YYYY-MM-DD in IST). Sessions falling on these dates roll forward 7 days.
-  var skipDates = ['2026-04-29', '2026-05-03']; // Skip Wed Apr 29 2026, Sun May 3 2026
-
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var candidates = [];
-  for(var i=0;i<sessions.length;i++){
-    var s = sessions[i];
-    var sDow=s[0], sHr=s[1], sMin=s[2], sDayName=s[3], sTimeLabel=s[4];
-    var daysAway = (sDow - nowDay + 7) % 7;
-    if(daysAway===0 && nowMins >= sHr*60 + sMin){ daysAway = 7; }
-
-    var deadlineIST = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway, sHr, sMin, 0, 0));
-    var sd2 = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway));
-
-    // Skip blacklisted dates: roll forward by 7 days each match
-    var sdKey = sd2.getUTCFullYear() + '-' + pad2(sd2.getUTCMonth()+1) + '-' + pad2(sd2.getUTCDate());
-    while(skipDates.indexOf(sdKey) !== -1){
-      daysAway += 7;
-      deadlineIST = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway, sHr, sMin, 0, 0));
-      sd2 = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+daysAway));
-      sdKey = sd2.getUTCFullYear() + '-' + pad2(sd2.getUTCMonth()+1) + '-' + pad2(sd2.getUTCDate());
-    }
-    var deadlineUTC = deadlineIST.getTime() - 19800000;
-    var dNum = sd2.getUTCDate();
-    var suffix = (dNum===1||dNum===21||dNum===31)?'st':(dNum===2||dNum===22)?'nd':(dNum===3||dNum===23)?'rd':'th';
-    var label = dNum + suffix + ' ' + months[sd2.getUTCMonth()] + ' · ' + sDayName + ' · ' + sTimeLabel + ' IST';
-    candidates.push({label:label, deadlineUTC:deadlineUTC, daysAway:daysAway});
-  }
-  candidates.sort(function(a,b){return a.daysAway-b.daysAway;});
-  return candidates[0];
+  // 5-Day Challenge — one-shot countdown to Mon 11 May 2026, 5:30 AM IST
+  var deadlineUTC = Date.UTC(2026, 4, 11, 0, 0, 0);
+  return { label: 'Mon 11 May · 5:30 AM IST', deadlineUTC: deadlineUTC, daysAway: 0 };
 }
 
 function pad2(n){ return n<10 ? '0'+n : ''+n; }
