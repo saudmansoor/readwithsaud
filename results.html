@@ -229,9 +229,11 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
     <div class="ba-img" id="baMediaWrap" style="position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;" onclick="window.playBaVideo()">
       <img id="baPosterImg" src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
-      <div id="baTapBtn" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background:linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.10) 100%);gap:10px;border-radius:10px;padding-left:6%;">
-        <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:26px;padding-left:5px;box-shadow:0 6px 20px rgba(0,0,0,0.55);font-weight:700;line-height:1;">&#9658;</span>
-        <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:1.2px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.85);text-transform:uppercase;">Tap here to watch &darr;</span>
+      <div id="baTapBtn" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%);border-radius:10px;pointer-events:none;">
+        <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:26px;padding-left:5px;box-shadow:0 6px 20px rgba(0,0,0,0.55);font-weight:700;line-height:1;">&#9658;</span>
+          <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.2px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.85);text-transform:uppercase;white-space:nowrap;">Tap here to watch &darr;</span>
+        </div>
       </div>
     </div>
     <script>
