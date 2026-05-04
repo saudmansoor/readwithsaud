@@ -283,7 +283,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     </div>
 
     <div class="ws-img">
-      <img src="workshop.jpg" alt="Read to Results — 5-Day Challenge" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;" decoding="async">
+      <img src="workshop.jpg" alt="Read to Results — 5-Day Challenge" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;">
     </div>
 
     <!-- TIMER -->
@@ -386,9 +386,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="tc-wrap" id="testimonialCarousel">
     <div class="tc-viewport">
       <div class="tc-track" id="tcTrack">
-        <div class="tc-slide"><img src="testimonial-himanshu.jpg" alt="Himanshu Kalra testimonial" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-nishita.jpg" alt="Nishita Kharche testimonial" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-sushil.jpg" alt="Sushil Shinde testimonial" decoding="async"></div>
+        <div class="tc-slide"><img src="testimonial-himanshu.jpg" alt="Himanshu Kalra testimonial" loading="lazy" decoding="async"></div>
+        <div class="tc-slide"><img src="testimonial-nishita.jpg" alt="Nishita Kharche testimonial" loading="lazy" decoding="async"></div>
+        <div class="tc-slide"><img src="testimonial-sushil.jpg" alt="Sushil Shinde testimonial" loading="lazy" decoding="async"></div>
       </div>
     </div>
     <div class="tc-dots" id="tcDots">
@@ -441,10 +441,25 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     })();
   </script>
 
-  <!-- VIDEO — below testimonial carousel -->
-  <div style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JHrVWjlhZ40?si=_Pnw5_Qk94HvCDEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"></iframe>
+  <!-- VIDEO — below testimonial carousel (lazy load: tap to play) -->
+  <div id="ytTestiWrap" onclick="window.loadTestiVideo()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
+    <img src="https://img.youtube.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch story video" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
+      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
+    </div>
   </div>
+  <script>
+    (function(){
+      window.loadTestiVideo = function(){
+        var w = document.getElementById('ytTestiWrap');
+        if(!w || w.dataset.loaded === '1') return;
+        w.dataset.loaded = '1';
+        w.innerHTML = '<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
+        w.style.cursor = 'default';
+        w.onclick = null;
+      };
+    })();
+  </script>
 
   <!-- 14. SECOND CTA (after social proof) -->
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom2">
