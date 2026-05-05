@@ -69,6 +69,8 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .story-auth-line1{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);color:#fff;font-weight:600;margin-top:14px;line-height:1.4;}
 .story-auth-line1 .story-auth-cat{color:#c8b477;}
 .story-auth-line2{font-family:'Open Sans',sans-serif;font-size:14.5px;color:#e8e3d4;line-height:1.55;margin-top:6px;}
+.saud-banner{margin:6px 0 22px;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(200,180,119,.18);}
+.saud-banner img{width:100%;height:auto;display:block;}
 .pitch-beige{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:18px 16px;margin-bottom:16px;text-align:center;}
 .pitch-beige .pl1{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#1a1a1a;line-height:1.4;}
 .pitch-beige .pl2{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#1a1a1a;line-height:1.4;margin-top:4px;}
@@ -199,7 +201,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   <!-- TOP HEADLINE -->
   <div class="top-h">
-    <span id="rws_name"></span> &mdash; your reading isn't giving you the <em>results</em> you hoped for.<br>Here's why &darr;
+    <span id="rws_name"></span> &mdash; your reading isn't broken.<br>Your <em>system</em> is.
   </div>
 
   <!-- 2. BOX 1 — SPEED -->
@@ -220,42 +222,23 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <div class="dyn-copy" id="box_behavior_copy">&mdash;</div>
   </div>
 
+  <!-- 5. INTERPRETATION -->
+  <div class="interp-block">
+    <p>You were taught to <strong>finish books</strong>.</p>
+    <p>Nobody taught you to <strong>use them</strong>.</p>
+    <p class="accent">That's why nothing changes.</p>
+  </div>
+
     <!-- 6. STORY (3 lines + before/after image inside) -->
   <div class="story-beige">
     <p class="good-news">Good news &mdash; this can be fixed.</p>
-    <p class="line">I stopped trying to read more.</p>
-    <p class="line">I focused on applying <strong>ONE</strong> idea.</p>
-    <p class="kicker">Result: <strong>Lost 14.5 kg</strong> &darr;</p>
+    <p class="line">I stopped just reading.</p>
+    <p class="line">I started applying one idea at a time.</p>
+    <p class="kicker">That's how I lost <strong>14.5 kg in 6 months</strong> &darr;</p>
 
-    <div class="ba-img" id="baMediaWrap" style="position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;" onclick="window.playBaVideo()">
-      <img id="baPosterImg" src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
-      <div id="baTapBtn" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%);border-radius:10px;pointer-events:none;">
-        <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:26px;padding-left:5px;box-shadow:0 6px 20px rgba(0,0,0,0.55);font-weight:700;line-height:1;">&#9658;</span>
-          <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.2px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.85);text-transform:uppercase;white-space:nowrap;">Tap here to watch &darr;</span>
-        </div>
-      </div>
+    <div class="ba-img">
+      <img src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
     </div>
-    <script>
-      (function(){
-        window.playBaVideo = function(){
-          var wrap = document.getElementById('baMediaWrap');
-          if(!wrap || wrap.dataset.played === '1') return;
-          wrap.dataset.played = '1';
-          wrap.style.aspectRatio = '9/16';
-          wrap.style.maxWidth = '260px';
-          wrap.style.width = '80%';
-          wrap.style.margin = '8px auto 0';
-          wrap.style.cursor = 'default';
-          wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;"></iframe>';
-          wrap.onclick = null;
-        };
-      })();
-    </script>
-
-    <p class="story-auth-line1">I'm Saud &mdash; <span style="color:#c8b477;">Book Implementation Coach</span>.</p>
-    <p class="story-auth-line2">I turn books into results.</p>
-    <p style="font-family:'Open Sans',sans-serif;font-size:13.5px;color:#c8b477;line-height:1.55;margin-top:8px;font-style:italic;font-weight:600;">Lost <strong style="color:#fff;font-style:normal;">14.5 kg from one idea</strong> from a book. Trained <strong style="color:#fff;font-style:normal;">500+ book readers</strong>.</p>
 
   </div>
 
@@ -266,11 +249,16 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <div class="pl2">You need a <em>simple system</em> to apply what you read.</div>
   </div>
 
+  <!-- SAUD CREDIBILITY BANNER -->
+  <div class="saud-banner">
+    <img src="saud-banner.jpg" alt="I'm Saud — Book Implementation Coach. I turn books into results. Lost 14.5 kg from one idea. Trained 500+ readers. Read → Implement → Get Results." loading="lazy" decoding="async">
+  </div>
+
   <!-- 11. OFFER BLOCK -->
   <div class="offer-block">
 
-    <div class="offer-kicker">5-Day Workshop</div>
-    <div class="offer-title-main"><span style="color:#fff;">Join</span> Read to Results</div>
+    <div class="offer-kicker">Join the</div>
+    <div class="offer-title-main">5-Day Read &rarr; Apply Challenge</div>
 
     <div class="offer-pricing">
       <span class="price-strike">₹999</span>
@@ -284,12 +272,12 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     </div>
 
     <div class="ws-img">
-      <img src="workshop.jpg" alt="Read to Results — 5-Day Workshop" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;">
+      <img src="workshop.jpg" alt="5-Day Read → Apply Challenge" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;" decoding="async">
     </div>
 
     <!-- TIMER -->
     <div class="timer-wrap" id="timer_block">
-      <div class="timer-label">⏰ Workshop starts in</div>
+      <div class="timer-label">⏰ Challenge starts in</div>
       <div class="timer-box">
         <div class="timer-row">
           <div class="t-unit" id="days_unit" style="display:none;">
@@ -321,55 +309,32 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       <div class="day-card">
         <div class="day-num">DAY 1</div>
         <div class="day-body">
-          <div class="day-out-line">Stop <strong>abandoning books</strong> without results.</div>
+          <div class="day-out-line">You read to <strong>apply</strong> — not just to finish.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 2</div>
         <div class="day-body">
-          <div class="day-out-line">Read with a <strong>goal</strong> — not just to finish.</div>
+          <div class="day-out-line">Every page hands you something you can <strong>do</strong>.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 3</div>
         <div class="day-body">
-          <div class="day-out-line">Choose <strong>ONE idea</strong> worth applying.</div>
+          <div class="day-out-line">You walk away with <strong>ideas to use</strong> — not pages of notes.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 4</div>
         <div class="day-body">
-          <div class="day-out-line">Build your <strong>execution plan</strong> (what, when, how).</div>
+          <div class="day-out-line">Read more. Apply more. Forget less.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 5</div>
         <div class="day-body">
-          <div class="day-out-line">Apply it &mdash; and see a <strong>real result</strong> this week.</div>
+          <div class="day-out-line">See <strong>real-life results</strong> — from one idea, in one week.</div>
         </div>
-      </div>
-    </div>
-
-    <!-- 100% GUARANTEE BLOCK -->
-    <div style="background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:1.5px solid #c8b477;border-radius:14px;padding:14px 14px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 14px rgba(200,180,119,0.12);">
-      <svg width="76" height="76" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block;">
-        <defs>
-          <radialGradient id="gBadge" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#e8d39a"/>
-            <stop offset="55%" stop-color="#c8b477"/>
-            <stop offset="100%" stop-color="#8a7035"/>
-          </radialGradient>
-        </defs>
-        <circle cx="40" cy="40" r="38" fill="url(#gBadge)"/>
-        <circle cx="40" cy="40" r="38" fill="none" stroke="#5a4a20" stroke-width="0.5"/>
-        <circle cx="40" cy="40" r="30" fill="#1a1410"/>
-        <circle cx="40" cy="40" r="30" fill="none" stroke="#c8b477" stroke-width="1"/>
-        <text x="40" y="38" text-anchor="middle" font-family="Oswald, Arial, sans-serif" font-size="16" font-weight="700" fill="#c8b477">100%</text>
-        <text x="40" y="52" text-anchor="middle" font-family="Oswald, Arial, sans-serif" font-size="7" font-weight="700" fill="#c8b477" letter-spacing="0.4">MONEY BACK</text>
-      </svg>
-      <div style="flex:1;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.9vw,17px);font-weight:700;color:#c8b477;line-height:1.25;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.6px;">Zero-Risk Promise</div>
-        <div style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.4vw,14.5px);color:#e8dcc4;line-height:1.5;">Show up all 5 days. If you don't get a real result, every rupee back &mdash; no forms, no questions.</div>
       </div>
     </div>
 
@@ -377,7 +342,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
     <!-- CTA inside offer block -->
     <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_bottom">
-      Fix This Now &mdash; ₹99
+      Start Applying &mdash; ₹99
     </a>
 
   </div>
@@ -387,9 +352,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="tc-wrap" id="testimonialCarousel">
     <div class="tc-viewport">
       <div class="tc-track" id="tcTrack">
-        <div class="tc-slide"><img src="testimonial-himanshu.jpg" alt="Himanshu Kalra testimonial" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-nishita.jpg" alt="Nishita Kharche testimonial" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-sushil.jpg" alt="Sushil Shinde testimonial" decoding="async"></div>
+        <div class="tc-slide"><img src="testimonial-himanshu.jpg" alt="Himanshu Kalra testimonial" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-nishita.jpg" alt="Nishita Kharche testimonial" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-sushil.jpg" alt="Sushil Shinde testimonial" decoding="async" loading="lazy"></div>
       </div>
     </div>
     <div class="tc-dots" id="tcDots">
@@ -442,29 +407,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     })();
   </script>
 
-  <!-- VIDEO — below testimonial carousel (lazy load: tap to play) -->
-  <div id="ytTestiWrap" onclick="window.loadTestiVideo()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
-    <img src="https://img.youtube.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch story video" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
-      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
-    </div>
-  </div>
-  <script>
-    (function(){
-      window.loadTestiVideo = function(){
-        var w = document.getElementById('ytTestiWrap');
-        if(!w || w.dataset.loaded === '1') return;
-        w.dataset.loaded = '1';
-        w.innerHTML = '<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
-        w.style.cursor = 'default';
-        w.onclick = null;
-      };
-    })();
-  </script>
-
   <!-- 14. SECOND CTA (after social proof) -->
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom2">
-    Fix This Now &mdash; ₹99
+    Start Applying &mdash; ₹99
   </a>
 
   <!-- 14b. FINAL PUSH -->
@@ -475,12 +420,16 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   </div>
 
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
-    Fix This Now &mdash; ₹99
+    Start Applying &mdash; ₹99
   </a>
 
   <!-- 15. FAQ BLOCK (accordion) -->
   <div class="faq-wrap">
-    <div class="faq-h">FAQ</div>
+    <div class="faq-h">Quick Answers</div>
+    <details class="faq-item">
+      <summary class="faq-q">What if I miss the live session?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">You get the replay within 24 hours. Watch on your time.</div>
+    </details>
     <details class="faq-item">
       <summary class="faq-q">What if I'm a slow reader?<span class="faq-toggle"></span></summary>
       <div class="faq-a">Especially for you. This system works regardless of speed &mdash; it's about <em>how</em> you read, not how fast.</div>
@@ -497,7 +446,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   <!-- 16. THIRD CTA (final) -->
   <a href="https://start.readwithsaud.com/web/checkout/69f0cb1792c3299ecb87101c" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom3">
-    Fix This Now &mdash; ₹99
+    Start Applying &mdash; ₹99
   </a>
 
 </div>
@@ -603,10 +552,11 @@ if(ftEl) ftEl.textContent = weeksToText(totalWeeks);
 })();
 
 // ─────────────────────────────────────────────
-// IST SESSION TIMER  — Wed 7:00 PM, Sun 3:30 PM
+// IST SESSION TIMER — One-shot to Mon 11 May 2026, 7:00 PM IST
 // ─────────────────────────────────────────────
 function getNextSession(){
-  // 5-Day Workshop — one-shot countdown to Mon 11 May 2026, 7:00 PM IST
+  // 5-Day Challenge — one-shot countdown to Mon 11 May 2026, 7:00 PM IST
+  // 7:00 PM IST = 13:30 UTC (IST is UTC+5:30)
   var deadlineUTC = Date.UTC(2026, 4, 11, 13, 30, 0);
   return { label: 'Mon 11 May · 7:00 PM IST', deadlineUTC: deadlineUTC, daysAway: 0 };
 }
