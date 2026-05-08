@@ -17,7 +17,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
 
 /* Top headline */
-.top-h{font-family:'Oswald',sans-serif;font-size:clamp(24px,6.5vw,32px);font-weight:700;color:#f0ede6;line-height:1.3;margin-bottom:10px;text-align:center;}
+.top-h{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,21px);font-weight:700;color:#f0ede6;line-height:1.35;margin-bottom:10px;text-align:center;}
 .top-h em{color:#c8b477;font-style:italic;font-weight:700;}
 .top-sub{font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.5vw,15px);color:#aaa;line-height:1.5;text-align:center;margin-bottom:20px;font-style:italic;}
 
@@ -30,11 +30,11 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .dyn-box p em{color:#cc5500;font-style:normal;font-weight:600;}
 
 /* Emotional Block */
-.emo-block{padding:26px 4px 10px;text-align:center;}
-.emo-block p{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);font-weight:600;color:#f0ede6;line-height:1.6;}
+.emo-block{padding:22px 4px 8px;text-align:center;}
+.emo-block p{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,18px);font-weight:600;color:#f0ede6;line-height:1.55;}
 
 /* Emotional image (sad guy with books) */
-.emo-img{margin:16px auto 10px;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.5);width:75%;}
+.emo-img{margin:14px 0 8px;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.5);}
 .emo-img img{width:100%;height:auto;display:block;}
 
 /* Contrast headline (personalized: 7 days vs their actual finish time) — GOOD NEWS green */
@@ -104,9 +104,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 /* Testimonials */
 .testimonial-h{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#c8b477;text-align:center;font-weight:700;letter-spacing:.3px;margin:24px 0 10px;line-height:1.4;}
 .tc-wrap{margin-bottom:18px;}
-.tc-viewport{overflow:hidden;border-radius:12px;width:100%;display:block;}
-.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;width:100%;}
-.tc-slide{flex:0 0 100%;min-width:100%;width:100%;}
+.tc-viewport{overflow:hidden;border-radius:12px;}
+.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
+.tc-slide{flex:0 0 100%;width:100%;}
 .tc-slide img{width:100%;height:auto;display:block;border-radius:12px;}
 .tc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
 .tc-dot{width:9px;height:9px;border-radius:50%;background:#3a3528;border:none;padding:0;cursor:pointer;transition:width 0.3s ease,background 0.3s ease,border-radius 0.3s ease;}
@@ -187,7 +187,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       Good NEWS! We have a <em>fix!!</em>
     </h2>
     <p class="contrast-sub" id="contrast_sub">
-      You can now finish this book in <em>7 days</em><br>&mdash; not <strong id="contrast_time">4 weeks</strong>.
+      You can now finish this book in <em>7 days</em> &mdash; not <strong id="contrast_time">4 weeks</strong>.
     </p>
   </div>
 
@@ -278,11 +278,11 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="tc-wrap" id="testimonialCarousel">
     <div class="tc-viewport">
       <div class="tc-track" id="tcTrack">
-        <div class="tc-slide"><img src="testimonial-1.jpg" alt="Student testimonial 1" decoding="async" loading="eager"></div>
-        <div class="tc-slide"><img src="testimonial-2.jpg" alt="Student testimonial 2" decoding="async" loading="eager"></div>
-        <div class="tc-slide"><img src="testimonial-3.jpg" alt="Student testimonial 3" decoding="async" loading="eager"></div>
-        <div class="tc-slide"><img src="testimonial-4.jpg" alt="Student testimonial 4" decoding="async" loading="eager"></div>
-        <div class="tc-slide"><img src="testimonial-5.jpg" alt="Student testimonial 5" decoding="async" loading="eager"></div>
+        <div class="tc-slide"><img src="testimonial-1.jpg" alt="Student testimonial 1" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-2.jpg" alt="Student testimonial 2" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-3.jpg" alt="Student testimonial 3" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-4.jpg" alt="Student testimonial 4" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-5.jpg" alt="Student testimonial 5" decoding="async" loading="lazy"></div>
       </div>
     </div>
     <div class="tc-dots" id="tcDots">
@@ -468,7 +468,7 @@ var totalWeeks      = parseInt(P.get('weeks'))            || 4;
       "But only if you stay consistent every day.<br>" +
       "And that's where most people struggle.";
     if(contrastS){
-      contrastS.innerHTML = "You can now finish this book in <em>7 days</em><br>&mdash; without giving up halfway again.";
+      contrastS.innerHTML = "You can now finish this book in <em>7 days</em> &mdash; without giving up halfway again.";
     }
   }
 })();
