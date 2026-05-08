@@ -117,8 +117,10 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
 
 /* Price display */
-.offer-price{text-align:center;margin:0 0 18px;}
+.offer-price{text-align:center;margin:0 0 18px;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:nowrap;}
 .price-old{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.2vw,19px);color:#888;text-decoration:line-through;margin-right:8px;font-weight:600;}
+.price-early{font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.5vw,15px);color:#e8dcc4;font-weight:600;display:inline;}
+.price-note{font-family:'Open Sans',sans-serif;font-size:clamp(12px,3.2vw,13.5px);color:#ff8080;font-style:italic;font-weight:600;}
 .price-new{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);color:#c8b477;font-weight:700;}
 .btn-price{font-size:0.85em;opacity:0.9;margin-left:6px;}
 
@@ -233,7 +235,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
     <div class="offer-title-main">Finish Your Next Book in 7 Days</div>
     <div class="offer-subtitle">Without that half-read book staring at you again.</div>
-    <div class="offer-price"><span class="price-old">&#8377;499</span> <span class="price-new">&#8377;51</span></div>
+    <div class="offer-price"><span class="price-early">Today only:</span> <span class="price-old">&#8377;499</span> <span class="price-new">&#8377;51</span></div>
 
     <!-- Workshop image (inside offer block) -->
     <div class="offer-img-inner">
