@@ -113,6 +113,18 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .tc-dot:hover{background:#5c5440;}
 .tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
 
+
+/* Mirror Moment */
+.mirror-block{padding:18px 4px 4px;text-align:center;}
+.mirror-block p{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.4vw,20px);font-weight:600;color:#aaa;line-height:1.7;margin-bottom:2px;}
+
+/* Coach credibility block */
+.coach-block{display:flex;flex-direction:column;align-items:center;gap:12px;margin:18px 0 16px;text-align:center;}
+.coach-avatar{width:80px;height:80px;border-radius:50%;overflow:hidden;border:3px solid #c8b477;box-shadow:0 4px 14px rgba(0,0,0,.4);flex-shrink:0;background:#1e1c14;display:flex;align-items:center;justify-content:center;}
+.coach-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.coach-initial{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:#c8b477;}
+.coach-bio{font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.5vw,14.5px);color:#e8dcc4;line-height:1.5;font-style:italic;}
+
 /* Mobile */
 @media (max-width:380px){
   .w{padding:18px 14px 36px;}
@@ -181,6 +193,13 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <img src="sad_man.png" alt="The pile of half-read books that keeps growing" loading="lazy" decoding="async">
   </div>
 
+  <!-- MIRROR MOMENT -->
+  <div class="mirror-block">
+    <p>Somewhere at home, there's a book with a bookmark stuck in the middle.</p>
+    <p>It's been there for weeks.</p>
+    <p>You know you won't go back to it.</p>
+  </div>
+
   <!-- 5. CONTRAST HEADLINE (good news + personalized fix) -->
   <div class="contrast-block">
     <h2 class="contrast-title">
@@ -194,7 +213,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <!-- 6. WORKSHOP BLOCK -->
   <div class="offer-block">
 
-    <div class="offer-kicker">Join</div>
+    <div class="offer-kicker">Here's how high-performers finish books — and actually use what they read.</div>
     <div class="offer-title-main">Finish Your Next Book in 7 Days</div>
     <div class="offer-subtitle">Without that half-read book staring at you again.</div>
 
@@ -244,9 +263,18 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       </div>
     </div>
 
+    <!-- COACH CREDIBILITY -->
+    <div class="coach-block">
+      <div class="coach-avatar">
+        <img src="saud-banner.jpg" alt="Saud" id="coachImg" onerror="this.style.display='none';document.getElementById('coachInitial').style.display='flex';">
+        <div class="coach-initial" id="coachInitial" style="display:none;">S</div>
+      </div>
+      <p class="coach-bio">Saud is a Book Implementation Coach who helps professionals turn powerful book ideas into real results — faster.</p>
+    </div>
+
     <!-- 9. CTA -->
     <a href="https://start.readwithsaud.com/l/5902ebe7f0" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_main">
-      Join the Live Workshop &mdash; ₹51
+      Yes &mdash; I want to finish my next book in 7 days &rarr;
     </a>
 
     <p class="cta-sub">☕ Less than a cup of coffee.</p>
@@ -273,6 +301,20 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   </div>
 
+  <!-- YOUTUBE VIDEO TESTIMONIAL -->
+  <div class="yt-section">
+    <h3 class="yt-heading">Watch a real success story &darr;</h3>
+    <div class="yt-facade" id="ytFacade" data-id="JHrVWjlhZ40">
+      <img src="https://i.ytimg.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch the testimonial video" loading="lazy" decoding="async">
+      <button class="yt-play-btn" aria-label="Play video">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#cc0000"/>
+          <path d="M26 20 L26 44 L46 32 Z" fill="#fff"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <!-- TESTIMONIALS (5 slides) -->
   <div class="testimonial-h">People who finally started finishing their books &darr;</div>
   <div class="tc-wrap" id="testimonialCarousel">
@@ -294,23 +336,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     </div>
   </div>
 
-  <!-- YOUTUBE VIDEO TESTIMONIAL -->
-  <div class="yt-section">
-    <h3 class="yt-heading">Watch a real success story &darr;</h3>
-    <div class="yt-facade" id="ytFacade" data-id="JHrVWjlhZ40">
-      <img src="https://i.ytimg.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch the testimonial video" loading="lazy" decoding="async">
-      <button class="yt-play-btn" aria-label="Play video">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#cc0000"/>
-          <path d="M26 20 L26 44 L46 32 Z" fill="#fff"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
   <!-- FINAL CTA after testimonials + video (no guarantee repeat) -->
   <a href="https://start.readwithsaud.com/l/5902ebe7f0" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom">
-    Join the Live Workshop &mdash; ₹51
+    Yes &mdash; I want to finish my next book in 7 days &rarr;
   </a>
 
 </div>
