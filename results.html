@@ -114,6 +114,17 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
 
 
+
+
+/* Price display */
+.offer-price{text-align:center;margin:0 0 18px;}
+.price-old{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.2vw,19px);color:#888;text-decoration:line-through;margin-right:8px;font-weight:600;}
+.price-new{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);color:#c8b477;font-weight:700;}
+.btn-price{font-size:0.85em;opacity:0.9;margin-left:6px;}
+
+/* Bridge line */
+.bridge-line{font-family:'Oswald',sans-serif;font-size:clamp(15px,4.2vw,18px);font-weight:600;color:#c8b477;text-align:center;margin:14px 0 16px;line-height:1.5;font-style:italic;}
+
 /* Mirror Moment */
 .mirror-block{padding:18px 4px 4px;text-align:center;}
 .mirror-block p{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.4vw,20px);font-weight:600;color:#aaa;line-height:1.7;margin-bottom:2px;}
@@ -137,6 +148,11 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   .guarantee-icon svg{width:36px;height:36px;}
 }
 </style>
+<link rel="preload" as="image" href="testimonial-1.jpg">
+<link rel="preload" as="image" href="testimonial-2.jpg">
+<link rel="preload" as="image" href="testimonial-3.jpg">
+<link rel="preload" as="image" href="testimonial-4.jpg">
+<link rel="preload" as="image" href="testimonial-5.jpg">
 </head>
 <body>
 
@@ -210,12 +226,14 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     </p>
   </div>
 
+  <p class="bridge-line">Here's how high-performers finish books — and actually use what they read.</p>
+
   <!-- 6. WORKSHOP BLOCK -->
   <div class="offer-block">
 
-    <div class="offer-kicker">Here's how high-performers finish books — and actually use what they read.</div>
     <div class="offer-title-main">Finish Your Next Book in 7 Days</div>
     <div class="offer-subtitle">Without that half-read book staring at you again.</div>
+    <div class="offer-price"><span class="price-old">&#8377;499</span> <span class="price-new">&#8377;51</span></div>
 
     <!-- Workshop image (inside offer block) -->
     <div class="offer-img-inner">
@@ -274,7 +292,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
     <!-- 9. CTA -->
     <a href="https://start.readwithsaud.com/l/5902ebe7f0" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_main">
-      Yes &mdash; I want to finish my next book in 7 days &rarr;
+      Yes &mdash; I want to finish my next book in 7 days &rarr; <span class="btn-price">&#8377;51</span>
     </a>
 
     <p class="cta-sub">☕ Less than a cup of coffee.</p>
@@ -321,10 +339,10 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <div class="tc-viewport">
       <div class="tc-track" id="tcTrack">
         <div class="tc-slide"><img src="testimonial-1.jpg" alt="Student testimonial 1" decoding="async" loading="eager"></div>
-        <div class="tc-slide"><img src="testimonial-2.jpg" alt="Student testimonial 2" decoding="async" loading="lazy"></div>
-        <div class="tc-slide"><img src="testimonial-3.jpg" alt="Student testimonial 3" decoding="async" loading="lazy"></div>
-        <div class="tc-slide"><img src="testimonial-4.jpg" alt="Student testimonial 4" decoding="async" loading="lazy"></div>
-        <div class="tc-slide"><img src="testimonial-5.jpg" alt="Student testimonial 5" decoding="async" loading="lazy"></div>
+        <div class="tc-slide"><img src="testimonial-2.jpg" alt="Student testimonial 2" decoding="async" loading="eager"></div>
+        <div class="tc-slide"><img src="testimonial-3.jpg" alt="Student testimonial 3" decoding="async" loading="eager"></div>
+        <div class="tc-slide"><img src="testimonial-4.jpg" alt="Student testimonial 4" decoding="async" loading="eager"></div>
+        <div class="tc-slide"><img src="testimonial-5.jpg" alt="Student testimonial 5" decoding="async" loading="eager"></div>
       </div>
     </div>
     <div class="tc-dots" id="tcDots">
@@ -338,7 +356,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   <!-- FINAL CTA after testimonials + video (no guarantee repeat) -->
   <a href="https://start.readwithsaud.com/l/5902ebe7f0" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom">
-    Yes &mdash; I want to finish my next book in 7 days &rarr;
+    Yes &mdash; I want to finish my next book in 7 days &rarr; <span class="btn-price">&#8377;51</span>
   </a>
 
 </div>
