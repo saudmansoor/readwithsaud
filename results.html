@@ -245,7 +245,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <p class="line">I focused on applying <strong>ONE</strong> idea.</p>
     <p class="kicker">Result: <strong>Lost 14.5 kg</strong> &darr;</p>
 
-    <div class="ba-img" id="baMediaWrap" style="position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;">
+    <div class="ba-img" id="baMediaWrap" style="position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;" onclick="window.playBaVideo()">
       <img id="baPosterImg" src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
       <div id="baTapBtn" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%);border-radius:10px;pointer-events:none;">
         <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;">
@@ -260,24 +260,14 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
           var wrap = document.getElementById('baMediaWrap');
           if(!wrap || wrap.dataset.played === '1') return;
           wrap.dataset.played = '1';
-          var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if(isMobile){
-            window.open('https://www.youtube.com/watch?v=dZPWHXXaNo0', '_blank');
-            wrap.dataset.played = '0';
-          } else {
-            wrap.style.aspectRatio = '9/16';
-            wrap.style.maxWidth = '260px';
-            wrap.style.width = '80%';
-            wrap.style.margin = '8px auto 0';
-            wrap.style.cursor = 'default';
-            wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;"></iframe>';
-          }
+          wrap.style.aspectRatio = '9/16';
+          wrap.style.maxWidth = '260px';
+          wrap.style.width = '80%';
+          wrap.style.margin = '8px auto 0';
+          wrap.style.cursor = 'default';
+          wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;"></iframe>';
+          wrap.onclick = null;
         };
-        var el = document.getElementById('baMediaWrap');
-        if(el){
-          el.addEventListener('touchend', function(e){ e.preventDefault(); window.playBaVideo(); }, {passive:false});
-          el.addEventListener('click', window.playBaVideo);
-        }
       })();
     </script>
 
