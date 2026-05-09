@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Reading Report · Read With Saud</title>
-<link rel="preload" as="image" href="transformation.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- META PIXEL — PASTE YOUR PIXEL CODE HERE -->
 <style>
@@ -121,6 +120,14 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .sticky-cta-title{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
 .sticky-cta-sub{font-family:'Open Sans',sans-serif;font-size:11px;color:#3a2e00;margin-top:1px;}
 .sticky-cta-btn{background:#1a1a1a;color:#c8b477;font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;padding:10px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;}
+
+/* Day cards */
+.days-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 18px;}
+.day-card{display:flex;align-items:center;gap:12px;background:#0e0d0b;border:1px solid #2e2a18;border-radius:10px;padding:12px 14px;position:relative;overflow:hidden;}
+.day-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8b477;}
+.day-num{flex-shrink:0;min-width:62px;height:28px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,#c8b477,#8a7035);color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;}
+.day-out-line{font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.8vw,16px);color:#fff;line-height:1.45;font-weight:500;}
+.section-h{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;color:#c8b477;text-align:center;text-transform:uppercase;letter-spacing:.8px;margin:22px 0 12px;}
 
 /* Mobile */
 @media(max-width:380px){
@@ -272,7 +279,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       </svg>
       <div style="flex:1;text-align:left;">
         <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.9vw,17px);font-weight:700;color:#c8b477;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.6px;">Zero-Risk Promise</div>
-        <div style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.4vw,14.5px);color:#e8dcc4;line-height:1.5;">Show up all 5 days. If you don't get a real result, every rupee back &mdash; no forms, no questions.</div>
+        <div style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.4vw,14.5px);color:#e8dcc4;line-height:1.5;">Attend <em style="color:#c8b477;font-style:normal;font-weight:700;">Day 1</em>. If you don't feel the value, ask for a full refund the same day &mdash; no forms, no questions.</div>
       </div>
     </div>
 
@@ -325,24 +332,103 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     })();
   </script>
 
-  <!-- FAQ -->
-  <div class="faq-wrap">
-    <div class="faq-h">FAQ</div>
-    <details class="faq-item">
-      <summary class="faq-q">What if I'm a slow reader?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Especially for you. This system works regardless of speed &mdash; it's about <em>how</em> you read, not how fast.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">I've tried reading systems before and they didn't stick.<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Most systems teach you <em>how to read faster</em> or <em>what to highlight</em>. This one teaches you how to pick ONE idea and build a simple action around it — with your actual book in hand. It's harder to not use it than to use it.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Do I need to prep anything?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">No prep. Just show up with any book you're currently reading. We do everything live.</div>
-    </details>
+  <!-- DAY 1-5 -->
+  <div class="section-h">What You'll Do Each Day</div>
+  <div class="days-list">
+    <div class="day-card">
+      <div class="day-num">DAY 1</div>
+      <div class="day-out-line">Understand <strong>why you keep starting</strong> books and never finishing them.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">DAY 2</div>
+      <div class="day-out-line">Read your book with a <strong>clear goal</strong> — not just to get to the last page.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">DAY 3</div>
+      <div class="day-out-line">Find the <strong>ONE idea</strong> in your book that could actually change something this week.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">DAY 4</div>
+      <div class="day-out-line">Turn that idea into a <strong>simple action</strong> — something you can do today, not someday.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">DAY 5</div>
+      <div class="day-out-line">Do it. <strong>See a real result</strong> from a book — for the first time.</div>
+    </div>
   </div>
 
-  <!-- CTA #2 — FINAL -->
+  <!-- TESTIMONIAL VIDEO -->
+  <div class="section-h">Hear It From Them &darr;</div>
+  <div id="ytTestiWrap" onclick="window.loadTestiVideo()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
+    <img src="https://img.youtube.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch testimonial video" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
+      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      window.loadTestiVideo=function(){
+        var w=document.getElementById('ytTestiWrap');
+        if(!w||w.dataset.loaded==='1') return;
+        w.dataset.loaded='1';
+        w.innerHTML='<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
+        w.style.cursor='default';w.onclick=null;
+      };
+    })();
+  </script>
+
+  <!-- CTA after testimonial video -->
+  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_mid" style="margin-bottom:24px;">
+    Get My First Book Result &mdash; ₹99
+  </a>
+
+  <!-- FAQ -->
+  <div class="faq-wrap">
+    <div class="faq-h">Frequently Asked Questions</div>
+
+    <details class="faq-item">
+      <summary class="faq-q">In which language is the workshop conducted?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">The workshop is conducted in <em>English</em>. The language is simple and conversational — no jargon, no complex terms. If you can read this page, you will follow the workshop comfortably.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How will I get the Zoom link to attend?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">Once you register, the Zoom link will be sent to you on <em>WhatsApp and email</em> within 24 hours. You will also get a reminder on the day of the workshop.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What are the timings?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">The workshop runs <em>Monday to Friday, 7:00 PM – 8:00 PM IST</em>. Each session is 60 minutes. It is designed for working professionals so evening timing works for most people.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Will I get a recording if I miss a session?<span class="faq-toggle"></span></summary>
+      <div class="faq-a"><em>No recording.</em> This is a live-only workshop. The live format is what makes it work — you bring your book, you apply the method in real time, and you get a result the same week. A recording defeats the purpose.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Who is this workshop for?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">This is for <em>working professionals, business owners, and serious learners</em> who read non-fiction self-help or business books but struggle to apply what they read. If you have at least one book you are currently reading or want to start, this is for you.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What if I'm a slow reader?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">This workshop is not about reading speed. It is about <em>what you do after you read</em>. Speed does not matter here — application does. Slow readers often get the best results.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What is your money-back guarantee?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">Attend <em>Day 1</em>. If you do not feel the value by the end of that first session, message us the same day and we will refund every rupee. No forms. No questions. No waiting.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Do I need to prepare anything before joining?<span class="faq-toggle"></span></summary>
+      <div class="faq-a">Just bring <em>any non-fiction book</em> you are currently reading or want to start. No prep, no homework, no prior knowledge needed. Show up and we do everything live together.</div>
+    </details>
+
+  </div>
+
+  <!-- FINAL CTA -->
   <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
     Get My First Book Result &mdash; ₹99
   </a>
