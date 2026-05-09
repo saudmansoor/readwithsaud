@@ -115,7 +115,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 @keyframes faqFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
 
 /* Sticky CTA bar */
-.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#c8b477;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.5);}
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#c8b477;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.5);transform:translateY(100%);opacity:0;transition:transform 0.4s ease, opacity 0.4s ease;pointer-events:none;}
 .sticky-cta-left{display:flex;flex-direction:column;line-height:1.2;}
 .sticky-cta-title{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
 .sticky-cta-sub{font-family:'Open Sans',sans-serif;font-size:11px;color:#3a2e00;margin-top:1px;}
@@ -571,6 +571,26 @@ setTimeout(function(){
 },300);
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
+
+// STICKY BAR — show after user scrolls past first CTA button
+(function(){
+  var bar = document.getElementById('stickyCta');
+  var trigger = document.getElementById('cta_main');
+  if(!bar || !trigger) return;
+  var shown = false;
+  function checkScroll(){
+    if(shown) return;
+    var rect = trigger.getBoundingClientRect();
+    if(rect.bottom < 0){
+      shown = true;
+      bar.style.transform = 'translateY(0)';
+      bar.style.opacity = '1';
+      bar.style.pointerEvents = 'auto';
+      window.removeEventListener('scroll', checkScroll);
+    }
+  }
+  window.addEventListener('scroll', checkScroll, {passive:true});
+})();
 </script>
 
 </body>
