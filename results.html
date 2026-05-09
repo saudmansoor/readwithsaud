@@ -606,38 +606,15 @@ setTimeout(function(){
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
 
-// STICKY BAR — setInterval polling (most reliable on all mobile browsers)
+// STICKY BAR — appears after 35 seconds, guaranteed on all browsers
 (function(){
   var bar = document.getElementById('stickyCta');
-  var video = document.getElementById('videoWrap');
   if(!bar) return;
-  var shown = false;
-
-  function showBar(){
-    if(shown) return;
-    shown = true;
+  setTimeout(function(){
     bar.style.transform = 'translateY(0)';
     bar.style.opacity = '1';
     bar.style.pointerEvents = 'auto';
-  }
-
-  // Poll every 250ms — works on every mobile browser
-  function getAbsoluteTop(el){
-    var top = 0;
-    while(el){ top += el.offsetTop; el = el.offsetParent; }
-    return top;
-  }
-  var triggerY = 0;
-  var poll = setInterval(function(){
-    // Calculate trigger point once page has rendered
-    if(!triggerY && video){
-      triggerY = getAbsoluteTop(video) + video.offsetHeight;
-    }
-    if(shown){ clearInterval(poll); return; }
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    var threshold = triggerY || (document.documentElement.scrollHeight - window.innerHeight) * 0.45;
-    if(scrollY > threshold) showBar();
-  }, 250);
+  }, 35000);
 
   // Live countdown in sticky bar
   var deadlineUTC = Date.UTC(2026,4,18,13,30,0);
