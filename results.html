@@ -572,32 +572,27 @@ setTimeout(function(){
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
 
-// STICKY BAR — appears after user scrolls past first CTA button
+// STICKY BAR — fires after 35% scroll depth, catches all mobile browsers
 (function(){
   var bar = document.getElementById('stickyCta');
-  var trigger = document.getElementById('cta_main');
-  if(!bar || !trigger) return;
+  if(!bar) return;
+  var shown = false;
   function showBar(){
+    if(shown) return;
+    shown = true;
     bar.style.transform = 'translateY(0)';
     bar.style.opacity = '1';
     bar.style.pointerEvents = 'auto';
   }
-  if('IntersectionObserver' in window){
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(!entry.isIntersecting && entry.boundingClientRect.bottom < 0){
-          showBar();
-          obs.disconnect();
-        }
-      });
-    },{threshold:0});
-    obs.observe(trigger);
-  } else {
-    // fallback for older browsers
-    window.addEventListener('scroll', function(){
-      if(trigger.getBoundingClientRect().bottom < 0) showBar();
-    },{passive:true});
+  function check(){
+    var scrolled = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    var total = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    if(scrolled / total > 0.35) showBar();
   }
+  window.addEventListener('scroll',   check, {passive:true});
+  document.addEventListener('scroll',    check, {passive:true});
+  document.addEventListener('touchmove', check, {passive:true});
+  document.addEventListener('touchend',  check, {passive:true});
 })();
 </script>
 
