@@ -5,27 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Reading Report · Read With Saud</title>
 <link rel="preload" as="image" href="transformation.jpg" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- META PIXEL — PASTE YOUR PIXEL CODE HERE -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-height:100vh;}
 .prog{display:flex;gap:5px;padding:16px 20px 0;max-width:500px;margin:0 auto;}
 .pb{flex:1;height:3px;border-radius:2px;background:#c8b477;}
-.w{max-width:500px;margin:0 auto;padding:20px 20px 40px;}
+.w{max-width:500px;margin:0 auto;padding:20px 20px 100px;}
 
 /* Badge */
-.badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
-
-/* Result + Dynamic boxes */
-.wpm-box{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:18px 16px;margin-bottom:14px;text-align:center;}
-.wpm-label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700;}
-.result-grid{display:flex;gap:10px;margin-bottom:14px;}
-.result-grid .wpm-box{flex:1;margin-bottom:0;padding:16px 10px;}
-.result-num{font-family:'Oswald',sans-serif;font-weight:700;line-height:1;}
-.result-num.wpm{font-size:clamp(34px,9.5vw,48px);color:#c8b477;margin:4px 0 2px;}
-.result-num.finish{font-size:clamp(26px,7.5vw,38px);color:#dd1111;margin:4px 0 2px;}
-.result-sub{font-size:12px;color:#888;line-height:1.4;}
+.badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
 
 /* Dynamic Copy Boxes */
 .dyn-box{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:16px 16px;margin-bottom:12px;text-align:center;}
@@ -33,52 +23,81 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .dyn-copy{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.2vw,19px);font-weight:600;color:#1a1a1a;line-height:1.5;}
 .dyn-copy strong{color:#1a1a1a;}
 .dyn-copy em{color:#cc5500;font-style:normal;font-weight:700;}
+.dyn-copy .stat{color:#cc1111;font-weight:800;font-size:1.10em;letter-spacing:.3px;}
 
 /* Top headline */
 .top-h{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#f0ede6;line-height:1.3;margin-bottom:16px;}
 .top-h em{color:#c8b477;font-style:italic;font-weight:700;}
 
-/* Interpretation Block */
-.interp-block{padding:18px 4px 6px;text-align:center;}
-.interp-block p{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);font-weight:600;color:#f0ede6;line-height:1.55;margin-bottom:12px;}
-.interp-block p.accent{color:#c8b477;margin-top:4px;}
-.interp-block p em{color:#c8b477;font-style:italic;}
-
-/* Story Block — beige */
-.dyn-copy .stat{color:#cc1111;font-weight:800;font-size:1.10em;letter-spacing:.3px;}
-.story-beige{background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:14px;padding:18px 16px 16px;margin:8px 0 22px;text-align:center;box-shadow:0 4px 18px rgba(200,180,119,.18);}
-.story-beige p{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.9vw,17px);font-weight:500;color:#e8dcc4;line-height:1.6;font-style:italic;margin-bottom:8px;}
-.story-beige p.line{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);font-weight:500;color:#e8dcc4;line-height:1.5;font-style:italic;margin:4px 0;}
-.story-beige p.kicker{color:#fff;font-weight:700;font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);line-height:1.4;margin:6px 0 12px;}
-.story-beige .ba-img{width:80%;max-width:300px;margin:6px auto 0;border-radius:10px;overflow:hidden;display:block;}
+/* Story Block */
+.story-beige{background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:14px;padding:18px 16px 16px;margin:8px 0 18px;text-align:center;box-shadow:0 4px 18px rgba(200,180,119,.18);}
+.story-beige .ba-img{width:80%;max-width:300px;margin:0 auto;border-radius:10px;overflow:hidden;display:block;}
 .story-beige .ba-img img{width:100%;height:auto;display:block;}
-.story-beige .ba-img svg{width:100%;height:auto;display:block;}
+.story-beige .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,7vw,36px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 16px;line-height:1.2;text-align:center;}
 
 @keyframes vcPulse{0%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0.7);}70%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 22px rgba(200,180,119,0);}100%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0);}}
 .play-btn-pulse{animation:vcPulse 1.6s ease-out infinite;}
-.story-beige .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,7vw,36px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 16px;line-height:1.2;text-align:center;}
 
-/* Method line */
-.method-line{text-align:center;padding:6px 4px 14px;}
-.method-line .ml1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(20px,5.4vw,25px);color:#fff;letter-spacing:.4px;line-height:1.4;}
-.method-line .ml1 span{color:#c8b477;}
-.method-line .ml2{font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.6vw,16px);color:#aaa;line-height:1.5;margin-top:6px;font-style:italic;}
-.method-line .ml2 em{color:#c8b477;font-style:italic;font-weight:600;}
+/* Benefit bullets */
+.benefit-list{list-style:none;margin:14px 0 16px;display:flex;flex-direction:column;gap:10px;}
+.benefit-list li{display:flex;align-items:flex-start;gap:10px;font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.8vw,15.5px);color:#e8dcc4;line-height:1.5;text-align:left;}
+.benefit-list li::before{content:"✓";color:#c8b477;font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px;}
 
-/* Method Pitch beige (no image now) */
-.story-auth-line1{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);color:#fff;font-weight:600;margin-top:14px;line-height:1.4;}
-.story-auth-line1 .story-auth-cat{color:#c8b477;}
-.story-auth-line2{font-family:'Open Sans',sans-serif;font-size:14.5px;color:#e8e3d4;line-height:1.55;margin-top:6px;}
-.pitch-beige{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:28px 20px;margin-bottom:20px;text-align:center;}
-.pitch-beige .pl1{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#1a1a1a;line-height:1.4;}
-.pitch-beige .pl2{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#1a1a1a;line-height:1.4;margin-top:4px;}
-.pitch-beige .pl2 em{color:#cc5500;font-style:normal;}
-.pitch-beige .pl3{font-size:14px;color:#666;line-height:1.5;margin-top:10px;font-weight:500;}
+/* Sold out line */
+.sold-out-line{text-align:center;margin-bottom:12px;font-family:'Open Sans',sans-serif;font-size:13px;}
+.sold-out-line s{color:#888;}
+.sold-out-line span{color:#4caf50;font-weight:700;margin-left:8px;}
 
-/* Mid-page text-link CTA */
+/* Buttons */
+.btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#c8b477;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #8a7035;text-align:center;line-height:1.25;}
+.btn-yes:active{transform:translateY(3px);box-shadow:none;}
+@keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.02);}}
+.btn-pulse{animation:btnPulse 3.5s infinite;}
+.btn-in-offer{margin-top:6px;}
 
-/* Standalone testimonial card */
-.testi-card{background:#1a1812;border-left:3px solid #c8b477;border-radius:8px;padding:14px 14px;margin-bottom:18px;}
+/* Offer Block */
+.offer-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:20px 16px;margin-bottom:18px;}
+.offer-kicker{font-family:'Oswald',sans-serif;font-size:12px;color:#fff;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;opacity:0.75;}
+.offer-title-main{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#c8b477;text-align:center;line-height:1.2;margin-bottom:14px;}
+.offer-pricing{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
+.price-strike{font-family:'Oswald',sans-serif;font-size:18px;color:#888;text-decoration:line-through;font-weight:600;}
+.price-now{font-family:'Oswald',sans-serif;font-size:clamp(32px,8vw,40px);font-weight:700;color:#fff;line-height:1;}
+.price-save{background:#c8b477;color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
+.offer-meta{display:flex;flex-direction:column;gap:6px;align-items:center;margin-bottom:14px;}
+.meta-row{display:flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:14px;color:#e8dcc4;font-weight:600;}
+.meta-live strong{color:#fff;letter-spacing:.5px;}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#ff3333;display:inline-block;box-shadow:0 0 0 0 rgba(255,51,51,0.7);animation:livePulse 1.6s infinite;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(255,51,51,0.7);}70%{box-shadow:0 0 0 8px rgba(255,51,51,0);}100%{box-shadow:0 0 0 0 rgba(255,51,51,0);}}
+.meta-time{color:#c8b477;}
+.bring-book{font-size:14px;color:#c8b477;text-align:center;margin:10px 0 14px;font-weight:600;font-style:italic;}
+
+/* Timer */
+.timer-wrap{text-align:center;margin:14px 0 12px;}
+.timer-label{font-size:12px;color:#ff8080;font-weight:700;letter-spacing:.5px;margin-bottom:8px;}
+.timer-box{background:#1a0000;border:2px solid #ff3333;border-radius:10px;padding:8px 12px;display:inline-block;}
+.timer-row{display:flex;justify-content:center;align-items:center;gap:4px;}
+.t-unit{text-align:center;min-width:34px;}
+.t-num{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.5vw,28px);font-weight:700;color:#fff;line-height:1;}
+.t-ulab{font-size:10px;color:#ff8080;margin-top:2px;letter-spacing:.5px;}
+.t-sep{font-family:'Oswald',sans-serif;font-size:18px;color:#ff4444;font-weight:700;padding-bottom:10px;}
+.session-lbl{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.5vw,21px);font-weight:700;color:#ff8c00;text-align:center;margin:10px 0 6px;letter-spacing:.4px;}
+
+/* Guarantee */
+.guarantee-wrap{background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:1.5px solid #c8b477;border-radius:14px;padding:14px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 14px rgba(200,180,119,0.12);}
+
+/* Testimonial carousel */
+.tc-wrap{margin-bottom:18px;}
+.tc-viewport{overflow:hidden;border-radius:12px;}
+.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
+.tc-slide{flex:0 0 100%;width:100%;}
+.tc-slide img{width:100%;height:auto;display:block;border-radius:12px;}
+.tc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
+.tc-dot{width:9px;height:9px;border-radius:50%;background:#3a3528;border:none;padding:0;cursor:pointer;transition:width 0.3s ease,background 0.3s ease,border-radius 0.3s ease;}
+.tc-dot:hover{background:#5c5440;}
+.tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
+.testimonial-h{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#c8b477;text-align:center;font-weight:700;letter-spacing:0.3px;margin:14px 0 6px;line-height:1.4;}
+
+/* FAQ */
 .faq-wrap{margin:18px 0 16px;}
 .faq-h{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#fff;text-align:center;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;}
 .faq-item{background:#1a1812;border-left:3px solid #c8b477;border-radius:8px;padding:0;margin-bottom:10px;overflow:hidden;}
@@ -95,149 +114,85 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .faq-a{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.6vw,15px);color:#e8dcc4;line-height:1.5;padding:0 14px 14px;animation:faqFade .25s ease;}
 .faq-a em{color:#fff;font-style:normal;font-weight:600;}
 @keyframes faqFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-.btn-in-offer{margin-top:6px;margin-bottom:0;}
-.book-img-cta{display:block;width:100%;max-width:420px;margin:8px auto 14px;border-radius:12px;overflow:hidden;}
-.book-cap{text-align:center;margin:14px 0 6px;}
-.book-cap-h{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.2vw,19px);font-weight:700;color:#fff;line-height:1.3;letter-spacing:.3px;}
-.book-cap-s{font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.5vw,15px);color:#c8b477;font-style:italic;margin-top:3px;}
-.book-img-cta img{width:100%;height:auto;display:block;}
-.testi-q{font-family:'Open Sans',sans-serif;font-size:14.5px;color:#ddd;line-height:1.55;font-style:italic;margin-bottom:6px;}
-.testi-meta{font-family:'Oswald',sans-serif;font-size:12px;color:#c8b477;letter-spacing:.5px;}
-.testi-stars{color:#ffc107;font-size:12px;letter-spacing:1.5px;margin-bottom:4px;}
 
-/* Buttons */
-.btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#c8b477;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #8a7035;text-align:center;line-height:1.25;}
-.btn-yes:active{transform:translateY(3px);box-shadow:none;}
-@keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.02);}}
-.tc-wrap{margin-bottom:18px;}
-.tc-viewport{overflow:hidden;border-radius:12px;}
-.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
-.tc-slide{flex:0 0 100%;width:100%;}
-.tc-slide img{width:100%;height:auto;display:block;border-radius:12px;}
-.tc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
-.tc-dot{width:9px;height:9px;border-radius:50%;background:#3a3528;border:none;padding:0;cursor:pointer;transition:width 0.3s ease,background 0.3s ease,border-radius 0.3s ease;}
-.tc-dot:hover{background:#5c5440;}
-.tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
-.testimonial-h{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#c8b477;text-align:center;font-weight:700;letter-spacing:0.3px;margin:14px 0 6px;line-height:1.4;}
-.btn-pulse{animation:btnPulse 3.5s infinite;}
-
-/* Offer Block */
-.offer-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:20px 16px;margin-bottom:18px;}
-.offer-kicker{font-family:'Oswald',sans-serif;font-size:12px;color:#fff;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;opacity:0.75;}
-.offer-title-main{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#c8b477;text-align:center;line-height:1.2;margin-bottom:14px;}
-.offer-pricing{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
-.price-strike{font-family:'Oswald',sans-serif;font-size:18px;color:#888;text-decoration:line-through;font-weight:600;}
-.price-now{font-family:'Oswald',sans-serif;font-size:clamp(32px,8vw,40px);font-weight:700;color:#fff;line-height:1;}
-.price-save{background:#c8b477;color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
-.offer-meta{display:flex;flex-direction:column;gap:6px;align-items:center;margin-bottom:14px;}
-.meta-row{display:flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:14px;color:#e8dcc4;font-weight:600;}
-.meta-live strong{color:#fff;letter-spacing:.5px;}
-.live-dot{width:9px;height:9px;border-radius:50%;background:#ff3333;display:inline-block;box-shadow:0 0 0 0 rgba(255,51,51,0.7);animation:livePulse 1.6s infinite;}
-@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(255,51,51,0.7);}70%{box-shadow:0 0 0 8px rgba(255,51,51,0);}100%{box-shadow:0 0 0 0 rgba(255,51,51,0);}}
-.meta-time{color:#c8b477;}
-.offer-title{font-family:'Oswald',sans-serif;font-size:clamp(20px,5vw,25px);font-weight:700;color:#fff;line-height:1.3;text-align:center;margin-bottom:6px;}
-.offer-title .price{color:#c8b477;}
-.bring-book{font-size:14px;color:#c8b477;text-align:center;margin:10px 0 14px;font-weight:600;}
-.offer-sub{font-size:clamp(16px,4.2vw,19px);color:#fff;text-align:center;line-height:1.5;margin-bottom:14px;font-weight:700;}
-.offer-img{width:100%;border-radius:10px;overflow:hidden;margin-bottom:14px;}
-.offer-img img{width:100%;height:auto;display:block;}
-.offer-format{text-align:center;font-size:13px;color:#aaa;letter-spacing:.5px;margin-bottom:10px;font-weight:600;}
-.offer-format span{color:#c8b477;}
-.learn-h{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#c8b477;text-align:center;text-transform:uppercase;letter-spacing:1px;margin:8px 0 10px;}
-
-/* Day cards (3 outcomes) */
-.days-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
-.day-out-line{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);color:#fff;line-height:1.45;font-weight:500;}
-.day-card{display:flex;align-items:center;gap:12px;background:#0e0d0b;border:1px solid #2e2a18;border-radius:10px;padding:12px 14px;position:relative;overflow:hidden;}
-.day-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8b477;}
-.day-num{flex-shrink:0;min-width:62px;height:28px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,#c8b477,#8a7035);color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;line-height:1;text-transform:uppercase;margin-top:1px;}
-.day-body{flex:1;min-width:0;}
-.day-label{font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;color:#c8b477;letter-spacing:1px;margin-bottom:1px;text-transform:uppercase;}
-/* Guarantee badge */
-.guarantee-badge{display:block;width:100%;max-width:380px;margin:6px auto 14px;border-radius:12px;overflow:hidden;}
-.guarantee-badge img{width:100%;height:auto;display:block;}
-.guarantee-badge svg{width:100%;height:auto;display:block;}
-
-/* Timer */
-.timer-wrap{text-align:center;margin:14px 0 12px;}
-.timer-label{font-size:12px;color:#ff8080;font-weight:700;letter-spacing:.5px;margin-bottom:8px;}
-.timer-box{background:#1a0000;border:2px solid #ff3333;border-radius:10px;padding:8px 12px;display:inline-block;}
-.timer-row{display:flex;justify-content:center;align-items:center;gap:4px;}
-.t-unit{text-align:center;min-width:34px;}
-.t-num{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.5vw,28px);font-weight:700;color:#fff;line-height:1;}
-.t-ulab{font-size:10px;color:#ff8080;margin-top:2px;letter-spacing:.5px;}
-.t-sep{font-family:'Oswald',sans-serif;font-size:18px;color:#ff4444;font-weight:700;padding-bottom:10px;}
-.session-lbl{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.5vw,21px);font-weight:700;color:#ff8c00;text-align:center;margin:10px 0 6px;letter-spacing:.4px;}
+/* Sticky CTA bar */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#c8b477;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.5);}
+.sticky-cta-left{display:flex;flex-direction:column;line-height:1.2;}
+.sticky-cta-title{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
+.sticky-cta-sub{font-family:'Open Sans',sans-serif;font-size:11px;color:#3a2e00;margin-top:1px;}
+.sticky-cta-btn{background:#1a1a1a;color:#c8b477;font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;padding:10px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;}
 
 /* Mobile */
-@media (max-width:380px){
-  .w{padding:18px 14px 36px;}
-  .result-grid{gap:8px;}
-  .dyn-box,.wpm-box{padding:14px 12px;}
+@media(max-width:380px){
+  .w{padding:18px 14px 100px;}
+  .dyn-box{padding:14px 12px;}
   .offer-block{padding:18px 14px;}
-  .day-card{padding:9px 10px;gap:10px;}
-  .day-num{min-width:58px;height:26px;font-size:12px;padding:0 9px;border-radius:13px;}
 }
-.final-push{text-align:center;margin:24px 0 16px;padding:18px 16px;background:linear-gradient(135deg,#1a1410,#221c14);border:1.5px solid #c8b477;border-radius:12px;}
-.final-push p{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.6vw,20px);color:#fff;font-weight:600;line-height:1.4;margin:6px 0;}
-.final-push p.fp-em{color:#c8b477;font-style:italic;}
 </style>
 </head>
 <body>
 
 <div id="page_top"></div>
+
+<!-- LOADER -->
 <div id="rws_loader" style="position:fixed;inset:0;background:#0e0d0b;z-index:99998;display:flex;flex-direction:column;align-items:center;justify-content:center;">
   <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#c8b477;margin-bottom:12px;">⏳ Calculating your result...</div>
   <div style="font-size:14px;color:#555;">Personalising your report</div>
 </div>
 
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-left">
+    <span class="sticky-cta-title">5-Day Workshop · Mon 18 May</span>
+    <span class="sticky-cta-sub">Limited spots · ₹999 → ₹99</span>
+  </div>
+  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="sticky-cta-btn">Join — ₹99</a>
+</div>
+
+<!-- PROGRESS BAR -->
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
+
 <div class="w">
 
-  <!-- BADGE -->
-  <div class="badge">Your Personal Report</div>
+  <!-- BADGE + SOCIAL PROOF -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+    <div class="badge">Your Personal Report</div>
+    <div style="font-family:'Oswald',sans-serif;font-size:12px;color:#c8b477;font-weight:700;letter-spacing:.5px;">500+ TRAINED</div>
+  </div>
 
-  <!-- TOP HEADLINE -->
+  <!-- HEADLINE -->
   <div class="top-h">
     <span id="rws_name"></span>, here's exactly why books <em>aren't changing your life</em> &darr;
   </div>
 
-  <!-- 2. BOX 1 — SPEED -->
+  <!-- BOX 1 — SPEED -->
   <div class="dyn-box" id="box_speed">
-    <div class="dyn-tag" id="box_speed_tag">WHY YOU LOSE FOCUS</div>
+    <div class="dyn-tag" id="box_speed_tag"></div>
     <div class="dyn-copy" id="box_speed_copy">&mdash;</div>
   </div>
 
-  <!-- 3. BOX 2 — FINISH -->
+  <!-- BOX 2 — FINISH -->
   <div class="dyn-box" id="box_finish">
-    <div class="dyn-tag" id="box_finish_tag">WHY BOOKS TAKE FOREVER</div>
+    <div class="dyn-tag" id="box_finish_tag"></div>
     <div class="dyn-copy" id="box_finish_copy">&mdash;</div>
   </div>
 
-  <!-- 4. BOX 3 — BEHAVIOR -->
+  <!-- BOX 3 — BEHAVIOR -->
   <div class="dyn-box" id="box_behavior" style="border:2px solid #c8b477;background:#fdf8ec;">
-    <div class="dyn-tag" id="box_behavior_tag">WHY NOTHING STICKS</div>
+    <div class="dyn-tag" id="box_behavior_tag"></div>
     <div class="dyn-copy" id="box_behavior_copy">&mdash;</div>
   </div>
 
-  <!-- EMPATHY BRIDGE -->
-  <div style="text-align:center;padding:10px 4px 18px;">
-    <p style="font-family:'Oswald',sans-serif;font-size:clamp(17px,4.5vw,21px);font-weight:600;color:#888;line-height:1.5;">You're not lazy.<br>You were never taught <em style="color:#c8b477;font-style:italic;">how</em> to use a book.</p>
-  </div>
-
-    <!-- 6. STORY (3 lines + before/after image inside) -->
+  <!-- GOOD NEWS + VIDEO -->
   <div class="story-beige">
     <p class="good-news">Good news &mdash; this can be fixed.</p>
-    <p class="line">I stopped trying to read more.</p>
-    <p class="line">I focused on applying <strong>ONE</strong> idea.</p>
-    <p class="kicker">Result: <strong>Lost 14.5 kg</strong> &darr;</p>
 
     <div class="ba-img" id="baMediaWrap" style="position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;" onclick="window.playBaVideo()">
       <img id="baPosterImg" src="transformation.jpg" alt="Before/After — Lost 14.5 kg from one book" decoding="async" fetchpriority="high">
-      <div id="baTapBtn" style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0) 55%);border-radius:10px;pointer-events:none;">
+      <div id="baTapBtn" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.25) 30%,rgba(0,0,0,0) 55%);border-radius:10px;pointer-events:none;">
         <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;">
           <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:26px;padding-left:5px;box-shadow:0 6px 20px rgba(0,0,0,0.55);font-weight:700;line-height:1;">&#9658;</span>
-          <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.2px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.85);text-transform:uppercase;white-space:nowrap;">Tap here to watch &darr;</span>
+          <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.2px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.85);text-transform:uppercase;white-space:nowrap;">Tap to watch &darr;</span>
         </div>
       </div>
     </div>
@@ -245,119 +200,65 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       (function(){
         window.playBaVideo = function(){
           var wrap = document.getElementById('baMediaWrap');
-          if(!wrap || wrap.dataset.played === '1') return;
-          wrap.dataset.played = '1';
-          wrap.style.aspectRatio = '9/16';
-          wrap.style.maxWidth = '260px';
-          wrap.style.width = '80%';
-          wrap.style.margin = '8px auto 0';
-          wrap.style.cursor = 'default';
-          wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;"></iframe>';
-          wrap.onclick = null;
+          if(!wrap || wrap.dataset.played==='1') return;
+          wrap.dataset.played='1';
+          wrap.style.aspectRatio='9/16';
+          wrap.style.maxWidth='260px';
+          wrap.style.width='80%';
+          wrap.style.margin='8px auto 0';
+          wrap.style.cursor='default';
+          wrap.innerHTML='<iframe src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:10px;"></iframe>';
+          wrap.onclick=null;
         };
       })();
     </script>
-
-    <p class="story-auth-line1">I'm Saud &mdash; <span style="color:#c8b477;">Book Implementation Coach</span>.</p>
-    <p class="story-auth-line2">I help busy professionals stop consuming books and start turning ideas into real results.</p>
-    <p style="font-family:'Open Sans',sans-serif;font-size:13.5px;color:#c8b477;line-height:1.55;margin-top:8px;font-style:italic;font-weight:600;"><strong style="color:#fff;font-style:normal;">500+ professionals trained.</strong></p>
-
   </div>
 
-  <!-- 7. METHOD LINE + payoff -->
-  <!-- 8. METHOD PITCH (no image, copy only) -->
-  <div class="pitch-beige">
-    <div class="pl1">You don't need more books.</div>
-    <div class="pl2">You need a <em>simple system</em> to apply what you read.</div>
-  </div>
-
-  <!-- 11. OFFER BLOCK -->
+  <!-- OFFER BLOCK -->
   <div class="offer-block">
 
-    <div class="offer-kicker">5-Day Workshop</div>
-    <div class="offer-title-main">The Workshop That Makes<br><span style="color:#fff;font-size:clamp(18px,4.6vw,22px);font-weight:600;">Books Work For You</span></div>
+    <div class="offer-kicker">5-Day Live Workshop</div>
+    <div class="offer-title-main">Finally Get a Result<br>From a Book &mdash; In 5 Days</div>
 
-    <div class="offer-pricing">
-      <span class="price-strike">₹999</span>
-      <span class="price-now">₹99</span>
-      <span class="price-save">SAVE 90%</span>
+    <!-- SOLD OUT + DATES — Manjunath style -->
+    <div style="margin-bottom:14px;">
+      <div style="font-family:'Open Sans',sans-serif;font-size:13.5px;color:#888;text-align:center;text-decoration:line-through;margin-bottom:6px;">27th April &ndash; 1st May 2026 (SOLD OUT)</div>
+      <div style="font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);font-weight:700;color:#4caf50;text-align:center;letter-spacing:.3px;">18th May &ndash; 22nd May 2026 &nbsp;&#10003; BOOKINGS OPEN</div>
     </div>
 
-    <div class="offer-meta">
-      <div class="meta-row meta-live"><span class="live-dot"></span> <strong>LIVE on Zoom</strong></div>
-      <div class="meta-row meta-time">7:00–8:00 PM &middot; Mon&ndash;Fri</div>
-    </div>
-
-    <div class="ws-img">
+    <!-- WORKSHOP IMAGE -->
+    <div style="margin-bottom:16px;">
       <img src="workshop.jpg" alt="Read to Results — 5-Day Workshop" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;">
     </div>
+
+    <!-- BENEFIT BULLETS -->
+    <ul class="benefit-list">
+      <li>Walk away with a real result &mdash; not just highlights and good intentions</li>
+      <li>Stop carrying the guilt of books you bought but never used</li>
+      <li>The exact method Saud used to lose 14.5 kg from one book idea</li>
+      <li>Bring any book you're reading &mdash; no prep needed</li>
+    </ul>
 
     <!-- TIMER -->
     <div class="timer-wrap" id="timer_block">
       <div class="timer-label">⏰ Workshop starts in</div>
       <div class="timer-box">
         <div class="timer-row">
-          <div class="t-unit" id="days_unit" style="display:none;">
-            <div class="t-num" id="t_days">00</div>
-            <div class="t-ulab">days</div>
-          </div>
+          <div class="t-unit" id="days_unit" style="display:none;"><div class="t-num" id="t_days">00</div><div class="t-ulab">days</div></div>
           <div class="t-sep" id="days_sep" style="display:none;">:</div>
-          <div class="t-unit">
-            <div class="t-num" id="t_hrs">00</div>
-            <div class="t-ulab">hrs</div>
-          </div>
+          <div class="t-unit"><div class="t-num" id="t_hrs">00</div><div class="t-ulab">hrs</div></div>
           <div class="t-sep">:</div>
-          <div class="t-unit">
-            <div class="t-num" id="t_mins">00</div>
-            <div class="t-ulab">min</div>
-          </div>
+          <div class="t-unit"><div class="t-num" id="t_mins">00</div><div class="t-ulab">min</div></div>
           <div class="t-sep" id="secs_sep">:</div>
-          <div class="t-unit" id="secs_unit">
-            <div class="t-num" id="t_secs">00</div>
-            <div class="t-ulab">sec</div>
-          </div>
+          <div class="t-unit" id="secs_unit"><div class="t-num" id="t_secs">00</div><div class="t-ulab">sec</div></div>
         </div>
       </div>
       <div class="session-lbl" id="cta_session_label">Mon 18 May &middot; 7:00 PM IST</div>
     </div>
 
-    <div class="learn-h">Your 5-day path</div>
-    <div class="days-list">
-      <div class="day-card">
-        <div class="day-num">DAY 1</div>
-        <div class="day-body">
-          <div class="day-out-line">Understand <strong>why you keep starting</strong> books and never finishing them.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">DAY 2</div>
-        <div class="day-body">
-          <div class="day-out-line">Read your book with a <strong>clear goal</strong> — not just to get to the last page.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">DAY 3</div>
-        <div class="day-body">
-          <div class="day-out-line">Find the <strong>ONE idea</strong> in your book that could actually change something this week.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">DAY 4</div>
-        <div class="day-body">
-          <div class="day-out-line">Turn that idea into a <strong>simple action</strong> — something you can do today, not someday.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">DAY 5</div>
-        <div class="day-body">
-          <div class="day-out-line">Do it. <strong>See a real result</strong> from a book — for the first time.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 100% GUARANTEE BLOCK -->
-    <div style="background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:1.5px solid #c8b477;border-radius:14px;padding:14px 14px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 14px rgba(200,180,119,0.12);">
-      <svg width="76" height="76" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block;">
+    <!-- GUARANTEE -->
+    <div class="guarantee-wrap">
+      <svg width="64" height="64" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
         <defs>
           <radialGradient id="gBadge" cx="30%" cy="30%" r="70%">
             <stop offset="0%" stop-color="#e8d39a"/>
@@ -366,28 +267,27 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
           </radialGradient>
         </defs>
         <circle cx="40" cy="40" r="38" fill="url(#gBadge)"/>
-        <circle cx="40" cy="40" r="38" fill="none" stroke="#5a4a20" stroke-width="0.5"/>
         <circle cx="40" cy="40" r="30" fill="#1a1410"/>
         <circle cx="40" cy="40" r="30" fill="none" stroke="#c8b477" stroke-width="1"/>
-        <text x="40" y="38" text-anchor="middle" font-family="Oswald, Arial, sans-serif" font-size="16" font-weight="700" fill="#c8b477">100%</text>
-        <text x="40" y="52" text-anchor="middle" font-family="Oswald, Arial, sans-serif" font-size="7" font-weight="700" fill="#c8b477" letter-spacing="0.4">MONEY BACK</text>
+        <text x="40" y="38" text-anchor="middle" font-family="Oswald,Arial,sans-serif" font-size="16" font-weight="700" fill="#c8b477">100%</text>
+        <text x="40" y="52" text-anchor="middle" font-family="Oswald,Arial,sans-serif" font-size="7" font-weight="700" fill="#c8b477" letter-spacing="0.4">MONEY BACK</text>
       </svg>
       <div style="flex:1;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.9vw,17px);font-weight:700;color:#c8b477;line-height:1.25;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.6px;">Zero-Risk Promise</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.9vw,17px);font-weight:700;color:#c8b477;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.6px;">Zero-Risk Promise</div>
         <div style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.4vw,14.5px);color:#e8dcc4;line-height:1.5;">Show up all 5 days. If you don't get a real result, every rupee back &mdash; no forms, no questions.</div>
       </div>
     </div>
 
-    <p class="bring-book"><em>Bring any book you're currently reading.</em></p>
+    <p class="bring-book">Less than a coffee. Results in 5 days.</p>
 
-    <!-- CTA inside offer block -->
-    <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_bottom">
+    <!-- CTA #1 -->
+    <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_main">
       Get My First Book Result &mdash; ₹99
     </a>
 
   </div>
 
-    <!-- TESTIMONIAL CAROUSEL -->
+  <!-- TESTIMONIALS -->
   <div class="testimonial-h">People who stopped reading&hellip; and started applying &darr;</div>
   <div class="tc-wrap" id="testimonialCarousel">
     <div class="tc-viewport">
@@ -405,85 +305,29 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   </div>
   <script>
     (function(){
-      var track = document.getElementById('tcTrack');
-      var dots = document.querySelectorAll('#tcDots .tc-dot');
-      var slides = document.querySelectorAll('#tcTrack .tc-slide');
-      if(!track || slides.length === 0) return;
-      var current = 0, total = slides.length, auto = null;
-
-      function show(i){
-        current = (i + total) % total;
-        track.style.transform = 'translateX(' + (-current * 100) + '%)';
-        for(var d = 0; d < dots.length; d++){
-          dots[d].classList.toggle('tc-dot-active', d === current);
-        }
-      }
-      function next(){ show(current + 1); }
-      function prev(){ show(current - 1); }
-      function start(){ stop(); auto = setInterval(next, 5500); }
-      function stop(){ if(auto){ clearInterval(auto); auto = null; } }
-
-      for(var i = 0; i < dots.length; i++){
-        (function(idx){
-          dots[idx].addEventListener('click', function(){ stop(); show(idx); start(); });
-        })(i);
-      }
-
-      // Touch swipe
-      var sx = 0, dx = 0;
-      track.addEventListener('touchstart', function(e){ stop(); sx = e.touches[0].clientX; dx = 0; }, { passive: true });
-      track.addEventListener('touchmove',  function(e){ dx = e.touches[0].clientX - sx; }, { passive: true });
-      track.addEventListener('touchend',   function(){
-        if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
-        start();
-      });
-
-      // Pause autoplay on hover (desktop)
-      var wrap = document.getElementById('testimonialCarousel');
-      wrap.addEventListener('mouseenter', stop);
-      wrap.addEventListener('mouseleave', start);
-
+      var track=document.getElementById('tcTrack');
+      var dots=document.querySelectorAll('#tcDots .tc-dot');
+      var slides=document.querySelectorAll('#tcTrack .tc-slide');
+      if(!track||slides.length===0) return;
+      var current=0,total=slides.length,auto=null;
+      function show(i){current=(i+total)%total;track.style.transform='translateX('+(-current*100)+'%)';for(var d=0;d<dots.length;d++){dots[d].classList.toggle('tc-dot-active',d===current);}}
+      function next(){show(current+1);}
+      function prev(){show(current-1);}
+      function start(){stop();auto=setInterval(next,5500);}
+      function stop(){if(auto){clearInterval(auto);auto=null;}}
+      for(var i=0;i<dots.length;i++){(function(idx){dots[idx].addEventListener('click',function(){stop();show(idx);start();});})(i);}
+      var sx=0,dx=0;
+      track.addEventListener('touchstart',function(e){stop();sx=e.touches[0].clientX;dx=0;},{passive:true});
+      track.addEventListener('touchmove',function(e){dx=e.touches[0].clientX-sx;},{passive:true});
+      track.addEventListener('touchend',function(){if(Math.abs(dx)>40){dx<0?next():prev();}start();});
+      var wrap=document.getElementById('testimonialCarousel');
+      wrap.addEventListener('mouseenter',stop);
+      wrap.addEventListener('mouseleave',start);
       start();
     })();
   </script>
 
-  <!-- VIDEO — below testimonial carousel (lazy load: tap to play) -->
-  <div id="ytTestiWrap" onclick="window.loadTestiVideo()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
-    <img src="https://img.youtube.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch story video" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
-      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
-    </div>
-  </div>
-  <script>
-    (function(){
-      window.loadTestiVideo = function(){
-        var w = document.getElementById('ytTestiWrap');
-        if(!w || w.dataset.loaded === '1') return;
-        w.dataset.loaded = '1';
-        w.innerHTML = '<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
-        w.style.cursor = 'default';
-        w.onclick = null;
-      };
-    })();
-  </script>
-
-  <!-- 14. SECOND CTA (after social proof) -->
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom2">
-    Get My First Book Result &mdash; ₹99
-  </a>
-
-  <!-- 14b. FINAL PUSH -->
-  <div class="final-push">
-    <p>You already know the problem.</p>
-    <p>Now it's time to fix it.</p>
-    <p class="fp-em">Don't read another book without knowing how to use it.</p>
-  </div>
-
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
-    Get My First Book Result &mdash; ₹99
-  </a>
-
-  <!-- 15. FAQ BLOCK (accordion) -->
+  <!-- FAQ -->
   <div class="faq-wrap">
     <div class="faq-h">FAQ</div>
     <details class="faq-item">
@@ -492,186 +336,137 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     </details>
     <details class="faq-item">
       <summary class="faq-q">I've tried reading systems before and they didn't stick.<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Most systems teach you <em>how to read faster</em> or <em>what to highlight</em>. This one teaches you how to pick ONE idea and build a simple action around it — in 75 minutes, with your actual book in hand. It's harder to not use it than to use it.</div>
+      <div class="faq-a">Most systems teach you <em>how to read faster</em> or <em>what to highlight</em>. This one teaches you how to pick ONE idea and build a simple action around it — with your actual book in hand. It's harder to not use it than to use it.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q">Do I need to prep anything?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">No prep. Just show up. We do the awareness + practice live in 75 minutes.</div>
+      <div class="faq-a">No prep. Just show up with any book you're currently reading. We do everything live.</div>
     </details>
   </div>
 
-  <!-- 16. THIRD CTA (final) -->
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_bottom3">
-    Fix This Now &mdash; ₹99
+  <!-- CTA #2 — FINAL -->
+  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
+    Get My First Book Result &mdash; ₹99
   </a>
 
 </div>
 
 <script>
-// ─────────────────────────────────────────────
 // URL PARAMS
-// ─────────────────────────────────────────────
-var P = new URLSearchParams(window.location.search);
-if(!P.get('name') && document.referrer){
-  try { var _ru = new URL(document.referrer); P = new URLSearchParams(_ru.search); } catch(e){}
-}
-if(!P.get('name')){
-  try { P = new URLSearchParams(window.top.location.search); } catch(e){}
-}
+var P=new URLSearchParams(window.location.search);
+if(!P.get('name')&&document.referrer){try{var _ru=new URL(document.referrer);P=new URLSearchParams(_ru.search);}catch(e){}}
+if(!P.get('name')){try{P=new URLSearchParams(window.top.location.search);}catch(e){}}
 
-var firstName       = P.get('name')                       || 'Friend';
-var wpm             = parseInt(P.get('wpm'))              || 200;
-var daysPerWeek     = parseInt(P.get('days_per_week'))    || parseInt(P.get('days')) || 5;
-var minsPerSession  = parseInt(P.get('minutes_per_session'))|| parseInt(P.get('mins')) || 20;
-var totalWeeks      = parseInt(P.get('weeks'))            || 4;
-var behaviorAnswer  = (P.get('behavior_answer') || P.get('behavior') || 'continue').toLowerCase();
+var firstName      = P.get('name')                         || 'Friend';
+var wpm            = parseInt(P.get('wpm'))                || 200;
+var daysPerWeek    = parseInt(P.get('days_per_week'))      || parseInt(P.get('days'))  || 5;
+var minsPerSession = parseInt(P.get('minutes_per_session'))|| parseInt(P.get('mins'))  || 20;
+var totalWeeks     = parseInt(P.get('weeks'))              || 4;
+var behaviorAnswer = (P.get('behavior_answer')||P.get('behavior')||'continue').toLowerCase();
 
-// ─────────────────────────────────────────────
-// DERIVED BUCKETS
-// ─────────────────────────────────────────────
-var speedBucket = (wpm < 250) ? 'low' : 'high';
+// BUCKETS
+var speedBucket       = (wpm<250)?'low':'high';
+var readingTimePerWeek= daysPerWeek*minsPerSession;
+var consistencyBucket = readingTimePerWeek<60?'low':readingTimePerWeek<=150?'medium':'high';
+var finishDays        = totalWeeks*7;
+var finishBucket      = (finishDays>30)?'slow':'fast';
 
-var readingTimePerWeek = daysPerWeek * minsPerSession;
-var consistencyBucket;
-if(readingTimePerWeek < 60)        consistencyBucket = 'low';
-else if(readingTimePerWeek <= 150) consistencyBucket = 'medium';
-else                               consistencyBucket = 'high';
-
-var finishDays = totalWeeks * 7;
-var finishBucket = (finishDays > 30) ? 'slow' : 'fast';
-
-// ─────────────────────────────────────────────
-// RESULT NUMBERS
-// ─────────────────────────────────────────────
-(function(){var _e=document.getElementById('rws_name');if(_e)_e.textContent = firstName;})();
-(function(){var _e=document.getElementById('rws_wpm');if(_e)_e.textContent  = wpm;})();
+// NAME
+(function(){var e=document.getElementById('rws_name');if(e)e.textContent=firstName;})();
 
 function weeksToText(w){
-  if(w<=1)  return '1 week';
-  if(w<4)   return w+' weeks';
-  var m = Math.round((w/4.33)*2)/2;
-  if(m<=1)  return '1 month';
+  if(w<=1)return'1 week';
+  if(w<4)return w+' weeks';
+  var m=Math.round((w/4.33)*2)/2;
+  if(m<=1)return'1 month';
   return m+' months';
 }
-var ftEl = document.getElementById('rws_finish_time');
-if(ftEl) ftEl.textContent = weeksToText(totalWeeks);
 
-// ─────────────────────────────────────────────
-// BOX 1 — SPEED COPY (ties to actual WPM)
-// ─────────────────────────────────────────────
+// BOX 1 — SPEED
 (function(){
-  var copy = document.getElementById('box_speed_copy');
-  var tag  = document.getElementById('box_speed_tag');
-  if(!copy || !tag) return;
-  if(speedBucket === 'low'){
-    tag.textContent = 'WHY YOU LOSE FOCUS';
-    copy.innerHTML  = "<strong>At <span class='stat'>"+wpm+" WPM</span>, your mind drifts on every page.</strong><br>That's why finishing feels <em>hard</em>.";
-  } else {
-    tag.textContent = 'WHY YOU FORGET FAST';
-    copy.innerHTML  = "<strong>At <span class='stat'>"+wpm+" WPM</span>, you read fast.</strong><br>But fast reading means <em>fast forgetting</em>.";
+  var copy=document.getElementById('box_speed_copy');
+  var tag=document.getElementById('box_speed_tag');
+  if(!copy)return;
+  if(speedBucket==='low'){
+    if(tag)tag.textContent='WHY YOU LOSE FOCUS';
+    copy.innerHTML="<strong>At <span class='stat'>"+wpm+" WPM</span>, your mind drifts on every page.</strong><br>That's why finishing feels <em>hard</em>.";
+  }else{
+    if(tag)tag.textContent='WHY YOU FORGET FAST';
+    copy.innerHTML="<strong>At <span class='stat'>"+wpm+" WPM</span>, you read fast.</strong><br>But fast reading means <em>fast forgetting</em>.";
   }
 })();
 
-// ─────────────────────────────────────────────
-// BOX 2 — FINISH COPY (ties to actual weeks)
-// ─────────────────────────────────────────────
+// BOX 2 — FINISH
 (function(){
-  var copy = document.getElementById('box_finish_copy');
-  var tag  = document.getElementById('box_finish_tag');
-  if(!copy || !tag) return;
-  var ft = weeksToText(totalWeeks);
-  if(finishBucket === 'slow'){
-    tag.textContent = 'WHY BOOKS TAKE FOREVER';
-    copy.innerHTML  = "<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>By then, the start is <em>already gone</em>.";
-  } else {
-    tag.textContent = 'WHY FINISHING ISN\u2019T CHANGING';
-    copy.innerHTML  = "<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>But finishing it <em>won't change you</em>.";
+  var copy=document.getElementById('box_finish_copy');
+  var tag=document.getElementById('box_finish_tag');
+  if(!copy)return;
+  var ft=weeksToText(totalWeeks);
+  if(finishBucket==='slow'){
+    if(tag)tag.textContent='WHY BOOKS TAKE FOREVER';
+    copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>By then, the start is <em>already gone</em>.";
+  }else{
+    if(tag)tag.textContent='WHY FINISHING ISN\u2019T CHANGING YOU';
+    copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>But finishing it <em>won't change you</em>.";
   }
 })();
 
-// ─────────────────────────────────────────────
-// BOX 3 — BEHAVIOR COPY
-// ─────────────────────────────────────────────
+// BOX 3 — BEHAVIOR
 (function(){
-  var copy = document.getElementById('box_behavior_copy');
-  var tag  = document.getElementById('box_behavior_tag');
-  if(!copy || !tag) return;
-  var map = {
-    'continue':  { tag:'WHY YOU\'RE STUCK IN A READING LOOP', text:"You finish, then start the next.<br>A year later &mdash; <em>same shelf, same stuck</em>." },
-    'highlight': { tag:'WHY YOUR HIGHLIGHTS COLLECT DUST',  text:"You mark everything. Reread nothing.<br>Ideas <em>stay on the page</em>." },
-    'think':     { tag:'WHY INSIGHTS DON\'T BECOME ACTIONS',      text:"You get the ideas.<br>You just <em>don't use them</em>." },
-    'apply':     { tag:'WHY EVEN APPLYING DOESN\'T LAST',      text:"You apply &mdash; for a week.<br>Then life happens. Then you <em>forget</em>." }
+  var copy=document.getElementById('box_behavior_copy');
+  var tag=document.getElementById('box_behavior_tag');
+  if(!copy)return;
+  var map={
+    'continue':{tag:'WHY YOU\'RE STUCK IN A READING LOOP',text:"You finish, then start the next.<br>A year later &mdash; <em>same shelf, same stuck</em>."},
+    'highlight':{tag:'WHY YOUR HIGHLIGHTS COLLECT DUST',text:"You mark everything. Reread nothing.<br>Ideas <em>stay on the page</em>."},
+    'think':{tag:'WHY INSIGHTS DON\'T BECOME ACTIONS',text:"You get the ideas.<br>You just <em>don't use them</em>."},
+    'apply':{tag:'WHY EVEN APPLYING DOESN\'T LAST',text:"You apply &mdash; for a week.<br>Then life happens. Then you <em>forget</em>."}
   };
-  var data = map[behaviorAnswer] || map['continue'];
-  tag.textContent = data.tag;
-  copy.innerHTML  = data.text;
+  var data=map[behaviorAnswer]||map['continue'];
+  if(tag)tag.textContent=data.tag;
+  copy.innerHTML=data.text;
 })();
 
-// ─────────────────────────────────────────────
-// IST SESSION TIMER  — Wed 7:00 PM, Sun 3:30 PM
-// ─────────────────────────────────────────────
+// TIMER
 function getNextSession(){
-  // 5-Day Workshop — one-shot countdown to Mon 18 May 2026, 7:00 PM IST
-  var deadlineUTC = Date.UTC(2026, 4, 18, 13, 30, 0);
-  return { label: 'Mon 18 May · 7:00 PM IST', deadlineUTC: deadlineUTC, daysAway: 0 };
+  var deadlineUTC=Date.UTC(2026,4,18,13,30,0);
+  return{label:'Mon 18 May · 7:00 PM IST',deadlineUTC:deadlineUTC};
 }
-
-function pad2(n){ return n<10 ? '0'+n : ''+n; }
-
+function pad2(n){return n<10?'0'+n:''+n;}
 function timerTick(){
-  var session = getNextSession();
-  var lbl = document.getElementById('cta_session_label');
-  if(lbl) lbl.textContent = session.label;
-
-  var blk = document.getElementById('timer_block');
-  var diff = Math.max(0, session.deadlineUTC - Date.now());
-  if(diff===0){ if(blk) blk.style.display='none'; return; }
-  if(blk) blk.style.display='block';
-
-  var totalSec = Math.floor(diff/1000);
-  var days = Math.floor(totalSec/86400);
-  var hrs  = Math.floor((totalSec%86400)/3600);
-  var mins = Math.floor((totalSec%3600)/60);
-  var secs = totalSec%60;
-
-  var dU=document.getElementById('days_unit');
-  var dS=document.getElementById('days_sep');
-  if(days>0){
-    if(dU) dU.style.display='block';
-    if(dS) dS.style.display='block';
-    document.getElementById('t_days').textContent = days;
-  } else {
-    if(dU) dU.style.display='none';
-    if(dS) dS.style.display='none';
-  }
-
-  var scU=document.getElementById('secs_unit');
-  var scS=document.getElementById('secs_sep');
-  if(days===0){
-    if(scU) scU.style.display='block';
-    if(scS) scS.style.display='block';
-  } else {
-    if(scU) scU.style.display='none';
-    if(scS) scS.style.display='none';
-  }
-
-  document.getElementById('t_hrs').textContent  = pad2(hrs);
-  document.getElementById('t_mins').textContent = pad2(mins);
-  document.getElementById('t_secs').textContent = pad2(secs);
+  var session=getNextSession();
+  var lbl=document.getElementById('cta_session_label');
+  if(lbl)lbl.textContent=session.label;
+  var blk=document.getElementById('timer_block');
+  var diff=Math.max(0,session.deadlineUTC-Date.now());
+  if(diff===0){if(blk)blk.style.display='none';return;}
+  if(blk)blk.style.display='block';
+  var totalSec=Math.floor(diff/1000);
+  var days=Math.floor(totalSec/86400);
+  var hrs=Math.floor((totalSec%86400)/3600);
+  var mins=Math.floor((totalSec%3600)/60);
+  var secs=totalSec%60;
+  var dU=document.getElementById('days_unit'),dS=document.getElementById('days_sep');
+  if(days>0){if(dU)dU.style.display='block';if(dS)dS.style.display='block';document.getElementById('t_days').textContent=days;}
+  else{if(dU)dU.style.display='none';if(dS)dS.style.display='none';}
+  var scU=document.getElementById('secs_unit'),scS=document.getElementById('secs_sep');
+  if(days===0){if(scU)scU.style.display='block';if(scS)scS.style.display='block';}
+  else{if(scU)scU.style.display='none';if(scS)scS.style.display='none';}
+  document.getElementById('t_hrs').textContent=pad2(hrs);
+  document.getElementById('t_mins').textContent=pad2(mins);
+  document.getElementById('t_secs').textContent=pad2(secs);
 }
 
-// ─────────────────────────────────────────────
 // INIT
-// ─────────────────────────────────────────────
 setTimeout(function(){
-  var loader = document.getElementById('rws_loader');
-  if(loader) loader.style.display = 'none';
-  var pt = document.getElementById('page_top'); if(pt) pt.scrollIntoView();
+  var loader=document.getElementById('rws_loader');
+  if(loader)loader.style.display='none';
+  var pt=document.getElementById('page_top');if(pt)pt.scrollIntoView();
   timerTick();
-  setInterval(timerTick, 1000);
-}, 300);
+  setInterval(timerTick,1000);
+},300);
 
-if(typeof fbq!=='undefined'){ fbq('track','Lead'); }
+if(typeof fbq!=='undefined'){fbq('track','Lead');}
 </script>
 
 </body>
