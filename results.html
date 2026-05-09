@@ -56,7 +56,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
 @keyframes vcPulse{0%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0.7);}70%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 22px rgba(200,180,119,0);}100%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0);}}
 .play-btn-pulse{animation:vcPulse 1.6s ease-out infinite;}
-.story-beige .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(20px,5.4vw,26px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 8px;line-height:1.2;}
+.story-beige .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,7vw,36px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 16px;line-height:1.2;text-align:center;}
 
 /* Method line */
 .method-line{text-align:center;padding:6px 4px 14px;}
@@ -69,9 +69,9 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .story-auth-line1{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);color:#fff;font-weight:600;margin-top:14px;line-height:1.4;}
 .story-auth-line1 .story-auth-cat{color:#c8b477;}
 .story-auth-line2{font-family:'Open Sans',sans-serif;font-size:14.5px;color:#e8e3d4;line-height:1.55;margin-top:6px;}
-.pitch-beige{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:18px 16px;margin-bottom:16px;text-align:center;}
-.pitch-beige .pl1{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#1a1a1a;line-height:1.4;}
-.pitch-beige .pl2{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#1a1a1a;line-height:1.4;margin-top:4px;}
+.pitch-beige{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:28px 20px;margin-bottom:20px;text-align:center;}
+.pitch-beige .pl1{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#1a1a1a;line-height:1.4;}
+.pitch-beige .pl2{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#1a1a1a;line-height:1.4;margin-top:4px;}
 .pitch-beige .pl2 em{color:#cc5500;font-style:normal;}
 .pitch-beige .pl3{font-size:14px;color:#666;line-height:1.5;margin-top:10px;font-weight:500;}
 
@@ -197,20 +197,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <!-- BADGE -->
   <div class="badge">Your Personal Report</div>
 
-  <!-- TOP HEADLINE — WPM + finish time as hero -->
-  <div class="result-grid" style="margin-bottom:14px;">
-    <div class="wpm-box">
-      <div class="wpm-label">Your Speed</div>
-      <div class="result-num wpm" id="rws_wpm">—</div>
-      <div class="result-sub">words per minute</div>
-    </div>
-    <div class="wpm-box">
-      <div class="wpm-label">To Finish a Book</div>
-      <div class="result-num finish" id="rws_finish_time">—</div>
-      <div class="result-sub">at your current pace</div>
-    </div>
-  </div>
-
+  <!-- TOP HEADLINE -->
   <div class="top-h">
     <span id="rws_name"></span>, here's exactly why books <em>aren't changing your life</em> &darr;
   </div>
@@ -228,7 +215,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   </div>
 
   <!-- 4. BOX 3 — BEHAVIOR -->
-  <div class="dyn-box" id="box_behavior">
+  <div class="dyn-box" id="box_behavior" style="border:2px solid #c8b477;background:#fdf8ec;">
     <div class="dyn-tag" id="box_behavior_tag">WHY NOTHING STICKS</div>
     <div class="dyn-copy" id="box_behavior_copy">&mdash;</div>
   </div>
@@ -288,7 +275,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="offer-block">
 
     <div class="offer-kicker">5-Day Workshop</div>
-    <div class="offer-title-main">Get Your First Real Result<br><span style="color:#fff;font-size:clamp(18px,4.6vw,22px);font-weight:600;">From a Book — This Week</span></div>
+    <div class="offer-title-main">The Workshop That Makes<br><span style="color:#fff;font-size:clamp(18px,4.6vw,22px);font-weight:600;">Books Work For You</span></div>
 
     <div class="offer-pricing">
       <span class="price-strike">₹999</span>
@@ -339,31 +326,31 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       <div class="day-card">
         <div class="day-num">DAY 1</div>
         <div class="day-body">
-          <div class="day-out-line">Stop <strong>abandoning books</strong> without results.</div>
+          <div class="day-out-line">Understand <strong>why you keep starting</strong> books and never finishing them.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 2</div>
         <div class="day-body">
-          <div class="day-out-line">Read with a <strong>goal</strong> — not just to finish.</div>
+          <div class="day-out-line">Read your book with a <strong>clear goal</strong> — not just to get to the last page.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 3</div>
         <div class="day-body">
-          <div class="day-out-line">Choose <strong>ONE idea</strong> worth applying.</div>
+          <div class="day-out-line">Find the <strong>ONE idea</strong> in your book that could actually change something this week.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 4</div>
         <div class="day-body">
-          <div class="day-out-line">Build your <strong>execution plan</strong> (what, when, how).</div>
+          <div class="day-out-line">Turn that idea into a <strong>simple action</strong> — something you can do today, not someday.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">DAY 5</div>
         <div class="day-body">
-          <div class="day-out-line">Apply it &mdash; and see a <strong>real result</strong> this week.</div>
+          <div class="day-out-line">Do it. <strong>See a real result</strong> from a book — for the first time.</div>
         </div>
       </div>
     </div>
