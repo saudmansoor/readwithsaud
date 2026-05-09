@@ -194,7 +194,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div class="story-beige">
     <p class="good-news">Good news &mdash; this can be fixed.</p>
 
-    <div style="position:relative;width:75%;max-width:280px;margin:0 auto;padding-bottom:calc(75% * 16/9);border-radius:12px;overflow:hidden;background:#000;" id="videoWrap">
+    <div style="position:relative;width:100%;padding-bottom:177.78%;border-radius:12px;overflow:hidden;background:#000;" id="videoWrap">
       <iframe
         id="autoplayIframe"
         src="https://www.youtube.com/embed/dZPWHXXaNo0?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=1"
@@ -229,6 +229,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
     <div style="margin-bottom:14px;">
       <div style="font-family:'Open Sans',sans-serif;font-size:13.5px;color:#888;text-align:center;text-decoration:line-through;margin-bottom:6px;">27th April &ndash; 1st May 2026 (SOLD OUT)</div>
       <div style="font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);font-weight:700;color:#4caf50;text-align:center;letter-spacing:.3px;">18th May &ndash; 22nd May 2026 &nbsp;&#10003; BOOKINGS OPEN</div>
+      <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.8vw,16px);font-weight:700;text-align:center;margin-top:8px;letter-spacing:.5px;">5-Day <span style="color:#ff3333;">LIVE</span> Workshop</div>
     </div>
 
     <!-- WORKSHOP IMAGE -->
@@ -372,6 +373,25 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
         if(!w||w.dataset.loaded==='1') return;
         w.dataset.loaded='1';
         w.innerHTML='<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
+        w.style.cursor='default';w.onclick=null;
+      };
+    })();
+  </script>
+
+  <!-- TESTIMONIAL VIDEO 2 -->
+  <div id="ytTestiWrap2" onclick="window.loadTestiVideo2()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
+    <img src="https://img.youtube.com/vi/q_tsL9_bs_I/hqdefault.jpg" alt="Watch testimonial video 2" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
+      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      window.loadTestiVideo2=function(){
+        var w=document.getElementById('ytTestiWrap2');
+        if(!w||w.dataset.loaded==='1') return;
+        w.dataset.loaded='1';
+        w.innerHTML='<iframe src="https://www.youtube.com/embed/q_tsL9_bs_I?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
         w.style.cursor='default';w.onclick=null;
       };
     })();
