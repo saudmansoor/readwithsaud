@@ -114,12 +114,17 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .faq-a em{color:#fff;font-style:normal;font-weight:600;}
 @keyframes faqFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
 
-/* Sticky CTA bar */
-.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#c8b477;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.5);transform:translateY(100%);opacity:0;transition:transform 0.4s ease, opacity 0.4s ease;pointer-events:none;}
-.sticky-cta-left{display:flex;flex-direction:column;line-height:1.2;}
-.sticky-cta-title{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
-.sticky-cta-sub{font-family:'Open Sans',sans-serif;font-size:11px;color:#3a2e00;margin-top:1px;}
-.sticky-cta-btn{background:#1a1a1a;color:#c8b477;font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;padding:10px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;}
+/* Sticky countdown bar */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#b8963e,#c8b477);border-top:2px solid #e8d49a;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 -4px 24px rgba(200,180,119,0.35);transform:translateY(100%);opacity:0;transition:transform 0.4s ease,opacity 0.4s ease;pointer-events:none;}
+.sc-left{display:flex;flex-direction:column;gap:1px;}
+.sc-timer{display:flex;align-items:baseline;gap:3px;}
+.sc-unit{display:flex;flex-direction:column;align-items:center;}
+.sc-num{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#1a1208;line-height:1;}
+.sc-lab{font-size:8px;color:#3a2e00;letter-spacing:.5px;text-transform:uppercase;margin-top:1px;}
+.sc-sep{font-family:'Oswald',sans-serif;font-size:16px;color:#1a1208;font-weight:700;padding-bottom:8px;line-height:1;}
+.sc-date{font-family:'Open Sans',sans-serif;font-size:10px;color:#2a1f00;font-weight:700;letter-spacing:.3px;margin-top:2px;}
+.sc-btn{background:#1a1208;color:#c8b477;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;line-height:1.2;text-align:center;box-shadow:0 3px 0 #0a0804;}
+.sc-price{font-size:11px;font-weight:600;display:block;opacity:0.85;}
 
 /* Day cards */
 .days-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 18px;}
@@ -147,13 +152,21 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div style="font-size:14px;color:#555;">Personalising your report</div>
 </div>
 
-<!-- STICKY BOTTOM BAR -->
+<!-- STICKY COUNTDOWN BAR -->
 <div class="sticky-cta" id="stickyCta">
-  <div class="sticky-cta-left">
-    <span class="sticky-cta-title">5-Day Workshop · Mon 18 May</span>
-    <span class="sticky-cta-sub">Limited spots · ₹999 → ₹99</span>
+  <div class="sc-left">
+    <div class="sc-timer" id="sc_timer">
+      <div class="sc-unit"><div class="sc-num" id="sc_days">09</div><div class="sc-lab">days</div></div>
+      <div class="sc-sep">:</div>
+      <div class="sc-unit"><div class="sc-num" id="sc_hrs">02</div><div class="sc-lab">hrs</div></div>
+      <div class="sc-sep">:</div>
+      <div class="sc-unit"><div class="sc-num" id="sc_mins">47</div><div class="sc-lab">min</div></div>
+    </div>
+    <div class="sc-date">Mon 18 May &middot; 7:00 PM IST</div>
   </div>
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="sticky-cta-btn">Join — ₹99</a>
+  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="sc-btn">
+    Join Now<span class="sc-price">₹99 only</span>
+  </a>
 </div>
 
 <!-- PROGRESS BAR -->
@@ -200,8 +213,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
   <!-- SAD MAN IMAGE — placed at emotional peak -->
   <div style="margin:0 0 20px;border-radius:14px;overflow:hidden;">
-    <img src="/sad-man.png" alt="Books unfinished — the implementation gap" loading="lazy" decoding="async"
-      onerror="this.src='https://readwithsaud.com/sad-man.png'"
+    <img src="sad_man.png" alt="" loading="lazy" decoding="async"
       style="width:100%;height:auto;display:block;border-radius:14px;">
   </div>
 
@@ -594,11 +606,13 @@ setTimeout(function(){
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
 
-// STICKY BAR — fires after 35% scroll depth, catches all mobile browsers
+// STICKY BAR — setInterval polling (most reliable on all mobile browsers)
 (function(){
   var bar = document.getElementById('stickyCta');
+  var video = document.getElementById('videoWrap');
   if(!bar) return;
   var shown = false;
+
   function showBar(){
     if(shown) return;
     shown = true;
@@ -606,15 +620,38 @@ if(typeof fbq!=='undefined'){fbq('track','Lead');}
     bar.style.opacity = '1';
     bar.style.pointerEvents = 'auto';
   }
-  function check(){
-    var scrolled = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-    var total = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    if(scrolled / total > 0.35) showBar();
+
+  // Poll every 250ms — works on every mobile browser
+  var poll = setInterval(function(){
+    if(shown){ clearInterval(poll); return; }
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if(video){
+      var triggerPoint = video.offsetTop + video.offsetHeight;
+      if(scrollY > triggerPoint) showBar();
+    } else {
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      if(total > 0 && scrollY / total > 0.4) showBar();
+    }
+  }, 250);
+
+  // Live countdown in sticky bar
+  var deadlineUTC = Date.UTC(2026,4,18,13,30,0);
+  function scTick(){
+    var diff = Math.max(0, deadlineUTC - Date.now());
+    if(!diff) return;
+    var totalSec = Math.floor(diff/1000);
+    var d = Math.floor(totalSec/86400);
+    var h = Math.floor((totalSec%86400)/3600);
+    var m = Math.floor((totalSec%3600)/60);
+    var dEl=document.getElementById('sc_days');
+    var hEl=document.getElementById('sc_hrs');
+    var mEl=document.getElementById('sc_mins');
+    if(dEl) dEl.textContent = d;
+    if(hEl) hEl.textContent = String(h).padStart(2,'0');
+    if(mEl) mEl.textContent = String(m).padStart(2,'0');
   }
-  window.addEventListener('scroll',   check, {passive:true});
-  document.addEventListener('scroll',    check, {passive:true});
-  document.addEventListener('touchmove', check, {passive:true});
-  document.addEventListener('touchend',  check, {passive:true});
+  scTick();
+  setInterval(scTick, 30000);
 })();
 </script>
 
