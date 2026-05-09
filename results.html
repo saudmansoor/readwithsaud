@@ -221,7 +221,7 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <div style="text-align:center;padding:0 4px 20px;">
     <p style="font-family:'Oswald',sans-serif;font-size:clamp(22px,6vw,30px);font-weight:700;color:#fff;line-height:1.5;">
       That's not a reading problem.<br>
-      <span style="color:#c8b477;">That's an implementation problem.</span>
+      <span style="color:#fff;">That's an implementation problem.</span>
     </p>
   </div>
 
@@ -622,16 +622,21 @@ if(typeof fbq!=='undefined'){fbq('track','Lead');}
   }
 
   // Poll every 250ms — works on every mobile browser
+  function getAbsoluteTop(el){
+    var top = 0;
+    while(el){ top += el.offsetTop; el = el.offsetParent; }
+    return top;
+  }
+  var triggerY = 0;
   var poll = setInterval(function(){
+    // Calculate trigger point once page has rendered
+    if(!triggerY && video){
+      triggerY = getAbsoluteTop(video) + video.offsetHeight;
+    }
     if(shown){ clearInterval(poll); return; }
     var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    if(video){
-      var triggerPoint = video.offsetTop + video.offsetHeight;
-      if(scrollY > triggerPoint) showBar();
-    } else {
-      var total = document.documentElement.scrollHeight - window.innerHeight;
-      if(total > 0 && scrollY / total > 0.4) showBar();
-    }
+    var threshold = triggerY || (document.documentElement.scrollHeight - window.innerHeight) * 0.45;
+    if(scrollY > threshold) showBar();
   }, 250);
 
   // Live countdown in sticky bar
