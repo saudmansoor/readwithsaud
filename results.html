@@ -593,36 +593,16 @@ setTimeout(function(){
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
 
-// STICKY BAR — show when video section comes into view
+// STICKY BAR — show after 5 seconds
 (function(){
   var bar = document.getElementById('stickyCta');
   if(!bar) return;
-  var shown = false;
 
-  function showBar(){
-    if(shown) return;
-    shown = true;
+  setTimeout(function(){
     bar.style.transform = 'translateY(0)';
     bar.style.opacity = '1';
     bar.style.pointerEvents = 'auto';
-  }
-
-  // Watch for video section entering viewport
-  var videoSection = document.querySelector('.story-beige');
-  if(videoSection && 'IntersectionObserver' in window){
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          showBar();
-          obs.disconnect();
-        }
-      });
-    }, {threshold: 0.2});
-    obs.observe(videoSection);
-  }
-
-  // Fallback — show after 12 seconds regardless
-  setTimeout(showBar, 12000);
+  }, 5000);
 
   // Live countdown in sticky bar
   var deadlineUTC = Date.UTC(2026,4,18,13,30,0);
