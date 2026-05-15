@@ -6,9 +6,6 @@
 <title>Your Reading Report · Read With Saud</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://player.vimeo.com">
-<link rel="preconnect" href="https://vumbnail.com">
-<link rel="preload" as="image" href="https://vumbnail.com/1190790189.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- META PIXEL — PASTE YOUR PIXEL CODE HERE -->
 <style>
@@ -16,7 +13,7 @@
 body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-height:100vh;}
 .prog{display:flex;gap:5px;padding:16px 20px 0;max-width:500px;margin:0 auto;}
 .pb{flex:1;height:3px;border-radius:2px;background:#c8b477;}
-.w{max-width:500px;margin:0 auto;padding:20px 20px 120px;}
+.w{max-width:500px;margin:0 auto;padding:20px 20px 60px;}
 
 /* Badge */
 .badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;background:rgba(200,180,119,.1);border:1px solid rgba(200,180,119,.3);color:#c8b477;}
@@ -33,140 +30,45 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 .top-h{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#f0ede6;line-height:1.3;margin-bottom:16px;}
 .top-h em{color:#c8b477;font-style:italic;font-weight:700;}
 
-/* Story Block */
-.story-beige{background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:14px;padding:18px 16px 16px;margin:8px 0 18px;text-align:center;box-shadow:0 4px 18px rgba(200,180,119,.18);}
-.story-beige .ba-img{width:80%;max-width:300px;margin:0 auto;border-radius:10px;overflow:hidden;display:block;}
-.story-beige .ba-img img{width:100%;height:auto;display:block;}
-.story-beige .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(26px,7vw,36px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 16px;line-height:1.2;text-align:center;}
-
-@keyframes vcPulse{0%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0.7);}70%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 22px rgba(200,180,119,0);}100%{box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 0 rgba(200,180,119,0);}}
-.play-btn-pulse{animation:vcPulse 1.6s ease-out infinite;}
-
-/* Benefit bullets */
-.benefit-list{list-style:none;margin:14px 0 16px;display:flex;flex-direction:column;gap:10px;}
-.benefit-list li{display:flex;align-items:flex-start;gap:10px;font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.8vw,15.5px);color:#e8dcc4;line-height:1.5;text-align:left;}
-.benefit-list li::before{content:"✓";color:#c8b477;font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px;}
-
-/* Sold out line */
-.sold-out-line{text-align:center;margin-bottom:12px;font-family:'Open Sans',sans-serif;font-size:13px;}
-.sold-out-line s{color:#888;}
-.sold-out-line span{color:#4caf50;font-weight:700;margin-left:8px;}
+/* HOPE BLOCK — post sad-man pivot */
+.hope-block{position:relative;background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:16px;padding:26px 18px 22px;margin:8px 0 22px;box-shadow:0 6px 28px rgba(200,180,119,.22);text-align:center;animation:hopeFade .6s ease-out;}
+@keyframes hopeFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.hope-block .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(24px,6.4vw,32px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 18px;line-height:1.2;text-align:center;}
+.hope-intro{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;line-height:1.7;margin-bottom:20px;}
+.hope-intro strong{color:#c8b477;font-weight:700;}
+.hope-program-wrap{margin:0 0 16px;}
+.hope-built-for-pre{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#a89976;line-height:1.4;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;}
+.hope-program{display:inline-block;font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);font-weight:700;color:#c8b477;letter-spacing:1px;text-transform:uppercase;line-height:1.15;}
+.hope-built-for{font-family:'Open Sans',sans-serif;font-size:clamp(14.5px,3.9vw,16px);color:#e8dcc4;line-height:1.55;margin:8px 0 14px;font-weight:500;}
+.hope-bullets{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:9px;text-align:left;}
+.hope-bullets li{display:flex;align-items:flex-start;gap:11px;font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.7vw,15.5px);color:#f0ede6;line-height:1.5;padding:11px 13px;background:rgba(200,180,119,.08);border-left:3px solid #c8b477;border-radius:6px;}
+.hope-bullets li::before{content:"✓";color:#c8b477;font-weight:700;font-size:17px;flex-shrink:0;line-height:1.3;}
+.hope-commit{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;font-weight:600;margin-bottom:18px;line-height:1.5;letter-spacing:.2px;}
+.hope-proof{margin:18px 0 16px;padding:14px 10px;background:rgba(200,180,119,.08);border-top:1px solid rgba(200,180,119,.25);border-bottom:1px solid rgba(200,180,119,.25);}
+.hope-proof p{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#e8dcc4;line-height:1.5;margin:0 0 6px;}
+.hope-next{font-family:'Oswald',sans-serif !important;font-size:clamp(17px,4.6vw,21px) !important;font-weight:700;color:#fff !important;letter-spacing:.4px;margin-bottom:0 !important;margin-top:6px !important;}
+.next-pop{color:#c8b477;font-weight:800;font-size:1.15em;letter-spacing:1.2px;text-shadow:0 0 14px rgba(200,180,119,.5);}
 
 /* Buttons */
 .btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#1e8c3a;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #0f5c22;text-align:center;line-height:1.25;}
 .btn-yes:active{transform:translateY(3px);box-shadow:none;}
-@keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.02);}}
+@keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.025);}}
 .btn-pulse{animation:btnPulse 3.5s infinite;}
-.btn-in-offer{margin-top:6px;}
-
-/* Offer Block */
-.offer-block{background:#1e1c14;border:1.5px solid #c8b477;border-radius:16px;padding:20px 16px;margin-bottom:18px;}
-.offer-kicker{font-family:'Oswald',sans-serif;font-size:12px;color:#fff;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;opacity:0.75;}
-.offer-title-main{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#c8b477;text-align:center;line-height:1.2;margin-bottom:14px;}
-.offer-pricing{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 14px;flex-wrap:wrap;}
-.price-strike{font-family:'Oswald',sans-serif;font-size:18px;color:#888;text-decoration:line-through;font-weight:600;}
-.price-now{font-family:'Oswald',sans-serif;font-size:clamp(32px,8vw,40px);font-weight:700;color:#fff;line-height:1;}
-.price-save{background:#c8b477;color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
-.offer-meta{display:flex;flex-direction:column;gap:6px;align-items:center;margin-bottom:14px;}
-.meta-row{display:flex;align-items:center;gap:8px;font-family:'Open Sans',sans-serif;font-size:14px;color:#e8dcc4;font-weight:600;}
-.meta-live strong{color:#fff;letter-spacing:.5px;}
-.live-dot{width:9px;height:9px;border-radius:50%;background:#ff3333;display:inline-block;box-shadow:0 0 0 0 rgba(255,51,51,0.7);animation:livePulse 1.6s infinite;}
-@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(255,51,51,0.7);}70%{box-shadow:0 0 0 8px rgba(255,51,51,0);}100%{box-shadow:0 0 0 0 rgba(255,51,51,0);}}
-.meta-time{color:#c8b477;}
-.bring-book{font-size:14px;color:#c8b477;text-align:center;margin:10px 0 14px;font-weight:600;font-style:italic;}
-
-/* Timer */
-.timer-wrap{text-align:center;margin:14px 0 12px;}
-.timer-label{font-size:12px;color:#ff8080;font-weight:700;letter-spacing:.5px;margin-bottom:8px;}
-.timer-box{background:#1a0000;border:2px solid #ff3333;border-radius:10px;padding:8px 12px;display:inline-block;}
-.timer-row{display:flex;justify-content:center;align-items:center;gap:4px;}
-.t-unit{text-align:center;min-width:34px;}
-.t-num{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.5vw,28px);font-weight:700;color:#fff;line-height:1;}
-.t-ulab{font-size:10px;color:#ff8080;margin-top:2px;letter-spacing:.5px;}
-.t-sep{font-family:'Oswald',sans-serif;font-size:18px;color:#ff4444;font-weight:700;padding-bottom:10px;}
-.session-lbl{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.5vw,21px);font-weight:700;color:#ff8c00;text-align:center;margin:10px 0 6px;letter-spacing:.4px;}
-
-/* Guarantee */
-.guarantee-wrap{background:linear-gradient(135deg,#b8963e,#c8b477);border-radius:14px;padding:16px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 18px rgba(200,180,119,0.35);}
-
-/* Testimonial carousel */
-.tc-wrap{margin-bottom:18px;}
-.tc-viewport{overflow:hidden;border-radius:12px;}
-.tc-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
-.tc-slide{flex:0 0 100%;width:100%;}
-.tc-slide img{width:100%;height:auto;display:block;border-radius:12px;}
-.tc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
-.tc-dot{width:9px;height:9px;border-radius:50%;background:#3a3528;border:none;padding:0;cursor:pointer;transition:width 0.3s ease,background 0.3s ease,border-radius 0.3s ease;}
-.tc-dot:hover{background:#5c5440;}
-.tc-dot-active{background:#c8b477;width:26px;border-radius:5px;}
-.testimonial-h{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#c8b477;text-align:center;font-weight:700;letter-spacing:0.3px;margin:14px 0 6px;line-height:1.4;}
-
-/* FAQ */
-.faq-wrap{margin:18px 0 16px;}
-.faq-h{font-family:'Oswald',sans-serif;font-size:clamp(18px,4.6vw,22px);font-weight:700;color:#fff;text-align:center;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;}
-.faq-item{background:#1a1812;border-left:3px solid #c8b477;border-radius:8px;padding:0;margin-bottom:10px;overflow:hidden;}
-.faq-item summary.faq-q{cursor:pointer;list-style:none;padding:14px 44px 14px 14px;position:relative;font-family:'Oswald',sans-serif;font-size:clamp(14px,3.8vw,16px);font-weight:700;color:#c8b477;line-height:1.35;user-select:none;-webkit-tap-highlight-color:rgba(200,180,119,.1);}
-.faq-item summary.faq-q::-webkit-details-marker{display:none;}
-.faq-item summary.faq-q::marker{content:'';display:none;}
-.faq-toggle{position:absolute;right:14px;top:50%;width:18px;height:18px;transform:translateY(-50%);transition:transform .25s ease;}
-.faq-toggle::before,.faq-toggle::after{content:'';position:absolute;left:50%;top:50%;background:#c8b477;border-radius:1px;}
-.faq-toggle::before{width:14px;height:2px;transform:translate(-50%,-50%);}
-.faq-toggle::after{width:2px;height:14px;transform:translate(-50%,-50%);transition:transform .25s ease;}
-.faq-item[open] .faq-toggle::after{transform:translate(-50%,-50%) rotate(90deg);}
-.faq-item[open] summary.faq-q{color:#fff;}
-.faq-item[open] .faq-toggle::before,.faq-item[open] .faq-toggle::after{background:#fff;}
-.faq-a{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.6vw,15px);color:#e8dcc4;line-height:1.5;padding:0 14px 14px;animation:faqFade .25s ease;}
-.faq-a em{color:#fff;font-style:normal;font-weight:600;}
-@keyframes faqFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-
-/* Sticky countdown bar */
-.sticky-cta{position:fixed;bottom:56px;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#b8963e,#c8b477);border-top:2px solid #e8d49a;border-bottom:2px solid #e8d49a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 -4px 24px rgba(200,180,119,0.35);transform:translateY(200%);opacity:0;transition:transform 0.4s ease,opacity 0.4s ease;pointer-events:none;}
-.sc-left{display:flex;flex-direction:column;gap:1px;}
-.sc-timer{display:flex;align-items:baseline;gap:3px;}
-.sc-unit{display:flex;flex-direction:column;align-items:center;}
-.sc-num{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#1a1208;line-height:1;}
-.sc-lab{font-size:8px;color:#3a2e00;letter-spacing:.5px;text-transform:uppercase;margin-top:1px;}
-.sc-sep{font-family:'Oswald',sans-serif;font-size:16px;color:#1a1208;font-weight:700;padding-bottom:8px;line-height:1;}
-.sc-date{font-family:'Open Sans',sans-serif;font-size:10px;color:#2a1f00;font-weight:700;letter-spacing:.3px;margin-top:2px;}
-.sc-btn{background:#1e8c3a;color:#fff;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;line-height:1.2;text-align:center;box-shadow:0 3px 0 #0f5c22;}
-.sc-price{font-size:11px;font-weight:600;display:block;opacity:0.85;}
-
-/* Day cards */
-.days-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 18px;}
-.day-card{display:flex;align-items:center;gap:12px;background:#0e0d0b;border:1px solid #2e2a18;border-radius:10px;padding:12px 14px;position:relative;overflow:hidden;}
-.day-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8b477;}
-.day-num{flex-shrink:0;min-width:62px;height:28px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,#c8b477,#8a7035);color:#1a1a1a;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;}
-.day-out-line{font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.8vw,16px);color:#fff;line-height:1.45;font-weight:500;}
-.section-h{font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;color:#c8b477;text-align:center;text-transform:uppercase;letter-spacing:.8px;margin:22px 0 12px;}
+.btn-in-hope{margin-top:6px;}
+.btn-arrow{display:inline-block;margin-left:8px;transition:transform .25s ease;}
+.btn-yes:hover .btn-arrow{transform:translateX(4px);}
 
 /* Mobile */
 @media(max-width:380px){
-  .w{padding:18px 14px 100px;}
-  .dyn-box{padding:14px 12px;}
-  .offer-block{padding:18px 14px;}
+  .w{padding:18px 14px 50px;}
+  .hope-block{padding:22px 14px 18px;}
+  .hope-bullets li{padding:10px 11px;}
 }
 </style>
 </head>
 <body>
 
 <div id="page_top"></div>
-
-<!-- STICKY COUNTDOWN BAR -->
-<div class="sticky-cta" id="stickyCta">
-  <div class="sc-left">
-    <div class="sc-timer" id="sc_timer">
-      <div class="sc-unit"><div class="sc-num" id="sc_days">09</div><div class="sc-lab">days</div></div>
-      <div class="sc-sep">:</div>
-      <div class="sc-unit"><div class="sc-num" id="sc_hrs">02</div><div class="sc-lab">hrs</div></div>
-      <div class="sc-sep">:</div>
-      <div class="sc-unit"><div class="sc-num" id="sc_mins">47</div><div class="sc-lab">min</div></div>
-    </div>
-    <div class="sc-date">Mon 18 May &middot; 7:00 PM IST</div>
-  </div>
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="sc-btn">
-    Get Real Results<span class="sc-price">5 Days · ₹99 Only</span>
-  </a>
-</div>
 
 <!-- PROGRESS BAR -->
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
@@ -216,290 +118,64 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
       style="width:100%;height:auto;display:block;border-radius:14px;">
   </div>
 
-  <!-- GOOD NEWS + VIDEO — tap to play thumbnail -->
-  <div class="story-beige">
+  <!-- HOPE BLOCK — pivot to the fix, handoff to landing page -->
+  <div class="hope-block">
+
     <p class="good-news">Good news &mdash; this can be fixed.</p>
 
-    <!-- Hook line above video -->
-    <p style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.6vw,15px);color:#fff;font-weight:700;text-align:center;margin-bottom:12px;letter-spacing:.3px;">
-      &#9658; Watch this first &mdash; 60 seconds
+    <p class="hope-intro">
+      <span id="rws_name2"></span>, your report shows the problem.<br>
+      A <strong>5-day live workshop</strong> will fix it.
     </p>
 
-    <!-- Vimeo video — direct embed, one tap plays -->
-    <div style="width:95%;margin:0 auto;">
-      <div style="position:relative;width:100%;padding-bottom:177.78%;border-radius:12px;overflow:hidden;">
-        <iframe
-          src="https://player.vimeo.com/video/1190790189?playsinline=1&title=0&byline=0&portrait=0&autoplay=0"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:12px;">
-        </iframe>
-      </div>
-    </div>
-    <script>window.playMainVideo=function(){};</script>
-  </div>
-
-  <!-- OFFER BLOCK -->
-  <div class="offer-block">
-
-    <div class="offer-title-main">Finally Get a Result<br>From a Book &mdash; In 5 Days</div>
-
-    <!-- SOLD OUT + DATES — Manjunath style -->
-    <div style="margin-bottom:14px;">
-      <div style="font-family:'Open Sans',sans-serif;font-size:13.5px;color:#888;text-align:center;text-decoration:line-through;margin-bottom:6px;">27th April &ndash; 1st May 2026 (SOLD OUT)</div>
-      <div style="font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);font-weight:700;color:#4caf50;text-align:center;letter-spacing:.3px;">18th May &ndash; 22nd May 2026 &nbsp;&#10003; BOOKINGS OPEN</div>
-      <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.8vw,16px);font-weight:700;text-align:center;margin-top:8px;letter-spacing:.5px;">5-Day <span style="color:#ff3333;">LIVE</span> Workshop</div>
+    <div class="hope-program-wrap">
+      <div class="hope-built-for-pre">It's called</div>
+      <div class="hope-program">Read to Results</div>
     </div>
 
-    <!-- WORKSHOP IMAGE -->
-    <div style="margin-bottom:16px;">
-      <img src="workshop.jpg" alt="Read to Results — 5-Day Workshop" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px;background:#1a1812;">
-    </div>
+    <p class="hope-built-for">And it's built for you if:</p>
 
-    <!-- BENEFIT BULLETS -->
-    <ul class="benefit-list">
-      <li>Walk away with a real result &mdash; not just highlights</li>
-      <li>Stop carrying the guilt of books you bought but never used</li>
-      <li>The exact method Saud used to lose 14.5 kg from one book idea</li>
+    <ul class="hope-bullets">
+      <li>You buy books with hope and end with regret</li>
+      <li>You read every day &mdash; but nothing in your life actually shifts</li>
+      <li>You want reading to finally move your life &mdash; not just sit on your shelf</li>
     </ul>
 
-    <!-- TIMER -->
-    <div class="timer-wrap" id="timer_block">
-      <div class="timer-label">⏰ Workshop starts in</div>
-      <div class="timer-box">
-        <div class="timer-row">
-          <div class="t-unit" id="days_unit" style="display:none;"><div class="t-num" id="t_days">00</div><div class="t-ulab">days</div></div>
-          <div class="t-sep" id="days_sep" style="display:none;">:</div>
-          <div class="t-unit"><div class="t-num" id="t_hrs">00</div><div class="t-ulab">hrs</div></div>
-          <div class="t-sep">:</div>
-          <div class="t-unit"><div class="t-num" id="t_mins">00</div><div class="t-ulab">min</div></div>
-          <div class="t-sep" id="secs_sep">:</div>
-          <div class="t-unit" id="secs_unit"><div class="t-num" id="t_secs">00</div><div class="t-ulab">sec</div></div>
-        </div>
-      </div>
-      <div class="session-lbl" id="cta_session_label">Mon 18 May &middot; 7:00 PM IST</div>
+    <p class="hope-commit">If even one of these hits home &mdash;<br>this workshop is for you.</p>
+
+    <div class="hope-proof">
+      <p>500+ professionals have already got their first real result from a book.</p>
+      <p class="hope-next">You can be <span class="next-pop">NEXT</span>.</p>
     </div>
 
-    <!-- GUARANTEE -->
-    <div class="guarantee-wrap">
-      <svg width="64" height="64" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-        <defs>
-          <radialGradient id="gBadge" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#e8d39a"/>
-            <stop offset="55%" stop-color="#c8b477"/>
-            <stop offset="100%" stop-color="#8a7035"/>
-          </radialGradient>
-        </defs>
-        <circle cx="40" cy="40" r="38" fill="url(#gBadge)"/>
-        <circle cx="40" cy="40" r="30" fill="#1a1410"/>
-        <circle cx="40" cy="40" r="30" fill="none" stroke="#c8b477" stroke-width="1"/>
-        <text x="40" y="38" text-anchor="middle" font-family="Oswald,Arial,sans-serif" font-size="16" font-weight="700" fill="#c8b477">100%</text>
-        <text x="40" y="52" text-anchor="middle" font-family="Oswald,Arial,sans-serif" font-size="7" font-weight="700" fill="#c8b477" letter-spacing="0.4">MONEY BACK</text>
-      </svg>
-      <div style="flex:1;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,3.9vw,17px);font-weight:700;color:#1a1208;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.6px;">Zero-Risk Promise</div>
-        <div style="font-family:'Open Sans',sans-serif;font-size:clamp(13px,3.4vw,14.5px);color:#2a1f00;line-height:1.5;">Attend <em style="color:#1a1208;font-style:normal;font-weight:700;">Day 1</em>. If you don't feel the value, ask for a full refund the same day &mdash; no forms, no questions.</div>
-      </div>
-    </div>
-
-    <p class="bring-book">Less than a coffee. Results in 5 days.</p>
-
-    <!-- CTA #1 -->
-    <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-offer" id="cta_main">
-      Get My First Book Result &mdash; ₹99
+    <a href="https://readwithsaud.com/rr" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse btn-in-hope" id="cta_main">
+      Show Me How <span class="btn-arrow">&rarr;</span>
     </a>
 
   </div>
 
-  <!-- TESTIMONIALS -->
-  <div class="testimonial-h">People who stopped reading&hellip; and started applying &darr;</div>
-  <div class="tc-wrap" id="testimonialCarousel">
-    <div class="tc-viewport">
-      <div class="tc-track" id="tcTrack">
-        <div class="tc-slide"><img src="testimonial-1.jpg" alt="Testimonial 1" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-2.jpg" alt="Testimonial 2" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-3.jpg" alt="Testimonial 3" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-4.jpg" alt="Testimonial 4" decoding="async"></div>
-        <div class="tc-slide"><img src="testimonial-5.jpg" alt="Testimonial 5" decoding="async"></div>
-      </div>
-    </div>
-    <div class="tc-dots" id="tcDots">
-      <button class="tc-dot tc-dot-active" aria-label="Show testimonial 1"></button>
-      <button class="tc-dot" aria-label="Show testimonial 2"></button>
-      <button class="tc-dot" aria-label="Show testimonial 3"></button>
-      <button class="tc-dot" aria-label="Show testimonial 4"></button>
-      <button class="tc-dot" aria-label="Show testimonial 5"></button>
-    </div>
-  </div>
-  <script>
-    (function(){
-      var track=document.getElementById('tcTrack');
-      var dots=document.querySelectorAll('#tcDots .tc-dot');
-      var slides=document.querySelectorAll('#tcTrack .tc-slide');
-      if(!track||slides.length===0) return;
-      var current=0,total=slides.length,auto=null;
-      function show(i){current=(i+total)%total;track.style.transform='translateX('+(-current*100)+'%)';for(var d=0;d<dots.length;d++){dots[d].classList.toggle('tc-dot-active',d===current);}}
-      function next(){show(current+1);}
-      function prev(){show(current-1);}
-      function start(){stop();auto=setInterval(next,5500);}
-      function stop(){if(auto){clearInterval(auto);auto=null;}}
-      for(var i=0;i<dots.length;i++){(function(idx){dots[idx].addEventListener('click',function(){stop();show(idx);start();});})(i);}
-      var sx=0,dx=0;
-      track.addEventListener('touchstart',function(e){stop();sx=e.touches[0].clientX;dx=0;},{passive:true});
-      track.addEventListener('touchmove',function(e){dx=e.touches[0].clientX-sx;},{passive:true});
-      track.addEventListener('touchend',function(){if(Math.abs(dx)>40){dx<0?next():prev();}start();});
-      var wrap=document.getElementById('testimonialCarousel');
-      wrap.addEventListener('mouseenter',stop);
-      wrap.addEventListener('mouseleave',start);
-      start();
-    })();
-  </script>
-
-  <!-- DAY 1-5 -->
-  <div class="section-h">What You'll Do Each Day</div>
-  <div class="days-list">
-    <div class="day-card">
-      <div class="day-num">DAY 1</div>
-      <div class="day-out-line">Why your reading isn't changing your life</div>
-    </div>
-    <div class="day-card">
-      <div class="day-num">DAY 2</div>
-      <div class="day-out-line">Read with one goal. Not just to finish.</div>
-    </div>
-    <div class="day-card">
-      <div class="day-num">DAY 3</div>
-      <div class="day-out-line">Find ONE idea that moves your life forward</div>
-    </div>
-    <div class="day-card">
-      <div class="day-num">DAY 4</div>
-      <div class="day-out-line">Turn it into one action. Today.</div>
-    </div>
-    <div class="day-card">
-      <div class="day-num">DAY 5</div>
-      <div class="day-out-line">Do it. Your first real result from a book.</div>
-    </div>
-  </div>
-
-  <!-- TESTIMONIAL VIDEO -->
-  <div class="section-h">Hear It From Them &darr;</div>
-  <div id="ytTestiWrap" onclick="window.loadTestiVideo()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
-    <img src="https://img.youtube.com/vi/JHrVWjlhZ40/hqdefault.jpg" alt="Watch testimonial video" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
-      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
-    </div>
-  </div>
-  <script>
-    (function(){
-      window.loadTestiVideo=function(){
-        var w=document.getElementById('ytTestiWrap');
-        if(!w||w.dataset.loaded==='1') return;
-        w.dataset.loaded='1';
-        w.innerHTML='<iframe src="https://www.youtube.com/embed/JHrVWjlhZ40?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
-        w.style.cursor='default';w.onclick=null;
-      };
-    })();
-  </script>
-
-  <!-- TESTIMONIAL VIDEO 2 -->
-  <div id="ytTestiWrap2" onclick="window.loadTestiVideo2()" style="margin-bottom:18px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;cursor:pointer;background:#000;-webkit-tap-highlight-color:transparent;">
-    <img src="https://img.youtube.com/vi/q_tsL9_bs_I/hqdefault.jpg" alt="Watch testimonial video 2" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.30);border-radius:12px;">
-      <span class="play-btn-pulse" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#c8b477;color:#1a1a1a;font-size:24px;padding-left:5px;box-shadow:0 6px 18px rgba(0,0,0,0.5);font-weight:700;line-height:1;">&#9658;</span>
-    </div>
-  </div>
-  <script>
-    (function(){
-      window.loadTestiVideo2=function(){
-        var w=document.getElementById('ytTestiWrap2');
-        if(!w||w.dataset.loaded==='1') return;
-        w.dataset.loaded='1';
-        w.innerHTML='<iframe src="https://www.youtube.com/embed/q_tsL9_bs_I?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;border:none;"></iframe>';
-        w.style.cursor='default';w.onclick=null;
-      };
-    })();
-  </script>
-
-  <!-- CTA after testimonial video -->
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_mid" style="margin-bottom:24px;">
-    Get My First Book Result &mdash; ₹99
-  </a>
-
-  <!-- FAQ -->
-  <div class="faq-wrap">
-    <div class="faq-h">Frequently Asked Questions</div>
-
-    <details class="faq-item">
-      <summary class="faq-q">In which language is the workshop conducted?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">The workshop is conducted in <em>English</em>. The language is simple and conversational — no jargon, no complex terms. If you can read this page, you will follow the workshop comfortably.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">How will I get the Zoom link to attend?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Once you register, the Zoom link will be sent to you on <em>WhatsApp and email</em> within 24 hours. You will also get a reminder on the day of the workshop.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What are the timings?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">The workshop runs <em>Monday to Friday, 7:00 PM – 8:00 PM IST</em>. Each session is 60 minutes. It is designed for working professionals so evening timing works for most people.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Will I get a recording if I miss a session?<span class="faq-toggle"></span></summary>
-      <div class="faq-a"><em>No recording.</em> This is a live-only workshop. The live format is what makes it work — you bring your book, you apply the method in real time, and you get a result the same week. A recording defeats the purpose.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Who is this workshop for?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">This is for <em>working professionals, business owners, and serious learners</em> who read non-fiction self-help or business books but struggle to apply what they read. If you have at least one book you are currently reading or want to start, this is for you.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What if I'm a slow reader?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">This workshop is not about reading speed. It is about <em>what you do after you read</em>. Speed does not matter here — application does. Slow readers often get the best results.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">What is your money-back guarantee?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Attend <em>Day 1</em>. If you do not feel the value by the end of that first session, message us the same day and we will refund every rupee. No forms. No questions. No waiting.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-q">Do I need to prepare anything before joining?<span class="faq-toggle"></span></summary>
-      <div class="faq-a">Just bring <em>any non-fiction book</em> you are currently reading or want to start. No prep, no homework, no prior knowledge needed. Show up and we do everything live together.</div>
-    </details>
-
-  </div>
-
-  <!-- FINAL CTA -->
-  <a href="https://start.readwithsaud.com/l/01dfb0726e" target="_blank" rel="noopener noreferrer" class="btn-yes btn-pulse" id="cta_final">
-    Get My First Book Result &mdash; ₹99
-  </a>
-
 </div>
 
 <script>
-// URL PARAMS
+// URL PARAMS — read from query string, fall back to referrer, then top-level
 var P=new URLSearchParams(window.location.search);
 if(!P.get('name')&&document.referrer){try{var _ru=new URL(document.referrer);P=new URLSearchParams(_ru.search);}catch(e){}}
 if(!P.get('name')){try{P=new URLSearchParams(window.top.location.search);}catch(e){}}
 
 var firstName      = P.get('name')                         || 'Friend';
 var wpm            = parseInt(P.get('wpm'))                || 200;
-var daysPerWeek    = parseInt(P.get('days_per_week'))      || parseInt(P.get('days'))  || 5;
-var minsPerSession = parseInt(P.get('minutes_per_session'))|| parseInt(P.get('mins'))  || 20;
 var totalWeeks     = parseInt(P.get('weeks'))              || 4;
-var behaviorAnswer = (P.get('behavior_answer')||P.get('behavior')||'continue').toLowerCase();
 
 // BUCKETS
-var speedBucket       = (wpm<250)?'low':'high';
-var readingTimePerWeek= daysPerWeek*minsPerSession;
-var consistencyBucket = readingTimePerWeek<60?'low':readingTimePerWeek<=150?'medium':'high';
-var finishDays        = totalWeeks*7;
-var finishBucket      = (finishDays>30)?'slow':'fast';
+var speedBucket  = (wpm<250)?'low':'high';
+var finishDays   = totalWeeks*7;
+var finishBucket = (finishDays>30)?'slow':'fast';
 
-// NAME
-(function(){var e=document.getElementById('rws_name');if(e)e.textContent=firstName;})();
+// NAME — populate all name placeholders
+(function(){
+  var nameEls=document.querySelectorAll('#rws_name, #rws_name2');
+  for(var i=0;i<nameEls.length;i++){nameEls[i].textContent=firstName;}
+})();
 
 function weeksToText(w){
   if(w<=1)return'1 week';
@@ -533,96 +209,17 @@ function weeksToText(w){
     if(tag)tag.textContent='WHY BOOKS TAKE FOREVER';
     copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>By then, the start is <em>already gone</em>.";
   }else{
-    if(tag)tag.textContent='WHY FINISHING ISN\u2019T CHANGING YOU';
+    if(tag)tag.textContent='WHY FINISHING ISN’T CHANGING YOU';
     copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>But finishing it <em>won't change you</em>.";
   }
 })();
 
-// BOX 3 — BEHAVIOR
-(function(){
-  var copy=document.getElementById('box_behavior_copy');
-  var tag=document.getElementById('box_behavior_tag');
-  if(!copy)return;
-  var map={
-    'continue':{tag:'WHY YOU\'RE STUCK IN A READING LOOP',text:"You finish, then start the next.<br>A year later &mdash; <em>same shelf, same stuck</em>."},
-    'highlight':{tag:'WHY YOUR HIGHLIGHTS COLLECT DUST',text:"You mark everything. Reread nothing.<br>Ideas <em>stay on the page</em>."},
-    'think':{tag:'WHY INSIGHTS DON\'T BECOME ACTIONS',text:"You get the ideas.<br>You just <em>don't use them</em>."},
-    'apply':{tag:'WHY EVEN APPLYING DOESN\'T LAST',text:"You apply &mdash; for a week.<br>Then life happens. Then you <em>forget</em>."}
-  };
-  var data=map[behaviorAnswer]||map['continue'];
-  if(tag)tag.textContent=data.tag;
-  copy.innerHTML=data.text;
-})();
-
-// TIMER
-function getNextSession(){
-  var deadlineUTC=Date.UTC(2026,4,18,13,30,0);
-  return{label:'Mon 18 May · 7:00 PM IST',deadlineUTC:deadlineUTC};
-}
-function pad2(n){return n<10?'0'+n:''+n;}
-function timerTick(){
-  var session=getNextSession();
-  var lbl=document.getElementById('cta_session_label');
-  if(lbl)lbl.textContent=session.label;
-  var blk=document.getElementById('timer_block');
-  var diff=Math.max(0,session.deadlineUTC-Date.now());
-  if(diff===0){if(blk)blk.style.display='none';return;}
-  if(blk)blk.style.display='block';
-  var totalSec=Math.floor(diff/1000);
-  var days=Math.floor(totalSec/86400);
-  var hrs=Math.floor((totalSec%86400)/3600);
-  var mins=Math.floor((totalSec%3600)/60);
-  var secs=totalSec%60;
-  var dU=document.getElementById('days_unit'),dS=document.getElementById('days_sep');
-  if(days>0){if(dU)dU.style.display='block';if(dS)dS.style.display='block';document.getElementById('t_days').textContent=days;}
-  else{if(dU)dU.style.display='none';if(dS)dS.style.display='none';}
-  var scU=document.getElementById('secs_unit'),scS=document.getElementById('secs_sep');
-  if(days===0){if(scU)scU.style.display='block';if(scS)scS.style.display='block';}
-  else{if(scU)scU.style.display='none';if(scS)scS.style.display='none';}
-  document.getElementById('t_hrs').textContent=pad2(hrs);
-  document.getElementById('t_mins').textContent=pad2(mins);
-  document.getElementById('t_secs').textContent=pad2(secs);
-}
-
-// INIT
+// INIT — scroll to top, fire pixel event
 setTimeout(function(){
   var pt=document.getElementById('page_top');if(pt)pt.scrollIntoView();
-  timerTick();
-  setInterval(timerTick,1000);
 },0);
 
 if(typeof fbq!=='undefined'){fbq('track','Lead');}
-
-// STICKY BAR — show after 5 seconds
-(function(){
-  var bar = document.getElementById('stickyCta');
-  if(!bar) return;
-
-  setTimeout(function(){
-    bar.style.transform = 'translateY(0)';
-    bar.style.opacity = '1';
-    bar.style.pointerEvents = 'auto';
-  }, 5000);
-
-  // Live countdown in sticky bar
-  var deadlineUTC = Date.UTC(2026,4,18,13,30,0);
-  function scTick(){
-    var diff = Math.max(0, deadlineUTC - Date.now());
-    if(!diff) return;
-    var totalSec = Math.floor(diff/1000);
-    var d = Math.floor(totalSec/86400);
-    var h = Math.floor((totalSec%86400)/3600);
-    var m = Math.floor((totalSec%3600)/60);
-    var dEl=document.getElementById('sc_days');
-    var hEl=document.getElementById('sc_hrs');
-    var mEl=document.getElementById('sc_mins');
-    if(dEl) dEl.textContent = d;
-    if(hEl) hEl.textContent = String(h).padStart(2,'0');
-    if(mEl) mEl.textContent = String(m).padStart(2,'0');
-  }
-  scTick();
-  setInterval(scTick, 30000);
-})();
 </script>
 
 </body>
