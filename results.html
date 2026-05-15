@@ -4,13 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Reading Report · Read With Saud</title>
+
+<!-- FONT PRECONNECT — establish TCP/TLS early -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <!-- META PIXEL — PASTE YOUR PIXEL CODE HERE -->
+
+<!-- INLINE EARLY: parse URL params synchronously so dynamic copy can render during HTML parse (no flash) -->
+<script>
+(function(){
+  var P=new URLSearchParams(location.search);
+  if(!P.get('name')&&document.referrer){try{P=new URLSearchParams(new URL(document.referrer).search);}catch(e){}}
+  if(!P.get('name')){try{P=new URLSearchParams(window.top.location.search);}catch(e){}}
+  var wpm=parseInt(P.get('wpm'))||200;
+  var weeks=parseInt(P.get('weeks'))||4;
+  function wText(w){if(w<=1)return'1 week';if(w<4)return w+' weeks';var m=Math.round((w/4.33)*2)/2;if(m<=1)return'1 month';return m+' months';}
+  window._D={
+    name:P.get('name')||'Friend',
+    wpm:wpm,
+    slow:wpm<250,
+    finishSlow:weeks*7>30,
+    weeksText:wText(weeks)
+  };
+})();
+</script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-height:100vh;}
+body{font-family:'Open Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0e0d0b;color:#f0ede6;min-height:100vh;text-rendering:optimizeSpeed;}
 .prog{display:flex;gap:5px;padding:16px 20px 0;max-width:500px;margin:0 auto;}
 .pb{flex:1;height:3px;border-radius:2px;background:#c8b477;}
 .w{max-width:500px;margin:0 auto;padding:20px 20px 60px;}
@@ -20,37 +43,40 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
 /* Dynamic Copy Boxes */
 .dyn-box{background:#f5f0e2;border:1.5px solid #d4c9a8;border-radius:14px;padding:16px 16px;margin-bottom:12px;text-align:center;}
-.dyn-tag{display:none;}
-.dyn-copy{font-family:'Oswald',sans-serif;font-size:clamp(16px,4.2vw,19px);font-weight:600;color:#1a1a1a;line-height:1.5;}
+.dyn-copy{font-family:'Oswald',Impact,'Arial Black',sans-serif;font-size:clamp(16px,4.2vw,19px);font-weight:600;color:#1a1a1a;line-height:1.5;}
 .dyn-copy strong{color:#1a1a1a;}
 .dyn-copy em{color:#cc5500;font-style:normal;font-weight:700;}
 .dyn-copy .stat{color:#cc1111;font-weight:800;font-size:1.10em;letter-spacing:.3px;}
 
 /* Top headline */
-.top-h{font-family:'Oswald',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#f0ede6;line-height:1.3;margin-bottom:16px;}
+.top-h{font-family:'Oswald',Impact,'Arial Black',sans-serif;font-size:clamp(22px,5.6vw,28px);font-weight:700;color:#f0ede6;line-height:1.3;margin-bottom:16px;}
 .top-h em{color:#c8b477;font-style:italic;font-weight:700;}
 
-/* HOPE BLOCK — post sad-man pivot */
-.hope-block{position:relative;background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:16px;padding:26px 18px 22px;margin:8px 0 22px;box-shadow:0 6px 28px rgba(200,180,119,.22);text-align:center;animation:hopeFade .6s ease-out;}
-@keyframes hopeFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-.hope-block .good-news{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(24px,6.4vw,32px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 18px;line-height:1.2;text-align:center;}
-.hope-intro{font-family:'Open Sans',sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;line-height:1.7;margin-bottom:20px;}
+/* HOPE BLOCK */
+.hope-block{position:relative;background:linear-gradient(135deg,#1a1410 0%,#221c14 100%);border:2px solid #c8b477;border-radius:16px;padding:26px 18px 22px;margin:8px 0 22px;box-shadow:0 6px 28px rgba(200,180,119,.22);text-align:center;animation:hopeFade .5s ease-out;}
+@keyframes hopeFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.hope-block .good-news{font-family:'Oswald',Impact,'Arial Black',sans-serif;font-weight:700;font-size:clamp(24px,6.4vw,32px);color:#c8b477;letter-spacing:0.3px;text-transform:uppercase;margin:0 0 18px;line-height:1.2;text-align:center;}
+.hope-intro{font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;line-height:1.7;margin-bottom:20px;}
 .hope-intro strong{color:#c8b477;font-weight:700;}
 .hope-program-wrap{margin:0 0 16px;}
-.hope-built-for-pre{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#a89976;line-height:1.4;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;}
-.hope-program{display:inline-block;font-family:'Oswald',sans-serif;font-size:clamp(22px,5.8vw,28px);font-weight:700;color:#c8b477;letter-spacing:1px;text-transform:uppercase;line-height:1.15;}
-.hope-built-for{font-family:'Open Sans',sans-serif;font-size:clamp(14.5px,3.9vw,16px);color:#e8dcc4;line-height:1.55;margin:8px 0 14px;font-weight:500;}
+.hope-built-for-pre{font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#a89976;line-height:1.4;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;}
+.hope-program{display:inline-block;font-family:'Oswald',Impact,'Arial Black',sans-serif;font-size:clamp(22px,5.8vw,28px);font-weight:700;color:#c8b477;letter-spacing:1px;text-transform:uppercase;line-height:1.15;}
+.hope-built-for{font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(14.5px,3.9vw,16px);color:#e8dcc4;line-height:1.55;margin:8px 0 14px;font-weight:500;}
 .hope-bullets{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:9px;text-align:left;}
-.hope-bullets li{display:flex;align-items:flex-start;gap:11px;font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.7vw,15.5px);color:#f0ede6;line-height:1.5;padding:11px 13px;background:rgba(200,180,119,.08);border-left:3px solid #c8b477;border-radius:6px;}
+.hope-bullets li{display:flex;align-items:flex-start;gap:11px;font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(14px,3.7vw,15.5px);color:#f0ede6;line-height:1.5;padding:11px 13px;background:rgba(200,180,119,.08);border-left:3px solid #c8b477;border-radius:6px;}
 .hope-bullets li::before{content:"✓";color:#c8b477;font-weight:700;font-size:17px;flex-shrink:0;line-height:1.3;}
-.hope-commit{font-family:'Oswald',sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;font-weight:600;margin-bottom:18px;line-height:1.5;letter-spacing:.2px;}
+.hope-commit{font-family:'Oswald',Impact,'Arial Black',sans-serif;font-size:clamp(15px,4vw,17px);color:#f0ede6;font-weight:600;margin-bottom:18px;line-height:1.5;letter-spacing:.2px;}
 .hope-proof{margin:18px 0 16px;padding:14px 10px;background:rgba(200,180,119,.08);border-top:1px solid rgba(200,180,119,.25);border-bottom:1px solid rgba(200,180,119,.25);}
-.hope-proof p{font-family:'Open Sans',sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#e8dcc4;line-height:1.5;margin:0 0 6px;}
-.hope-next{font-family:'Oswald',sans-serif !important;font-size:clamp(17px,4.6vw,21px) !important;font-weight:700;color:#fff !important;letter-spacing:.4px;margin-bottom:0 !important;margin-top:6px !important;}
+.hope-proof p{font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(13.5px,3.7vw,15px);color:#e8dcc4;line-height:1.5;margin:0 0 6px;}
+.hope-next{font-family:'Oswald',Impact,'Arial Black',sans-serif !important;font-size:clamp(17px,4.6vw,21px) !important;font-weight:700;color:#fff !important;letter-spacing:.4px;margin-bottom:0 !important;margin-top:6px !important;}
 .next-pop{color:#c8b477;font-weight:800;font-size:1.15em;letter-spacing:1.2px;text-shadow:0 0 14px rgba(200,180,119,.5);}
 
+/* Sad man image */
+.sad-wrap{margin:0 0 20px;width:75%;margin-left:auto;margin-right:auto;}
+.sad-wrap img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1/1;background:#1a1410;}
+
 /* Buttons */
-.btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#1e8c3a;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #0f5c22;text-align:center;line-height:1.25;}
+.btn-yes{width:100%;padding:18px;border:none;border-radius:12px;background:#1e8c3a;color:#fff;font-family:'Oswald',Impact,'Arial Black',sans-serif;font-size:clamp(17px,4.4vw,20px);font-weight:700;cursor:pointer;letter-spacing:.4px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 0 #0f5c22;text-align:center;line-height:1.25;}
 .btn-yes:active{transform:translateY(3px);box-shadow:none;}
 @keyframes btnPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.025);}}
 .btn-pulse{animation:btnPulse 3.5s infinite;}
@@ -68,8 +94,6 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 </head>
 <body>
 
-<div id="page_top"></div>
-
 <!-- PROGRESS BAR -->
 <div class="prog"><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
 
@@ -78,53 +102,65 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
   <!-- BADGE + SOCIAL PROOF -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
     <div class="badge">Your Personal Report</div>
-    <div style="font-family:'Oswald',sans-serif;font-size:12px;color:#c8b477;font-weight:700;letter-spacing:.5px;">500+ TRAINED</div>
+    <div style="font-family:'Oswald',Impact,sans-serif;font-size:12px;color:#c8b477;font-weight:700;letter-spacing:.5px;">500+ TRAINED</div>
   </div>
 
-  <!-- HEADLINE -->
+  <!-- HEADLINE — name inlined during parse, no JS flash -->
   <div class="top-h">
-    <span id="rws_name"></span>, here's exactly why books <em>aren't changing your life</em> &darr;
+    <script>document.write(window._D.name);</script>, here's exactly why books <em>aren't changing your life</em> &darr;
   </div>
 
-  <!-- BOX 1 — SPEED -->
-  <div class="dyn-box" id="box_speed">
-    <div class="dyn-tag" id="box_speed_tag"></div>
-    <div class="dyn-copy" id="box_speed_copy">&mdash;</div>
+  <!-- BOX 1 — SPEED — populated during parse -->
+  <div class="dyn-box">
+    <div class="dyn-copy"><script>
+      var D=window._D;
+      if(D.slow){
+        document.write("<strong>At <span class='stat'>"+D.wpm+" WPM</span>, your mind drifts on every page.</strong><br>That's why finishing feels <em>hard</em>.");
+      }else{
+        document.write("<strong>At <span class='stat'>"+D.wpm+" WPM</span>, you read fast.</strong><br>But fast reading means <em>fast forgetting</em>.");
+      }
+    </script></div>
   </div>
 
-  <!-- BOX 2 — FINISH -->
-  <div class="dyn-box" id="box_finish">
-    <div class="dyn-tag" id="box_finish_tag"></div>
-    <div class="dyn-copy" id="box_finish_copy">&mdash;</div>
+  <!-- BOX 2 — FINISH — populated during parse -->
+  <div class="dyn-box">
+    <div class="dyn-copy"><script>
+      var D=window._D;
+      if(D.finishSlow){
+        document.write("<strong>It will take <span class='stat'>"+D.weeksText+"</span> to finish this book.</strong><br>By then, the start is <em>already gone</em>.");
+      }else{
+        document.write("<strong>It will take <span class='stat'>"+D.weeksText+"</span> to finish this book.</strong><br>But finishing it <em>won't change you</em>.");
+      }
+    </script></div>
   </div>
 
   <!-- EMOTIONAL BRIDGE COPY -->
   <div style="text-align:center;padding:18px 4px 6px;">
-    <p style="font-family:'Open Sans',sans-serif;font-size:clamp(15px,4.2vw,17px);color:#ccc;line-height:1.8;margin-bottom:10px;">
+    <p style="font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(15px,4.2vw,17px);color:#ccc;line-height:1.8;margin-bottom:10px;">
       You've spent thousands on books.<br>Hours reading.
     </p>
-    <p style="font-family:'Open Sans',sans-serif;font-size:clamp(15px,4.2vw,17px);color:#ccc;line-height:1.8;margin-bottom:10px;">
+    <p style="font-family:'Open Sans',-apple-system,Roboto,sans-serif;font-size:clamp(15px,4.2vw,17px);color:#ccc;line-height:1.8;margin-bottom:10px;">
       But honestly &mdash; has anything actually changed?
     </p>
-    <p style="font-family:'Oswald',sans-serif;font-size:clamp(17px,4.6vw,20px);font-weight:600;color:#f0ede6;line-height:1.6;margin-bottom:14px;">
+    <p style="font-family:'Oswald',Impact,sans-serif;font-size:clamp(17px,4.6vw,20px);font-weight:600;color:#f0ede6;line-height:1.6;margin-bottom:14px;">
       Your income. Your thinking.<br>Your relationships.<br>
       <em style="color:#c8b477;font-style:italic;">Still the same.</em>
     </p>
   </div>
 
-  <!-- SAD MAN IMAGE — placed at emotional peak -->
-  <div style="margin:0 0 20px;width:75%;margin-left:auto;margin-right:auto;">
-    <img src="sad_man.png" alt="" loading="lazy" decoding="async"
+  <!-- SAD MAN IMAGE -->
+  <div class="sad-wrap">
+    <img src="sad_man.png" alt="" decoding="async" fetchpriority="high"
       style="width:100%;height:auto;display:block;border-radius:14px;">
   </div>
 
-  <!-- HOPE BLOCK — pivot to the fix, handoff to landing page -->
+  <!-- HOPE BLOCK -->
   <div class="hope-block">
 
     <p class="good-news">Good news &mdash; this can be fixed.</p>
 
     <p class="hope-intro">
-      <span id="rws_name2"></span>, your report shows the problem.<br>
+      <script>document.write(window._D.name);</script>, your report shows the problem.<br>
       A <strong>5-day live workshop</strong> will fix it.
     </p>
 
@@ -156,70 +192,13 @@ body{font-family:'Open Sans',sans-serif;background:#0e0d0b;color:#f0ede6;min-hei
 
 </div>
 
+<!-- DEFERRED: pixel fires when browser is idle -->
 <script>
-// URL PARAMS — read from query string, fall back to referrer, then top-level
-var P=new URLSearchParams(window.location.search);
-if(!P.get('name')&&document.referrer){try{var _ru=new URL(document.referrer);P=new URLSearchParams(_ru.search);}catch(e){}}
-if(!P.get('name')){try{P=new URLSearchParams(window.top.location.search);}catch(e){}}
-
-var firstName      = P.get('name')                         || 'Friend';
-var wpm            = parseInt(P.get('wpm'))                || 200;
-var totalWeeks     = parseInt(P.get('weeks'))              || 4;
-
-// BUCKETS
-var speedBucket  = (wpm<250)?'low':'high';
-var finishDays   = totalWeeks*7;
-var finishBucket = (finishDays>30)?'slow':'fast';
-
-// NAME — populate all name placeholders
-(function(){
-  var nameEls=document.querySelectorAll('#rws_name, #rws_name2');
-  for(var i=0;i<nameEls.length;i++){nameEls[i].textContent=firstName;}
-})();
-
-function weeksToText(w){
-  if(w<=1)return'1 week';
-  if(w<4)return w+' weeks';
-  var m=Math.round((w/4.33)*2)/2;
-  if(m<=1)return'1 month';
-  return m+' months';
+if('requestIdleCallback' in window){
+  requestIdleCallback(function(){if(typeof fbq!=='undefined'){fbq('track','Lead');}});
+}else{
+  setTimeout(function(){if(typeof fbq!=='undefined'){fbq('track','Lead');}},200);
 }
-
-// BOX 1 — SPEED
-(function(){
-  var copy=document.getElementById('box_speed_copy');
-  var tag=document.getElementById('box_speed_tag');
-  if(!copy)return;
-  if(speedBucket==='low'){
-    if(tag)tag.textContent='WHY YOU LOSE FOCUS';
-    copy.innerHTML="<strong>At <span class='stat'>"+wpm+" WPM</span>, your mind drifts on every page.</strong><br>That's why finishing feels <em>hard</em>.";
-  }else{
-    if(tag)tag.textContent='WHY YOU FORGET FAST';
-    copy.innerHTML="<strong>At <span class='stat'>"+wpm+" WPM</span>, you read fast.</strong><br>But fast reading means <em>fast forgetting</em>.";
-  }
-})();
-
-// BOX 2 — FINISH
-(function(){
-  var copy=document.getElementById('box_finish_copy');
-  var tag=document.getElementById('box_finish_tag');
-  if(!copy)return;
-  var ft=weeksToText(totalWeeks);
-  if(finishBucket==='slow'){
-    if(tag)tag.textContent='WHY BOOKS TAKE FOREVER';
-    copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>By then, the start is <em>already gone</em>.";
-  }else{
-    if(tag)tag.textContent='WHY FINISHING ISN’T CHANGING YOU';
-    copy.innerHTML="<strong>It will take <span class='stat'>"+ft+"</span> to finish this book.</strong><br>But finishing it <em>won't change you</em>.";
-  }
-})();
-
-// INIT — scroll to top, fire pixel event
-setTimeout(function(){
-  var pt=document.getElementById('page_top');if(pt)pt.scrollIntoView();
-},0);
-
-if(typeof fbq!=='undefined'){fbq('track','Lead');}
 </script>
 
 </body>
